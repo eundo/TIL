@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Eundo's TIL-2",
+  title: "Eundo's TIL",
   tagline: 'Today I Learned',
   favicon: 'img/favicon.ico',
 
