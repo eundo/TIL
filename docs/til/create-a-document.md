@@ -49,8 +49,8 @@ module.exports = {
     'hello',
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      label: 'TIL',
+      items: ['til/create-a-document'],
     },
   ],
 };
