@@ -50,7 +50,7 @@ module.exports = {
     {
       type: 'category',
       label: 'TIL',
-      items: ['til/create-a-document'],
+      items: ['docs/nomad-coders/create-a-document'],
     },
   ],
 };

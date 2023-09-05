@@ -1,6 +1,6 @@
 {
-  "label": "TIL (Today I Learned)",
-  "position": 1,
+  "label": "Book",
+  "position": 2,
   "link": {
     "type": "generated-index",
     "description": "5 minutes to learn the most important Docusaurus concepts."

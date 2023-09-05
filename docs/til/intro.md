@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Docs
+# Today I Leanred
 
 Let's discover **Docusaurus in less than 5 minutes**.
 
