@@ -62,12 +62,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/ped.jpg',
+      image: '/static/img/ped.jpg',
       navbar: {
         title: "Eundo's TIL",
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/ped.jpg',
         },
         items: [
           {
