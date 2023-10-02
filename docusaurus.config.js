@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: "Eundo's Today",
   tagline: 'Today I Learned',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/ed1.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -67,7 +67,7 @@ const config = {
         title: "Eundo's Today",
         logo: {
           alt: 'My Site Logo',
-          src: 'img/ped.jpg',
+          src: 'img/ed1.png',
         },
         items: [
           {
