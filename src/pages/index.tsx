@@ -28,16 +28,25 @@ function HomepageHeader() {
   );
 }
 
+function NewPostButton() {
+    return (
+        <Link to="/admin/#/collections/posts/new">
+            <button>New Post</button>
+        </Link>
+    );
+}
+
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+    const {siteConfig} = useDocusaurusContext();
+    return (
+        <Layout
+            title={`${siteConfig.title}`}
+            description="Description will go into a meta tag in <head />">
+            <HomepageHeader />
+            <main>
+                <HomepageFeatures />
+                <NewPostButton /> {/* New Post Button 추가 */}
+            </main>
+        </Layout>
+    );
 }
