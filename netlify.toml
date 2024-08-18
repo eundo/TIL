@@ -1,9 +1,0 @@
-[build]
-command = "node updateSidebars.js && docusaurus build"
-publish = "build"
-
-[[plugins]]
-package = "@netlify/plugin-functions-install-core"
-
-[[plugins]]
-package = "@netlify/plugin-deploy-lifecycle"
