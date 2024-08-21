@@ -28,3 +28,46 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+/* custom.css */
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  margin-bottom: 0.5em;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5em;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+
+details ul {
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+details ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Dark mode styles */
+[data-theme='dark'] details {
+  border: 1px solid #555;
+}
+
+[data-theme='dark'] summary {
+  background-color: #333;
+  color: #fff;
+}
+
+[data-theme='dark'] details[open] summary {
+  border-bottom: 1px solid #555;
+}

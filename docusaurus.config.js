@@ -148,13 +148,13 @@ const config = {
               ],
             },
           ],
-          copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+          copyright: `© ${new Date().getFullYear()} Eundo's Today. All rights reserved. Built with ❤️ using Docusaurus.`,
         },
         prism: {
           theme: lightCodeTheme,
           darkTheme: darkCodeTheme,
         },
-
+        customCss: require.resolve('./src/css/custom.css'),
       }),
 };
 

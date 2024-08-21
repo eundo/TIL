@@ -8,37 +8,52 @@ type FeatureItem = {
   description: JSX.Element;
 };
 
-const FeatureList: FeatureItem[] = [
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/IMG_1116.JPG').default, // JPG file
-    description: (
-        <>
-          Docusaurus was designed from the ground up to be easily installed and
-          used to get your website up and running quickly.
-        </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/IMG_1118.JPG').default, // PNG file
-    description: (
-        <>
-          Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-          ahead and move your docs into the <code>docs</code> directory.
-        </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/IMG_1117.JPG').default, // JPG file
-    description: (
-        <>
-          Extend or customize your website layout by reusing React. Docusaurus can
-          be extended while reusing the same header and footer.
-        </>
-    ),
-  },
+// SVG Paths Constants
+const SVG_PATHS = {
+    EASY_TO_USE: require('@site/static/img/IMG_1116.JPG').default,
+    FOCUS_ON_MATTERS: require('@site/static/img/IMG_1118.JPG').default,
+    POWERED_BY_REACT: require('@site/static/img/IMG_1117.JPG').default,
+};
+
+// Description Functions
+const DescriptionEasyToUse = () => (
+    <>
+        Docusaurus was designed from the ground up to be easily installed and used
+        to get your website up and running quickly.
+    </>
+);
+
+const DescriptionFocusOnMatters = () => (
+    <>
+        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
+        ahead and move your docs into the <code>docs</code> directory.
+    </>
+);
+
+const DescriptionPoweredByReact = () => (
+    <>
+        Extend or customize your website layout by reusing React. Docusaurus can be
+        extended while reusing the same header and footer.
+    </>
+);
+
+// Feature List
+const FEATURE_LIST: FeatureItem[] = [
+    {
+        title: 'Easy to Use',
+        Svg: SVG_PATHS.EASY_TO_USE,
+        description: <DescriptionEasyToUse/>,
+    },
+    {
+        title: 'Focus on What Matters',
+        Svg: SVG_PATHS.FOCUS_ON_MATTERS,
+        description: <DescriptionFocusOnMatters/>,
+    },
+    {
+        title: 'Powered by React',
+        Svg: SVG_PATHS.POWERED_BY_REACT,
+        description: <DescriptionPoweredByReact/>,
+    },
 ];
 
 
@@ -61,7 +76,7 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
+          {FEATURE_LIST.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
         </div>
