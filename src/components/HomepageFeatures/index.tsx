@@ -21,7 +21,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/IMG_1118.jpg').default, // PNG file
+    Svg: require('@site/static/img/IMG_1118.JPG').default, // PNG file
     description: (
         <>
           Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Powered by React',
-    Svg: require('@site/static/img/IMG_1117.jpg').default, // JPG file
+    Svg: require('@site/static/img/IMG_1117.JPG').default, // JPG file
     description: (
         <>
           Extend or customize your website layout by reusing React. Docusaurus can
