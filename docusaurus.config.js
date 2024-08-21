@@ -64,18 +64,39 @@ const config = {
           items: [
             {
               type: 'docSidebar',
-              sidebarId: 'tutorialSidebar',
+              sidebarId: 'aboutMeSidebar',
               position: 'left',
-              label: 'Docs',
+              label: 'About Me',
             },
-            {to: '/blog', label: 'Blog', position: 'left'}, // Blog 메뉴 추가
-            {to: '/docs/til/2023/intro', label: 'TIL 2023', position: 'left'}, // TIL 2023 메뉴 추가
+            { to: '/blog/tech', label: 'Tech', position: 'left' },
+            {
+              type: 'docSidebar',
+              sidebarId: 'devStorySidebar',
+              position: 'left',
+              label: 'Dev Story',
+            },
+            { to: '/blog/miscellaneous', label: 'Miscellaneous', position: 'left' },
             {
               href: 'https://github.com/eundo/TIL',
               label: 'GitHub',
               position: 'right',
             },
           ],
+          // items: [
+          //   {
+          //     type: 'docSidebar',
+          //     sidebarId: 'tutorialSidebar',
+          //     position: 'left',
+          //     label: 'Docs',
+          //   },
+          //   {to: '/blog', label: 'Blog', position: 'left'}, // Blog 메뉴 추가
+          //   {to: '/docs/til/2023/intro', label: 'TIL 2023', position: 'left'}, // TIL 2023 메뉴 추가
+          //   {
+          //     href: 'https://github.com/eundo/TIL',
+          //     label: 'GitHub',
+          //     position: 'right',
+          //   },
+          // ],
         },
         footer: {
           style: 'dark',
