@@ -96,45 +96,45 @@
   <div class="skill-card">
     <h3>Front-end</h3>
     <ul>
-      <li>HTML5</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Angular</li>
+      <li><span class="skill-tag">HTML5</span></li>
+      <li><span class="skill-tag">JavaScript</span></li>
+      <li><span class="skill-tag">React</span></li>
+      <li><span class="skill-tag">Angular</span></li>
     </ul>
   </div>
   <div class="skill-card">
     <h3>Back-end</h3>
     <ul>
-      <li>Python</li>
-      <li>Java</li>
-      <li>C/C++</li>
-      <li>Spring Boot</li>
-      <li>Spring Framework</li>
-      <li>Rest API</li>
+      <li><span class="skill-tag">Python</span></li>
+      <li><span class="skill-tag">Java</span></li>
+      <li><span class="skill-tag">C/C++</span></li>
+      <li><span class="skill-tag">Spring Boot</span></li>
+      <li><span class="skill-tag">Spring Framework</span></li>
+      <li><span class="skill-tag">Rest API</span></li>
     </ul>
   </div>
   <div class="skill-card">
     <h3>데이터베이스</h3>
     <ul>
-      <li>Oracle Database</li>
-      <li>MySQL</li>
-      <li>PostgreSQL</li>
+      <li><span class="skill-tag">Oracle Database</span></li>
+      <li><span class="skill-tag">MySQL</span></li>
+      <li><span class="skill-tag">PostgreSQL</span></li>
     </ul>
   </div>
   <div class="skill-card">
     <h3>인프라</h3>
     <ul>
-      <li>AWS</li>
-      <li>Docker</li>
+      <li><span class="skill-tag">AWS</span></li>
+      <li><span class="skill-tag">Docker</span></li>
     </ul>
   </div>
   <div class="skill-card">
     <h3>도구</h3>
     <ul>
-      <li>Git</li>
-      <li>Jenkins</li>
-      <li>Gradle</li>
-      <li>UNIX</li>
+      <li><span class="skill-tag">Git</span></li>
+      <li><span class="skill-tag">Jenkins</span></li>
+      <li><span class="skill-tag">Gradle</span></li>
+      <li><span class="skill-tag">UNIX</span></li>
     </ul>
   </div>
 </div>
