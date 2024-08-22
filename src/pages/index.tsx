@@ -28,13 +28,6 @@ function HomepageHeader() {
   );
 }
 
-function NewPostButton() {
-    return (
-        <Link to="/admin/#/collections/posts/new">
-            <button>New Post</button>
-        </Link>
-    );
-}
 
 export default function Home(): JSX.Element {
     const {siteConfig} = useDocusaurusContext();
@@ -45,7 +38,6 @@ export default function Home(): JSX.Element {
             <HomepageHeader />
             <main>
                 <HomepageFeatures />
-                <NewPostButton /> {/* New Post Button 추가 */}
             </main>
         </Layout>
     );
