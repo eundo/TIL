@@ -1,0 +1,171 @@
+import React, { useEffect } from 'react';
+
+
+export const SkillSection = () => {
+  useEffect(() => {
+    const skillLevels = document.querySelectorAll('.skill-level');
+    skillLevels.forEach(level => {
+      const fillWidth = level.getAttribute('data-level') + '%';
+      const fillElement = level.querySelector('.skill-level-fill');
+      if (fillElement) {
+        fillElement.style.width = fillWidth;
+      }
+    });
+  }, []);
+
+  return (
+    <>
+      <h2>스킬</h2>
+      <div className="skills-section">
+        <div className="skill-card">
+          <h3>Front-end</h3>
+          <ul>
+            <li><span className="skill-tag">HTML5</span><span className="skill-level" data-level="90"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">JavaScript</span><span className="skill-level" data-level="85"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">React</span><span className="skill-level" data-level="80"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Angular</span><span className="skill-level" data-level="75"><span className="skill-level-fill"></span></span></li>
+          </ul>
+        </div>
+        <div className="skill-card">
+          <h3>Back-end</h3>
+          <ul>
+            <li><span className="skill-tag">Python</span><span className="skill-level" data-level="70"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Java</span><span className="skill-level" data-level="95"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">C/C++</span><span className="skill-level" data-level="80"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Spring Boot</span><span className="skill-level" data-level="90"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Spring Framework</span><span className="skill-level" data-level="85"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Rest API</span><span className="skill-level" data-level="85"><span className="skill-level-fill"></span></span></li>
+          </ul>
+        </div>
+        <div className="skill-card">
+          <h3>데이터베이스</h3>
+          <ul>
+            <li><span className="skill-tag">Oracle Database</span><span className="skill-level" data-level="85"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">MySQL</span><span className="skill-level" data-level="80"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">PostgreSQL</span><span className="skill-level" data-level="75"><span className="skill-level-fill"></span></span></li>
+          </ul>
+        </div>
+        <div className="skill-card">
+          <h3>인프라</h3>
+          <ul>
+            <li><span className="skill-tag">AWS</span><span className="skill-level" data-level="70"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Docker</span><span className="skill-level" data-level="75"><span className="skill-level-fill"></span></span></li>
+          </ul>
+        </div>
+        <div className="skill-card">
+          <h3>도구</h3>
+          <ul>
+            <li><span className="skill-tag">Git</span><span className="skill-level" data-level="90"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Jenkins</span><span className="skill-level" data-level="80"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">Gradle</span><span className="skill-level" data-level="75"><span className="skill-level-fill"></span></span></li>
+            <li><span className="skill-tag">UNIX</span><span className="skill-level" data-level="85"><span className="skill-level-fill"></span></span></li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+};
+
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2023.01 - 현재</div>
+    <div class="timeline-content">
+      <h3>LG CNS '하루조각' 서비스 앱 고도화/운영</h3>
+      <p><strong>역할:</strong> 플랫폼개발팀 - 프론트엔드/백엔드 개발</p>
+      <ul>
+        <li>전분야 마이데이터 솔루션 구축 프로젝트</li>
+        <li>보험 보장분석 서비스 구현</li>
+        <li>제휴사 연계 화이트라벨링 구현</li>
+        <li>프로젝트 SPA 전환 및 구조개선</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2022.07 - 2022.12</div>
+    <div class="timeline-content">
+      <h3>MG 새마을금고 기업 인터넷/스마트뱅킹 구축 프로젝트</h3>
+      <p><strong>역할:</strong> 공통파트 / 공통업무개발</p>
+      <ul>
+        <li>기업스마트뱅킹 간편인증 로그인 구현</li>
+        <li>전자서명 간편인증 구현</li>
+        <li>기타 공통영역 구현</li>
+      </ul>
+      <p><strong>환경:</strong> JAVA8, Oracle, Jenkins, Jeus, IB20</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2021.04 - 2022.07</div>
+    <div class="timeline-content">
+      <h3>한국선주상호보험조합 차세대 시스템구축 프로젝트</h3>
+      <p><strong>역할:</strong> 공통업무 PL / 분석설계 및 개발</p>
+      <ul>
+        <li>시스템 안정화 및 유지보수</li>
+        <li>Ms365 API연동, 조직관리, 전자결재 등</li>
+      </ul>
+      <p><strong>환경:</strong> Java 8, Gradle, Maven, Spring-boot, PostgreSQL</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2020.09 - 2021.04</div>
+    <div class="timeline-content">
+      <h3>카카오페이 손해보험사 구축 프로젝트</h3>
+      <p><strong>역할:</strong> 일반보험팀/일반계약</p>
+      <p><strong>환경:</strong> SpringBoot, MySQL, GitHub, Elasticsearch + Kibana, AWS, Docker, EC2, Kafka</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2017.06 - 2020.09</div>
+    <div class="timeline-content">
+      <h3>흥국생명 ITO 운영</h3>
+      <p><strong>역할:</strong> 지급/보험금심사/사고지급/FDS</p>
+      <ul>
+        <li>보험금 청구시 사고접수, 청구인 등록</li>
+        <li>일괄송금, 개별송금 시 지급, 이체처리</li>
+      </ul>
+      <p><strong>환경:</strong> C, Pro-C, JAVA, Oracle, Unix/Linux, Batch, Control-M, MC-Cube, NCRM</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2016.12 - 2017.03</div>
+    <div class="timeline-content">
+      <h3>KB손보</h3>
+      <p><strong>역할:</strong> 자동차 인수관리 시스템 구축 고도화 프로젝트</p>
+      <p><strong>환경:</strong> Proframe(JAVA), JavaScript, DB2, X-PlatForm</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2016.06 - 2016.11</div>
+    <div class="timeline-content">
+      <h3>NH 농협손보</h3>
+      <p><strong>역할:</strong> NH 농협손보 수수료 전산시스템 고도화 프로젝트</p>
+      <p><strong>환경:</strong> DevOn(JAVA), X-PlatForm(htm, JavaScript), Oracle, UltraEdit</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2016.03 - 2016.05</div>
+    <div class="timeline-content">
+      <h3>LG CNS SW 개발자교육</h3>
+      <p><strong>역할:</strong> U-CAMP SW 개발전문가 교육</p>
+      <p><strong>교육 내용:</strong> JAVA, SQL, Servlet & JSP, Web UI, 분석 & 설계, 웹 개발 프로젝트, 고객마인드</p>
+    </div>
+  </div>
+</div>
+
+<SkillSection />
+<!-- 연락처 섹션 -->
+<h2>연락처</h2>
+<ul>
+  <li><strong>이메일:</strong> eundo@eundo.kr</li>
+  <li><strong>연락처:</strong> +82 10-6768-0309</li>
+  <li><strong>GitHub:</strong> <a href="https://github.com/eundo">eundo</a></li>
+</ul>
+
+
