@@ -134,3 +134,10 @@
   border-radius: 4px;
   transition: width 0.5s ease;
 }
+
+.total-experience {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #2e8555;
+}

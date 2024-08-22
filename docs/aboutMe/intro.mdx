@@ -11,6 +11,68 @@ export const SkillSection = () => {
         fillElement.style.width = fillWidth;
       }
     });
+
+      function parseDateRange(dateRange) {
+          const [startStr, endStr] = dateRange.split(' - ').map(dateStr => dateStr.trim());
+
+          const [startYear, startMonth] = startStr.split('.').map(Number);
+          const startDate = new Date(startYear, startMonth - 1); // month는 0부터 시작
+
+          let endDate;
+          if (endStr.toLowerCase() === '현재') {
+              endDate = new Date(); // 현재 날짜로 설정
+          } else {
+              const [endYear, endMonth] = endStr.split('.').map(Number);
+              endDate = new Date(endYear, endMonth - 1);
+          }
+
+          return { start: startDate, end: endDate };
+      }
+
+      function calculateExperience(start, end) {
+          const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+          const years = Math.floor(totalMonths / 12);
+          const months = totalMonths % 12;
+
+          return { years, months };
+      }
+
+      function formatExperience({ years, months }) {
+          if (years > 0) {
+              return `${years}년 ${months}개월`;
+          } else {
+              return `${months}개월`;
+          }
+      }
+
+      function displayTotalExperience() {
+          const timelineDates = document.querySelectorAll('.timeline-date');
+          let totalMonths = 0;
+
+          timelineDates.forEach(dateElement => {
+              const { start, end } = parseDateRange(dateElement.textContent.trim());
+              const experience = calculateExperience(start, end);
+
+              // 각 기간 옆에 근무 기간 표시 (1년 미만이면 '3개월'만 표시)
+              const experienceText = ` (${formatExperience(experience)})`;
+              dateElement.textContent += experienceText;
+
+              totalMonths += (experience.years * 12) + experience.months;
+          });
+
+          const totalYears = Math.floor(totalMonths / 12);
+          const totalExtraMonths = totalMonths % 12;
+
+          // 총 경력 표시
+          const totalExperienceElement = document.createElement('div');
+          totalExperienceElement.className = 'total-experience';
+          totalExperienceElement.textContent = `총 경력: ${formatExperience({ years: totalYears, months: totalExtraMonths })}`;
+
+          const timelineElement = document.querySelector('.timeline');
+          timelineElement.insertAdjacentElement('beforebegin', totalExperienceElement);
+      }
+
+      displayTotalExperience();
   }, []);
 
   return (
@@ -66,7 +128,7 @@ export const SkillSection = () => {
   );
 };
 
-
+<p id="total-experience"></p>
 <div class="timeline">
   <div class="timeline-item">
     <div class="timeline-date">2023.01 - 현재</div>
