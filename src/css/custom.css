@@ -141,3 +141,100 @@
   margin-bottom: 20px;
   color: #2e8555;
 }
+
+
+.education {
+  margin-top: 30px;
+}
+
+.education-item {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-left: 3px solid #3498db;
+}
+
+.education-date {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #3498db;
+}
+
+.education-content {
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.education-content h3 {
+  margin-top: 0;
+}
+
+/* 수정된 CSS */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: auto; /* 텍스트 길이에 따라 툴팁 너비를 유동적으로 설정 */
+  max-width: 500px; /* 툴팁의 최대 너비 설정 */
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  white-space: nowrap; /* 텍스트가 한 줄로 표시되도록 설정 */
+  overflow: hidden; /* 툴팁 박스를 넘는 텍스트 숨기기 */
+  text-overflow: ellipsis; /* 말줄임표 추가 */
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+.company-name {
+  font-weight: 700; /* 더 굵게 설정 */
+  color: #333; /* 차분하고 세련된 진한 회색 */
+  font-size: 1.2em; /* 약간 큰 크기 */
+  font-family:  'Open Sans', sans-serif;
+  letter-spacing: 0.5px; /* 약간의 자간 추가로 가독성 향상 */
+  display: inline-block;
+  margin-right: 5px; /* 제목과의 간격 조정 */
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+.project-title {
+  font-family: 'Open Sans', sans-serif; /* 기본적인 sans-serif 폰트 */
+  font-size: 1.1em;
+  color: #333;
+  font-weight: 600;
+}
+
+.timeline-content h3 {
+  margin: 0; /* 제목 위아래 여백 제거로 밀착된 느낌 */
+}
+
+.timeline-content p {
+  margin-top: 8px; /* 역할과 회사명 사이의 간격을 조정 */
+}
