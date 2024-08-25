@@ -5,15 +5,28 @@ import React, { useEffect } from 'react';
 
 
 export const SkillSection = () => {
-  useEffect(() => {
-    const skillLevels = document.querySelectorAll('.skill-level');
-    skillLevels.forEach(level => {
-      const fillWidth = level.getAttribute('data-level') + '%';
-      const fillElement = level.querySelector('.skill-level-fill');
-      if (fillElement) {
-        fillElement.style.width = fillWidth;
-      }
-    });
+      useEffect(() => {
+        const skillLevels = document.querySelectorAll('.skill-level');
+        skillLevels.forEach(level => {
+          const fillWidth = level.getAttribute('data-level') + '%';
+          const fillElement = level.querySelector('.skill-level-fill');
+          if (fillElement) {
+            fillElement.style.width = fillWidth;
+          }
+        });
+
+      const links = document.querySelectorAll('.timeline-event a');
+      links.forEach(link => {
+          link.addEventListener('click', function(e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href');
+              const targetElement = document.querySelector(targetId);
+
+              targetElement.scrollIntoView({
+                  behavior: 'smooth'
+              });
+          });
+      });
 
       function parseDateRange(dateRange) {
           const [startStr, endStr] = dateRange.split(' - ').map(dateStr => dateStr.trim());
@@ -266,10 +279,79 @@ export const SkillSection = () => {
 };
 
 ## 경력
+<div class="custom-timeline-container">
+    <div class="custom-timeline">
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2016.06</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#nh-insurance">NH 농협손해보험</a>
+            </div>
+        </div>
+
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2016.12</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#kb-insurance">KB 손해보험</a>
+            </div>
+        </div>
+
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2017.06</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#heungkuk">흥국생명</a>
+            </div>
+        </div>
+
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2020.09</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#kakaopay">카카오페이</a>
+            </div>
+        </div>
+
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2021.03</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#kpi">한국선주상호보험(KP&I)</a>
+            </div>
+        </div>
+
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2022.07</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#mg-saemaeul">MG 새마을금고</a>
+            </div>
+        </div>
+
+        <div class="custom-timeline-item">
+            <div class="custom-timeline-icon">
+                <span class="custom-year">2023.01</span>
+            </div>
+            <div class="custom-timeline-content">
+                <a href="#lg-cns">LG CNS</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <p id="total-experience"></p>
 <div class="timeline">
-    <div class="timeline-item">
+    <div id="lg-cns" class="timeline-item">
         <div class="timeline-date">2023.01.02 - 현재</div>
         <div class="timeline-content">
             <h3><span class="company-name">LG CNS</span> 마이데이터 플랫폼 고도화/운영</h3>
@@ -302,7 +384,7 @@ export const SkillSection = () => {
 
 
 
-    <div class="timeline-item">
+<div id="mg-saemaeul" class="timeline-item">
     <div class="timeline-date">2022.07.18 - 2022.12.16</div>
     <div class="timeline-content">
         <h3><span class="company-name">MG 새마을금고</span> 기업 인터넷/스마트뱅킹 구축 프로젝트</h3>
@@ -321,7 +403,7 @@ export const SkillSection = () => {
     </div>
   </div>
 
-  <div class="timeline-item">
+  <div id="kpi" class="timeline-item">
     <div class="timeline-date">2021.03.31 - 2022.07.14</div>
     <div class="timeline-content">
     <h3><span class="company-name">한국선주상호보험(KP&I)</span> 차세대 정보시스템 구축 프로젝트</h3>
@@ -342,7 +424,7 @@ export const SkillSection = () => {
     </div>
   </div>
 
-  <div class="timeline-item">
+  <div id="kakaopay" class="timeline-item">
     <div class="timeline-date">2020.09.15 - 2021.04.14</div>
     <div class="timeline-content">
         <h3><span class="company-name">카카오페이</span> 손해보험사 구축 프로젝트</h3>
@@ -356,7 +438,7 @@ export const SkillSection = () => {
     </div>
   </div>
 
-  <div class="timeline-item">
+  <div id="heungkuk" class="timeline-item">
     <div class="timeline-date">2017.06.07 - 2020.09.04</div>
     <div class="timeline-content">
         <h3><span class="company-name">흥국생명</span> ITO 전산 운영</h3>
@@ -380,7 +462,7 @@ export const SkillSection = () => {
     </div>
   </div>
 
-  <div class="timeline-item">
+  <div id="kb-insurance" class="timeline-item">
     <div class="timeline-date">2016.12 - 2017.03</div>
     <div class="timeline-content">
         <h3><span class="company-name">KB 손해보험</span> 자동차 인수관리 시스템 고도화 프로젝트</h3>
@@ -389,7 +471,7 @@ export const SkillSection = () => {
     </div>
   </div>
 
-  <div class="timeline-item">
+  <div id="nh-insurance" class="timeline-item">
     <div class="timeline-date">2016.06 - 2016.11</div>
     <div class="timeline-content">
         <h3><span class="company-name">NH 농협손해보험</span> 수수료 전산시스템 고도화 프로젝트</h3>
