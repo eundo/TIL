@@ -68,14 +68,14 @@ const config = {
               position: 'left',
               label: 'About Me',
             },
-            { to: '/blog/tech', label: 'Tech', position: 'left' },
+            { to: '/blog/dev-story', label: 'Dev Story', position: 'left' },
             {
               type: 'docSidebar',
               sidebarId: 'devStorySidebar',
               position: 'left',
-              label: 'Dev Story',
+              label: 'Tech',
             },
-            { to: '/blog/miscellaneous', label: 'Miscellaneous', position: 'left' },
+          //  { to: '/blog/miscellaneous', label: 'Miscellaneous', position: 'left' },
             {
               href: 'https://github.com/eundo/TIL',
               label: 'GitHub',
@@ -151,9 +151,18 @@ const config = {
           copyright: `© ${new Date().getFullYear()} Eundo's Today. All rights reserved. Built with ❤️ using Docusaurus.`,
         },
         prism: {
-          theme: lightCodeTheme,
-          darkTheme: darkCodeTheme,
+          theme: require('prism-react-renderer/themes/github'), // Light Theme
+          darkTheme: require('prism-react-renderer/themes/dracula'), // Dark Theme
+          additionalLanguages: ['java'], // 필요한 언어 추가
+          // theme: lightCodeTheme,
+          // darkTheme: darkCodeTheme,
+          // additionalLanguages: ['java'], // 필요에 따라 추가 언어
         },
+
+        // prism: {
+        //   theme: require('prism-react-renderer/themes/dracula'), // 원하는 테마 선택
+        //
+        // },
         customCss: require.resolve('./src/css/custom.css'),
       }),
 };
