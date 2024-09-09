@@ -18,39 +18,39 @@ const SVG_PATHS = {
 // Description Functions
 const DescriptionEasyToUse = () => (
     <>
-        Docusaurus was designed from the ground up to be easily installed and used
-        to get your website up and running quickly.
+        With every step you take, there's a sense of pride.
+        This space was crafted to make your journey as effortless as possible.
     </>
 );
 
 const DescriptionFocusOnMatters = () => (
     <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Focus on what speaks to your heart.
+        It’s in these moments that your true brilliance will shine.
     </>
 );
 
 const DescriptionPoweredByReact = () => (
     <>
-        Extend or customize your website layout by reusing React. Docusaurus can be
-        extended while reusing the same header and footer.
+        The energy within you is what drives everything forward.
+        It’s your passion that brings this space to life.
     </>
 );
 
 // Feature List
 const FEATURE_LIST: FeatureItem[] = [
     {
-        title: 'Easy to Use',
+        title: 'Proud of Every Step',
         Svg: SVG_PATHS.EASY_TO_USE,
         description: <DescriptionEasyToUse/>,
     },
     {
-        title: 'Focus on What Matters',
+        title: 'Embrace What Truly Matters',
         Svg: SVG_PATHS.FOCUS_ON_MATTERS,
         description: <DescriptionFocusOnMatters/>,
     },
     {
-        title: 'Powered by React',
+        title: 'Powered by Your Passion',
         Svg: SVG_PATHS.POWERED_BY_REACT,
         description: <DescriptionPoweredByReact/>,
     },
