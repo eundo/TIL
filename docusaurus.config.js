@@ -91,7 +91,7 @@ const config = {
               type: 'docSidebar',
               sidebarId: 'devStorySidebar',
               position: 'left',
-              label: 'Tech',
+              label: 'Project',
             },
           //  { to: '/blog/miscellaneous', label: 'Miscellaneous', position: 'left' },
             {
