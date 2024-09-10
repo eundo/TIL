@@ -55,7 +55,7 @@ const config = {
     {
       tagName: 'script',
       attributes: {
-        async: true,
+        async: 'true',  // async는 문자열로 지정해야 합니다.
         src: 'https://www.googletagmanager.com/gtag/js?id=G-VG06L597YE',
       },
     },
@@ -67,6 +67,7 @@ const config = {
         gtag('js', new Date());
         gtag('config', 'G-VG06L597YE');
       `,
+      attributes: {},  // 이 부분을 추가하여 빈 attributes를 제공해야 합니다.
     },
   ],
   themeConfig:
