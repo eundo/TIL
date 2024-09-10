@@ -51,7 +51,24 @@ const config = {
       }),
     ],
   ],
-
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-VG06L597YE',
+      },
+    },
+    {
+      tagName: 'script',
+      innerHTML: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VG06L597YE');
+      `,
+    },
+  ],
   themeConfig:
       ({
         image: '/static/img/ped1.jpg',
