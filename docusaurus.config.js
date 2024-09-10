@@ -115,6 +115,10 @@ const config = {
           //   },
           // ],
         },
+        googleAnalytics: {
+          trackingID: 'G-VG06L597YE',
+          anonymizeIP: false, // 선택 사항: IP 익명화 설정
+        },
         footer: {
           style: 'dark',
           links: [
