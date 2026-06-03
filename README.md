@@ -1,41 +1,44 @@
-# Website
+# Eundo's Today
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Docusaurus 기반의 TIL, 개발 회고, 프로젝트 기록 블로그입니다. `main` 브랜치에
+푸시하면 GitHub 연동을 통해 Netlify에서 정적 사이트로 빌드/배포됩니다.
 
-### Installation-
+## 로컬 실행
 
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
+```bash
+corepack enable
+corepack yarn install
+corepack yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+개발 서버 기본 주소는 `http://localhost:3000`입니다.
 
-### Build
+## 빌드 검증
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+corepack yarn build
 ```
 
-Not using SSH:
+정적 결과물은 `build` 디렉터리에 생성됩니다.
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+## 콘텐츠 구조
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- `docs/aboutMe`: 소개와 경력
+- `docs/til`: TIL 기록
+- `docs/project`: 프로젝트 기록
+- `docs/book`: 독서/학습 기록
+- `blog/dev-story`: 개발 회고형 블로그 글
+- `static/img`: 이미지와 CMS 업로드 대상
+
+## 배포
+
+Netlify 설정은 `netlify.toml`에 고정되어 있습니다.
+
+- production URL: `https://eundo.today`
+- build command: `yarn build`
+- publish directory: `build`
+- node version: `20`
+- yarn version: `1.22.22`
+
+Netlify 대시보드에서 이 레포의 `main` 브랜치가 연결되어 있으면 별도 GitHub
+Actions 없이 push 트리거로 배포됩니다.

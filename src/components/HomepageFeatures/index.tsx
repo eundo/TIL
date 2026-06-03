@@ -4,70 +4,54 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: string; // Change the type to string
+  imageSrc: string;
   description: JSX.Element;
 };
 
-// SVG Paths Constants
-const SVG_PATHS = {
-    EASY_TO_USE: require('@site/static/img/IMG_1116.JPG').default,
-    FOCUS_ON_MATTERS: require('@site/static/img/IMG_1118.JPG').default,
-    POWERED_BY_REACT: require('@site/static/img/IMG_1117.JPG').default,
-};
-
-// Description Functions
-const DescriptionEasyToUse = () => (
-    <>
-        With every step you take, there's a sense of pride.
-        This space was crafted to make your journey as effortless as possible.
-    </>
-);
-
-const DescriptionFocusOnMatters = () => (
-    <>
-        Focus on what speaks to your heart.
-        It’s in these moments that your true brilliance will shine.
-    </>
-);
-
-const DescriptionPoweredByReact = () => (
-    <>
-        The energy within you is what drives everything forward.
-        It’s your passion that brings this space to life.
-    </>
-);
-
-// Feature List
 const FEATURE_LIST: FeatureItem[] = [
-    {
-        title: 'Proud of Every Step',
-        Svg: SVG_PATHS.EASY_TO_USE,
-        description: <DescriptionEasyToUse/>,
-    },
-    {
-        title: 'Embrace What Truly Matters',
-        Svg: SVG_PATHS.FOCUS_ON_MATTERS,
-        description: <DescriptionFocusOnMatters/>,
-    },
-    {
-        title: 'Powered by Your Passion',
-        Svg: SVG_PATHS.POWERED_BY_REACT,
-        description: <DescriptionPoweredByReact/>,
-    },
+  {
+    title: '배운 것을 기록합니다',
+    imageSrc: require('@site/static/img/IMG_1116.JPG').default,
+    description: (
+      <>
+        개발하며 마주친 문제, 해결 과정, 다시 참고할 내용을 짧고 꾸준하게
+        정리합니다.
+      </>
+    ),
+  },
+  {
+    title: '프로젝트 경험을 남깁니다',
+    imageSrc: require('@site/static/img/IMG_1118.JPG').default,
+    description: (
+      <>
+        실제 업무와 사이드 프로젝트에서 얻은 설계 판단, 구현 방식, 회고를
+        모읍니다.
+      </>
+    ),
+  },
+  {
+    title: '성장을 추적합니다',
+    imageSrc: require('@site/static/img/IMG_1117.JPG').default,
+    description: (
+      <>
+        책, 기술 문서, 개발 회고를 연결해서 다음 작업에 바로 쓸 수 있는
+        지식으로 남깁니다.
+      </>
+    ),
+  },
 ];
 
-
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, imageSrc, description}: FeatureItem) {
   return (
-      <div className={clsx('col col--4')}>
-        <div className="text--center">
-          <img src={Svg} className={styles.featureSvg} role="img" alt={title} /> {/* Use img tag */}
-        </div>
-        <div className="text--center padding-horiz--md">
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
+    <div className={clsx('col col--4')}>
+      <div className="text--center">
+        <img src={imageSrc} className={styles.featureImage} alt="" />
       </div>
+      <div className="text--center padding-horiz--md">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    </div>
   );
 }
 
@@ -76,8 +60,8 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FEATURE_LIST.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FEATURE_LIST.map((props) => (
+            <Feature key={props.title} {...props} />
           ))}
         </div>
       </div>

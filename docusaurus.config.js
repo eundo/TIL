@@ -1,8 +1,9 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+const siteUrl = process.env.URL || 'https://eundo.today';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -10,18 +11,18 @@ const config = {
   tagline: 'Today I Learned',
   favicon: 'img/ed1.png',
 
-  url: 'https://your-docusaurus-test-site.com',
+  url: siteUrl,
   baseUrl: '/',
 
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'eundo',
+  projectName: 'TIL',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ko',
+    locales: ['ko'],
   },
 
   presets: [
@@ -30,53 +31,31 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: function ({
-                               locale,
-                               version,
-                               versionDocsDirPath,
-                               docPath,
-                               permalink,
-                             }) {
+          editUrl: function ({versionDocsDirPath, docPath}) {
             return `https://github.com/eundo/TIL/edit/main/${versionDocsDirPath}/${docPath}`;
           },
         },
         blog: {
           showReadingTime: true,
-          editUrl:
-              'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/eundo/TIL/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          trackingID: 'G-VG06L597YE',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
-  headTags: [
-    {
-      tagName: 'script',
-      attributes: {
-        async: 'true',  // async는 문자열로 지정해야 합니다.
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-VG06L597YE',
-      },
-    },
-    {
-      tagName: 'script',
-      innerHTML: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-VG06L597YE');
-      `,
-      attributes: {},  // 이 부분을 추가하여 빈 attributes를 제공해야 합니다.
-    },
-  ],
   themeConfig:
       ({
-        image: '/static/img/ped1.jpg',
+        image: 'img/ped1.png',
         navbar: {
           title: "Eundo's Today",
           logo: {
-            alt: 'My Site Logo',
+            alt: "Eundo's Today Logo",
             src: 'img/ed1.png',
           },
           items: [
@@ -86,62 +65,56 @@ const config = {
               position: 'left',
               label: 'About Me',
             },
+            {
+              type: 'docSidebar',
+              sidebarId: 'tilSidebar',
+              position: 'left',
+              label: 'TIL',
+            },
             { to: '/blog/dev-story', label: 'Dev Story', position: 'left' },
             {
               type: 'docSidebar',
-              sidebarId: 'devStorySidebar',
+              sidebarId: 'projectSidebar',
               position: 'left',
               label: 'Project',
             },
-          //  { to: '/blog/miscellaneous', label: 'Miscellaneous', position: 'left' },
             {
               href: 'https://github.com/eundo/TIL',
               label: 'GitHub',
               position: 'right',
             },
           ],
-          // items: [
-          //   {
-          //     type: 'docSidebar',
-          //     sidebarId: 'tutorialSidebar',
-          //     position: 'left',
-          //     label: 'Docs',
-          //   },
-          //   {to: '/blog', label: 'Blog', position: 'left'}, // Blog 메뉴 추가
-          //   {to: '/docs/til/2023/intro', label: 'TIL 2023', position: 'left'}, // TIL 2023 메뉴 추가
-          //   {
-          //     href: 'https://github.com/eundo/TIL',
-          //     label: 'GitHub',
-          //     position: 'right',
-          //   },
-          // ],
         },
         footer: {
           style: 'dark',
           links: [
             {
-              title: 'Docs',
+              title: 'Content',
               items: [
                 {
-                  label: 'Tutorial',
-                  to: '/docs/intro',
+                  label: 'About Me',
+                  to: '/docs/aboutMe/PARK%20EUNDO',
+                },
+                {
+                  label: 'TIL',
+                  to: '/docs/til/intro',
+                },
+                {
+                  label: 'Project',
+                  to: '/docs/project',
                 },
               ],
             },
             {
-              title: 'Community',
+              title: 'Posts',
               items: [
                 {
-                  label: 'Stack Overflow',
-                  href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                  label: 'Dev Story',
+                  to: '/blog/dev-story',
                 },
                 {
-                  label: 'Discord',
-                  href: 'https://discordapp.com/invite/docusaurus',
-                },
-                {
-                  label: 'Twitter',
-                  href: 'https://twitter.com/docusaurus',
+                  label: 'Book Notes',
+                  to: '/docs/book',
                 },
               ],
             },
@@ -169,19 +142,10 @@ const config = {
           copyright: `© ${new Date().getFullYear()} Eundo's Today. All rights reserved. Built with ❤️ using Docusaurus.`,
         },
         prism: {
-          theme: require('prism-react-renderer/themes/github'), // Light Theme
-          darkTheme: require('prism-react-renderer/themes/dracula'), // Dark Theme
-          additionalLanguages: ['java'], // 필요한 언어 추가
-          // theme: lightCodeTheme,
-          // darkTheme: darkCodeTheme,
-          // additionalLanguages: ['java'], // 필요에 따라 추가 언어
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+          additionalLanguages: ['java'],
         },
-
-        // prism: {
-        //   theme: require('prism-react-renderer/themes/dracula'), // 원하는 테마 선택
-        //
-        // },
-        customCss: require.resolve('./src/css/custom.css'),
       }),
 };
 

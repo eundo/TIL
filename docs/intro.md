@@ -2,46 +2,15 @@
 sidebar_position: 1
 ---
 
-# Docs
+# Eundo's Today
 
-Let's discover **Docusaurus in less than 5 minutes**.
+개발하면서 배운 내용, 프로젝트 경험, 책을 읽으며 정리한 내용을 모아두는
+개인 기록 공간입니다.
 
-## Getting Started
+## 주요 섹션
 
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- About Me: 경력과 기술 스택
+- TIL: 짧은 학습 기록
+- Project: 프로젝트별 정리
+- Book: 독서와 학습 노트
+- Dev Story: 개발 과정에서 얻은 인사이트와 회고
