@@ -7,8 +7,8 @@ const siteUrl = process.env.URL || 'https://eundo.today';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Eundo's Today",
-  tagline: 'Today I Learned',
+  title: 'Eundo Park',
+  tagline: 'Full-stack Developer Portfolio',
   favicon: 'img/ed1.png',
 
   url: siteUrl,
@@ -53,9 +53,9 @@ const config = {
       ({
         image: 'img/ped1.png',
         navbar: {
-          title: "Eundo's Today",
+          title: 'Eundo Park',
           logo: {
-            alt: "Eundo's Today Logo",
+            alt: 'Eundo Park Logo',
             src: 'img/ed1.png',
           },
           items: [
@@ -67,16 +67,25 @@ const config = {
             },
             {
               type: 'docSidebar',
-              sidebarId: 'tilSidebar',
+              sidebarId: 'projectSidebar',
               position: 'left',
-              label: 'TIL',
+              label: 'Projects',
             },
             { to: '/blog/dev-story', label: 'Dev Story', position: 'left' },
             {
-              type: 'docSidebar',
-              sidebarId: 'projectSidebar',
+              type: 'dropdown',
               position: 'left',
-              label: 'Project',
+              label: 'Notes',
+              items: [
+                {
+                  label: 'TIL',
+                  to: '/docs/til/intro',
+                },
+                {
+                  label: 'Book Notes',
+                  to: '/docs/book',
+                },
+              ],
             },
             {
               href: 'https://github.com/eundo/TIL',
@@ -89,28 +98,28 @@ const config = {
           style: 'dark',
           links: [
             {
-              title: 'Content',
+              title: 'Portfolio',
               items: [
                 {
                   label: 'About Me',
                   to: '/docs/aboutMe/PARK%20EUNDO',
                 },
                 {
-                  label: 'TIL',
-                  to: '/docs/til/intro',
+                  label: 'Projects',
+                  to: '/docs/project',
                 },
                 {
-                  label: 'Project',
-                  to: '/docs/project',
+                  label: 'Dev Story',
+                  to: '/blog/dev-story',
                 },
               ],
             },
             {
-              title: 'Posts',
+              title: 'Notes',
               items: [
                 {
-                  label: 'Dev Story',
-                  to: '/blog/dev-story',
+                  label: 'TIL',
+                  to: '/docs/til/intro',
                 },
                 {
                   label: 'Book Notes',
@@ -139,7 +148,7 @@ const config = {
               ],
             },
           ],
-          copyright: `© ${new Date().getFullYear()} Eundo's Today. All rights reserved. Built with ❤️ using Docusaurus.`,
+          copyright: `© ${new Date().getFullYear()} Eundo Park. Built with Docusaurus.`,
         },
         prism: {
           theme: lightCodeTheme,
