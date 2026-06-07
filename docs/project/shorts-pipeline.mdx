@@ -1,0 +1,48 @@
+---
+sidebar_position: 4
+title: Shorts Pipeline
+description: LLM 기반 대본 생성과 FFmpeg 렌더링을 연결한 반자동 숏폼 제작 파이프라인입니다.
+---
+
+# Shorts Pipeline
+
+Shorts Pipeline은 영상 업로드, 클립 선택, 대본 생성, 자막과 렌더링을 하나의 작업 단위로 묶기 위한 반자동 숏폼 제작 파이프라인입니다.
+
+:::info
+Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리오 검토를 위한 공개 가능한 수준의 요약입니다.
+:::
+
+## Snapshot
+
+| 구분 | 내용 |
+| --- | --- |
+| 상태 | In progress, private repository |
+| 문제 | 숏폼 제작 과정에서 파일 관리, 대본 생성, 자막 처리, 렌더링 단계가 분리되어 반복 비용이 큼 |
+| 접근 | 프로젝트 단위로 원본, 클립, 대본, 출력물을 관리하고 LLM API와 FFmpeg 처리를 연결 |
+| 기술 | FastAPI, Python, LLM API, FFmpeg, yt-dlp, Docker |
+| 실행 | Docker 기반 실행과 로컬 업로드/출력 디렉터리 분리를 고려 |
+
+## What It Does
+
+- 제작 작업을 프로젝트 단위로 만들고 상태를 관리합니다.
+- 업로드 파일과 출력물을 분리해 작업 단계를 추적합니다.
+- 여러 LLM API를 활용한 대본 생성 실험을 지원합니다.
+- FFmpeg 기반 영상 처리와 렌더링 흐름을 파이프라인에 포함합니다.
+- Docker 실행 환경으로 로컬 실행 조건을 일정하게 맞춥니다.
+
+## Portfolio Signal
+
+이 프로젝트는 단순 프론트엔드 앱보다 백엔드 작업 흐름 설계가 중심입니다. 파일 업로드, 상태 관리, 외부 API 호출, 렌더링 작업처럼 실패 가능성이 높은 단계를 하나의 작업 모델로 관리하려는 접근을 보여줍니다.
+
+## Implementation Notes
+
+- FastAPI를 사용해 업로드, 프로젝트 조회, 상태 변경, 렌더링 요청을 API로 분리했습니다.
+- `uploads`와 `outputs` 디렉터리를 분리해 원본과 결과물을 명확히 관리합니다.
+- Dockerfile에서 FFmpeg와 폰트 의존성을 함께 구성해 렌더링 환경 차이를 줄였습니다.
+- API key는 환경변수로 분리해 repository에 저장하지 않는 구조를 전제로 합니다.
+
+## Next
+
+- 긴 작업의 진행률, 실패 원인, 재시도 상태를 더 명확히 노출
+- 대본 버전 관리와 렌더링 설정 변경 이력을 정리
+- README와 실행 문서를 보강해 프로젝트 설명 가능성 개선

@@ -6,14 +6,38 @@ description: 박은도의 포트폴리오 프로젝트와 제품 아이디어를
 
 # Projects
 
-실무에서 다룬 도메인 문제와 개인적으로 확장해보고 싶은 제품 아이디어를 정리하는 공간입니다.
+실무에서 다뤄온 운영 시스템 경험과 개인적으로 제품화해 보고 있는 도구를 함께 정리합니다. 진행 중인 private repository는 코드 링크 대신 문제 정의, 구현 범위, 기술 선택, 다음 개선 방향만 공개합니다.
+
+:::note
+일부 프로젝트는 아직 개발 중인 private repository입니다. 공개 페이지에는 핵심 아이디어를 그대로 복제할 수 있는 세부 구현이나 내부 코드를 노출하지 않습니다.
+:::
+
+## Selected Projects
 
 <div className="project-hub-grid">
-  <a className="project-hub-card" href="/docs/project/소셜약속관리시스템/소셜약속관리시스템">
-    <span>Side Project</span>
-    <strong>소셜 약속 관리 시스템</strong>
-    <p>비공식 약속을 기록하고 이행 여부를 추적하는 신뢰 기반 약속 관리 앱 기획입니다.</p>
-    <em>Flutter · Backend API · Push Notification · Trust Score</em>
+  <a className="project-hub-card" href="/docs/project/shorts-source-radar">
+    <span>Productivity · Private</span>
+    <strong>Shorts Source Radar</strong>
+    <p>유튜브 일반 영상에서 쇼츠 소재 후보를 찾고, 검토 상태와 외부 도구 전송까지 이어지는 콘텐츠 리서치 도구입니다.</p>
+    <em>Node.js · Netlify Functions · Notion API · Slack Webhook</em>
+  </a>
+  <a className="project-hub-card" href="/docs/project/reread-bookshelf">
+    <span>Local-first · Private</span>
+    <strong>Reread Bookshelf</strong>
+    <p>다시 읽고 싶은 책과 웹소설을 인물, 관계성, 장면, 태그 중심으로 찾기 쉽게 저장하는 모바일 웹앱입니다.</p>
+    <em>JavaScript · PWA · localStorage · Netlify Function</em>
+  </a>
+  <a className="project-hub-card" href="/docs/project/shorts-pipeline">
+    <span>AI Workflow · Private</span>
+    <strong>Shorts Pipeline</strong>
+    <p>LLM 기반 대본 생성과 FFmpeg 렌더링을 연결해 숏폼 제작 과정을 반자동화하는 실험적 제작 파이프라인입니다.</p>
+    <em>FastAPI · LLM API · FFmpeg · Docker</em>
+  </a>
+  <a className="project-hub-card" href="/docs/project/portfolio-site">
+    <span>Portfolio · Public</span>
+    <strong>Eundo Today Portfolio</strong>
+    <p>Docusaurus 기반 블로그를 포트폴리오 구조로 전환하고, GitHub push와 Netlify 배포 흐름을 연결한 사이트입니다.</p>
+    <em>Docusaurus · TypeScript · Netlify · GitHub</em>
   </a>
   <a className="project-hub-card" href="/blog/dev-story/실시간%20로그적재%20배치개발">
     <span>Backend</span>
@@ -31,7 +55,12 @@ description: 박은도의 포트폴리오 프로젝트와 제품 아이디어를
 
 ## 정리 기준
 
-- **문제:** 어떤 사용자/운영 문제가 있었는지
-- **역할:** 내가 맡은 설계, 개발, 운영 범위
-- **접근:** 어떤 기술 선택과 구조 판단을 했는지
-- **결과:** 성능, 안정성, 운영 효율 측면에서 무엇이 나아졌는지
+- **문제:** 어떤 반복 작업, 사용성 문제, 운영상의 비효율을 해결하려 했는지
+- **역할:** 직접 설계하고 구현한 범위와 의사결정
+- **접근:** 기술 선택, 데이터 흐름, 배포 방식에서의 판단
+- **공개 범위:** 진행 중인 private 프로젝트는 코드 링크 없이 안전한 수준의 구조와 배운 점만 공개
+- **다음 단계:** 제품 완성도를 높이기 위해 남겨둔 개선 항목
+
+## 보류한 항목
+
+`KeywordFinder`는 민감정보 정리 이력이 있어 공개 소개에서 제외했습니다. `allndo`, `firstlove_viewer`는 제품 방향과 README 정리가 더 필요해 이번 포트폴리오 반영에서는 보류했습니다.

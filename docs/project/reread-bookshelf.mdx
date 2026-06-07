@@ -1,0 +1,49 @@
+---
+sidebar_position: 3
+title: Reread Bookshelf
+description: 다시 읽고 싶은 책과 웹소설을 기억 단서 중심으로 관리하는 local-first 모바일 웹앱입니다.
+---
+
+# Reread Bookshelf
+
+Reread Bookshelf는 RIDI eBook과 웹소설을 다시 찾기 쉽게 저장하는 개인용 모바일 웹앱입니다. 제목이나 작가만이 아니라 인물, 관계성, 분위기, 기억나는 장면 같은 실제 재탐색 단서를 중심으로 설계했습니다.
+
+:::info
+Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리오 검토를 위한 공개 가능한 수준의 요약입니다.
+:::
+
+## Snapshot
+
+| 구분 | 내용 |
+| --- | --- |
+| 상태 | In progress, private repository |
+| 문제 | 이미 읽은 책을 다시 찾을 때 제목보다 장면, 인물, 분위기 같은 기억 단서가 먼저 떠오름 |
+| 접근 | 작품 기록을 단순 목록이 아니라 검색 가능한 기억 인덱스로 구성 |
+| 기술 | JavaScript, HTML/CSS, PWA manifest, Service Worker, localStorage, Netlify Function |
+| 저장 | 브라우저 localStorage 기반 local-first 구조, JSON 내보내기/가져오기 지원 |
+
+## What It Does
+
+- 책과 웹소설 기록을 추가, 수정, 삭제합니다.
+- 제목, 작가, RIDI 링크, 표지, 장르, 권수/회차 정보를 저장합니다.
+- 주인공, 상대역, 관계성, 엔딩감, 분위기 키워드를 기록합니다.
+- 요약, 스포 메모, 재탕 횟수를 저장합니다.
+- 통합 검색, 태그 필터, 정렬 기능을 제공합니다.
+- RIDI 링크 기반 기본 정보 자동 채우기를 시도하고, 실패 시 수동 입력으로 보완합니다.
+
+## Portfolio Signal
+
+이 프로젝트는 개인적인 불편을 실제 사용 가능한 도구로 바꾸는 과정이 잘 드러납니다. local-first 구조로 시작해 데이터 소유권과 간단한 백업을 우선하고, 필요한 부분만 서버리스 함수로 보완하는 식으로 범위를 조절했습니다.
+
+## Implementation Notes
+
+- 처음부터 계정/서버 저장소를 붙이지 않고 localStorage로 빠르게 사용성을 검증했습니다.
+- PWA manifest와 service worker를 포함해 모바일에서 앱처럼 접근하는 사용성을 고려했습니다.
+- JSON export/import를 넣어 local-first 구조의 데이터 유실 리스크를 줄였습니다.
+- 외부 페이지 메타데이터 수집은 실패 가능성을 전제로 수동 입력 흐름과 함께 설계했습니다.
+
+## Next
+
+- 작품 기록 스키마 정리와 마이그레이션 전략 추가
+- 태그 추천과 중복 태그 정리 기능 개선
+- 서버 저장소를 붙일 경우에도 local-first 사용성을 유지하는 동기화 방식 검토

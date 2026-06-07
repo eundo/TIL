@@ -81,17 +81,17 @@ export default function Home(): JSX.Element {
         <section className={styles.recentWork}>
           <div>
             <p className={styles.sectionLabel}>Featured Work</p>
-            <h2>운영을 이해하고, 흐름을 단순하게 만드는 작업</h2>
+            <h2>반복 작업을 제품형 도구로 정리하는 프로젝트</h2>
           </div>
           <div className={styles.workList}>
-            <a href="/blog/dev-story/실시간%20로그적재%20배치개발">
-              실시간 로그적재 배치 개발
+            <a href="/docs/project/shorts-source-radar">
+              Shorts Source Radar
             </a>
-            <a href="/blog/dev-story/API%20비동기호출%20데이터처리%20개발">
-              API 비동기호출 데이터처리 개발
+            <a href="/docs/project/reread-bookshelf">
+              Reread Bookshelf
             </a>
-            <a href="/docs/project/소셜약속관리시스템/소셜약속관리시스템">
-              소셜 약속 관리 시스템
+            <a href="/docs/project/shorts-pipeline">
+              Shorts Pipeline
             </a>
           </div>
         </section>

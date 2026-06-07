@@ -1,0 +1,48 @@
+---
+sidebar_position: 2
+title: Shorts Source Radar
+description: 유튜브 일반 영상에서 쇼츠 소재 후보를 발굴하고 검토 흐름을 관리하는 콘텐츠 리서치 도구입니다.
+---
+
+# Shorts Source Radar
+
+Shorts Source Radar는 유튜브 일반 영상 중 쇼츠 소재로 재구성할 수 있는 후보를 찾고, 검토 상태를 관리한 뒤 Notion, Slack, CSV로 이어 보내는 로컬 웹앱입니다.
+
+:::info
+Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리오 검토를 위한 공개 가능한 수준의 요약입니다.
+:::
+
+## Snapshot
+
+| 구분 | 내용 |
+| --- | --- |
+| 상태 | In progress, private repository |
+| 문제 | 쇼츠 소재 후보를 매번 수동으로 찾고, 검토 상태를 별도 도구에 옮기는 과정이 반복됨 |
+| 접근 | 후보 발굴, 점수화, 상태 관리, 외부 도구 전송을 하나의 웹앱 흐름으로 연결 |
+| 기술 | Node.js, Netlify Functions, Docker, Notion API, Slack Incoming Webhook |
+| 배포 | 정적 프론트엔드와 서버리스 함수 기반 Netlify 배포를 우선 고려하고, Node 서버/Docker 실행도 가능하게 설계 |
+
+## What It Does
+
+- 유튜브 영상 후보를 조건에 따라 수집하고 1분 이상 일반 영상을 필터링합니다.
+- 조회수, 댓글수, 업로드 시점, 영상 길이 등을 기준으로 후보를 점수화합니다.
+- 검토, 예정, 완료, 제외 같은 후보 상태를 관리합니다.
+- 선택한 후보만 Notion, Slack, CSV로 내보낼 수 있게 분리했습니다.
+- 검색 결과와 상세 정보를 캐시해 API 재호출을 줄이는 흐름을 둡니다.
+
+## Portfolio Signal
+
+이 프로젝트에서 보여줄 수 있는 강점은 단순 크롤링 도구가 아니라, 콘텐츠 리서치 업무의 전후 흐름을 제품 단위로 묶은 점입니다. 후보를 찾는 화면에서 끝내지 않고, 검토 상태와 외부 협업 도구 전송까지 이어지도록 설계했습니다.
+
+## Implementation Notes
+
+- 프론트엔드는 설치 없이 확인할 수 있는 정적 웹앱 구조를 우선했습니다.
+- Notion/Slack 연동은 환경변수 기반으로 분리해 local과 production 환경을 나눴습니다.
+- Netlify Functions, Node server, Docker 실행 경로를 함께 고려했습니다.
+- API quota를 아끼기 위해 검색 폭과 캐시 전략을 사용자 흐름에 포함했습니다.
+
+## Next
+
+- 후보 점수 산정 기준을 더 투명하게 조정할 수 있는 설정 화면 추가
+- 후보별 검토 메모와 재검색 이력을 더 안정적으로 저장
+- 실제 운영 환경에서 API quota, 실패율, 저장 성공률을 관찰할 수 있는 로그 개선
