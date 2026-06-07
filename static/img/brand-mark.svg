@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Eundo Park brand mark</title>
+  <desc id="desc">Minimal EP monogram for Eundo Park portfolio</desc>
+  <rect width="96" height="96" rx="8" fill="#0F172A"/>
+  <path d="M24 24h29v10H36v9h16v10H36v9h18v10H24V24Z" fill="#F8FAFC"/>
+  <path d="M58 24h11c13 0 22 9 22 24s-9 24-22 24H58V24Zm11 38c7 0 11-5 11-14s-4-14-11-14h-1v28h1Z" fill="#14B8A6"/>
+  <path d="M55 24h6v48h-6V24Z" fill="#334155"/>
+</svg>

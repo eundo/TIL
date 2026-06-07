@@ -29,6 +29,30 @@ const strengths = [
   '배치, 인증, 운영 자동화',
 ];
 
+const heroStats = [
+  {value: '10y+', label: 'Finance / Insurance'},
+  {value: 'Full-stack', label: 'Backend to Frontend'},
+  {value: 'Product', label: 'Private tools in progress'},
+];
+
+const featuredWork = [
+  {
+    title: 'Shorts Source Radar',
+    meta: '콘텐츠 리서치 자동화',
+    href: '/docs/project/shorts-source-radar',
+  },
+  {
+    title: 'Reread Bookshelf',
+    meta: 'Local-first 개인 도구',
+    href: '/docs/project/reread-bookshelf',
+  },
+  {
+    title: 'Shorts Pipeline',
+    meta: 'AI 영상 제작 워크플로우',
+    href: '/docs/project/shorts-pipeline',
+  },
+];
+
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
 
@@ -45,6 +69,14 @@ export default function Home(): JSX.Element {
               금융, 보험, 마이데이터 도메인에서 운영 시스템을 개선하고 제품
               경험을 구현해온 개발자입니다.
             </p>
+            <div className={styles.heroStats} aria-label="Portfolio summary">
+              {heroStats.map((item) => (
+                <div key={item.value}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
             <div className={styles.heroActions}>
               <a className="button button--primary button--lg" href="/docs/aboutMe/PARK%20EUNDO">
                 경력 보기
@@ -55,10 +87,14 @@ export default function Home(): JSX.Element {
             </div>
           </div>
           <div className={styles.heroVisual} aria-label={`${siteConfig.title} logo`}>
-            <img src="/img/ed3.png" alt="" />
-            <div>
-              <strong>10 years</strong>
-              <span>Finance, Insurance, MyData</span>
+            <img className={styles.heroMark} src="/img/brand-mark.svg" alt="" />
+            <div className={styles.heroPanel}>
+              <span>Current Focus</span>
+              <strong>운영 흐름을 읽고 제품 경험으로 정리하는 개발</strong>
+            </div>
+            <div className={styles.heroPanel}>
+              <span>Stack</span>
+              <strong>Spring Boot · React · Oracle · PostgreSQL</strong>
             </div>
           </div>
         </section>
@@ -84,15 +120,12 @@ export default function Home(): JSX.Element {
             <h2>반복 작업을 제품형 도구로 정리하는 프로젝트</h2>
           </div>
           <div className={styles.workList}>
-            <a href="/docs/project/shorts-source-radar">
-              Shorts Source Radar
-            </a>
-            <a href="/docs/project/reread-bookshelf">
-              Reread Bookshelf
-            </a>
-            <a href="/docs/project/shorts-pipeline">
-              Shorts Pipeline
-            </a>
+            {featuredWork.map((item) => (
+              <a key={item.title} href={item.href}>
+                <span>{item.meta}</span>
+                <strong>{item.title}</strong>
+              </a>
+            ))}
           </div>
         </section>
       </main>

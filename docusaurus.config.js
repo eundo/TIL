@@ -9,7 +9,7 @@ const siteUrl = process.env.URL || 'https://eundo.today';
 const config = {
   title: 'Eundo Park',
   tagline: 'Full-stack Developer Portfolio',
-  favicon: 'img/ed1.png',
+  favicon: 'img/brand-mark.svg',
 
   url: siteUrl,
   baseUrl: '/',
@@ -51,12 +51,12 @@ const config = {
   ],
   themeConfig:
       ({
-        image: 'img/ped1.png',
+        image: 'img/brand-social.svg',
         navbar: {
           title: 'Eundo Park',
           logo: {
             alt: 'Eundo Park Logo',
-            src: 'img/ed1.png',
+            src: 'img/brand-mark.svg',
           },
           items: [
             {

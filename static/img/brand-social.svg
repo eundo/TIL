@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Eundo Park Portfolio</title>
+  <desc id="desc">Social preview image for Eundo Park portfolio</desc>
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="84" y="82" width="1032" height="466" rx="8" fill="#0F172A"/>
+  <rect x="132" y="132" width="118" height="118" rx="8" fill="#F8FAFC"/>
+  <path d="M158 160h42v14h-26v16h24v14h-24v18h28v14h-44v-76Z" fill="#0F172A"/>
+  <path d="M205 160h16c21 0 36 14 36 38s-15 38-36 38h-16v-76Zm16 62c13 0 20-9 20-24s-7-24-20-24h-1v48h1Z" fill="#14B8A6"/>
+  <text x="132" y="336" fill="#F8FAFC" font-family="Inter, Pretendard, Arial, sans-serif" font-size="70" font-weight="800">Eundo Park</text>
+  <text x="132" y="414" fill="#CBD5E1" font-family="Inter, Pretendard, Arial, sans-serif" font-size="34" font-weight="500">Full-stack Developer Portfolio</text>
+  <text x="132" y="474" fill="#5EEAD4" font-family="Inter, Pretendard, Arial, sans-serif" font-size="28" font-weight="700">Finance · Insurance · MyData · Product Tools</text>
+</svg>
