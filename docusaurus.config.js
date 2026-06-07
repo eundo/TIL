@@ -7,8 +7,8 @@ const siteUrl = process.env.URL || 'https://eundo.today';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Eundo Park',
-  tagline: 'Full-stack Developer Portfolio',
+  title: 'Eundo Park Portfolio',
+  tagline: 'Product-minded full-stack developer',
   favicon: 'img/brand-mark.svg',
 
   url: siteUrl,
@@ -53,9 +53,9 @@ const config = {
       ({
         image: 'img/brand-social.svg',
         navbar: {
-          title: 'Eundo Park',
+          title: 'eundo.today',
           logo: {
-            alt: 'Eundo Park Logo',
+            alt: 'eundo.today brand mark',
             src: 'img/brand-mark.svg',
           },
           items: [
@@ -148,7 +148,7 @@ const config = {
               ],
             },
           ],
-          copyright: `© ${new Date().getFullYear()} Eundo Park. Built with Docusaurus.`,
+          copyright: `Copyright ${new Date().getFullYear()} Eundo Park. Built with Docusaurus.`,
         },
         prism: {
           theme: lightCodeTheme,

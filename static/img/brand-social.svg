@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Eundo Park Portfolio</title>
-  <desc id="desc">Social preview image for Eundo Park portfolio</desc>
-  <rect width="1200" height="630" fill="#F8FAFC"/>
-  <rect x="84" y="82" width="1032" height="466" rx="8" fill="#0F172A"/>
-  <rect x="132" y="132" width="118" height="118" rx="8" fill="#F8FAFC"/>
-  <path d="M158 160h42v14h-26v16h24v14h-24v18h28v14h-44v-76Z" fill="#0F172A"/>
-  <path d="M205 160h16c21 0 36 14 36 38s-15 38-36 38h-16v-76Zm16 62c13 0 20-9 20-24s-7-24-20-24h-1v48h1Z" fill="#14B8A6"/>
-  <text x="132" y="336" fill="#F8FAFC" font-family="Inter, Pretendard, Arial, sans-serif" font-size="70" font-weight="800">Eundo Park</text>
-  <text x="132" y="414" fill="#CBD5E1" font-family="Inter, Pretendard, Arial, sans-serif" font-size="34" font-weight="500">Full-stack Developer Portfolio</text>
-  <text x="132" y="474" fill="#5EEAD4" font-family="Inter, Pretendard, Arial, sans-serif" font-size="28" font-weight="700">Finance · Insurance · MyData · Product Tools</text>
+  <title id="title">eundo.today portfolio</title>
+  <desc id="desc">Social preview image for Eundo Park's developer portfolio</desc>
+  <rect width="1200" height="630" fill="#F7F1E4"/>
+  <rect x="72" y="72" width="1056" height="486" rx="8" fill="#191715"/>
+  <rect x="96" y="96" width="132" height="132" rx="18" fill="#F7F1E4"/>
+  <path d="M126 132h58c13 0 24 11 24 24v31h-18v-28c0-6-5-11-11-11h-53v-16Z" fill="#191715"/>
+  <path d="M126 155h38c16 0 30 13 30 30v7h-18v-5c0-7-6-13-13-13h-37v-19Z" fill="#315CFF"/>
+  <path d="M126 181h30c11 0 20 9 20 20v4h-50v-24Z" fill="#FFB238"/>
+  <circle cx="199" cy="203" r="12" fill="#FF6A4A"/>
+  <text x="96" y="326" fill="#FFB238" font-family="Pretendard, Arial, sans-serif" font-size="30" font-weight="800">eundo.today</text>
+  <text x="96" y="408" fill="#F7F1E4" font-family="Pretendard, Arial, sans-serif" font-size="72" font-weight="850">Eundo Park</text>
+  <text x="96" y="474" fill="#DED4C0" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="600">Product-minded full-stack developer</text>
+  <rect x="850" y="96" width="42" height="342" rx="8" fill="#315CFF"/>
+  <rect x="912" y="168" width="42" height="270" rx="8" fill="#FFB238"/>
+  <rect x="974" y="238" width="42" height="200" rx="8" fill="#FF6A4A"/>
+  <rect x="1036" y="304" width="42" height="134" rx="8" fill="#2F6F55"/>
+  <text x="850" y="493" fill="#F7F1E4" font-family="Pretendard, Arial, sans-serif" font-size="24" font-weight="700">Finance · Insurance · MyData · Product Tools</text>
 </svg>

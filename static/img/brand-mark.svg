@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
-  <title id="title">Eundo Park brand mark</title>
-  <desc id="desc">Minimal EP monogram for Eundo Park portfolio</desc>
-  <rect width="96" height="96" rx="8" fill="#0F172A"/>
-  <path d="M24 24h29v10H36v9h16v10H36v9h18v10H24V24Z" fill="#F8FAFC"/>
-  <path d="M58 24h11c13 0 22 9 22 24s-9 24-22 24H58V24Zm11 38c7 0 11-5 11-14s-4-14-11-14h-1v28h1Z" fill="#14B8A6"/>
-  <path d="M55 24h6v48h-6V24Z" fill="#334155"/>
+  <title id="title">eundo.today brand mark</title>
+  <desc id="desc">Abstract layered workflow mark for the eundo.today portfolio</desc>
+  <rect width="96" height="96" rx="18" fill="#191715"/>
+  <path d="M22 26h43c10.5 0 19 8.5 19 19v23H70V47c0-4.4-3.6-8-8-8H22V26Z" fill="#F7F1E4"/>
+  <path d="M22 43h28c12.2 0 22 9.8 22 22v5H58v-3.5c0-5.2-4.3-9.5-9.5-9.5H22V43Z" fill="#315CFF"/>
+  <path d="M22 60h22c8.3 0 15 6.7 15 15v3H22V60Z" fill="#FFB238"/>
+  <circle cx="74" cy="74" r="9" fill="#FF6A4A"/>
 </svg>
