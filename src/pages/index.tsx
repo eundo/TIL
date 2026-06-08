@@ -40,6 +40,24 @@ const signalRows = [
   {label: 'Current', value: '증권 상품 업무와 개인 제품 실험'},
 ];
 
+const flowSteps = [
+  {label: 'Observe', value: '운영 맥락'},
+  {label: 'Shape', value: '제품 흐름'},
+  {label: 'Ship', value: '배포와 회고'},
+];
+
+const stackTicker = [
+  'Spring Boot',
+  'Batch',
+  'React',
+  'TypeScript',
+  'Oracle',
+  'PostgreSQL',
+  'Netlify',
+  'GitHub Actions',
+  'LLM Workflow',
+];
+
 const principles = [
   {
     title: '운영 맥락',
@@ -107,12 +125,21 @@ export default function Home(): JSX.Element {
           </div>
 
           <aside className={styles.signalBoard} aria-label="Portfolio focus">
-            <div className={styles.brandLockup}>
+            <div className={styles.boardHeader}>
               <img src="/img/brand-mark.svg" alt="" />
               <div>
                 <span>eundo.today</span>
                 <strong>Developer Portfolio</strong>
               </div>
+              <em>Live</em>
+            </div>
+            <div className={styles.pipelineMap} aria-label="Working flow">
+              {flowSteps.map((item) => (
+                <div key={item.label}>
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                </div>
+              ))}
             </div>
             <dl className={styles.signalList}>
               {signalRows.map((item) => (
@@ -129,6 +156,14 @@ export default function Home(): JSX.Element {
               <span />
             </div>
           </aside>
+        </section>
+
+        <section className={styles.stackTicker} aria-label="Technology stack">
+          <div>
+            {[...stackTicker, ...stackTicker].map((item, index) => (
+              <span key={`${item}-${index}`}>{item}</span>
+            ))}
+          </div>
         </section>
 
         <section className={styles.strengthBand} aria-label="Core strengths">
