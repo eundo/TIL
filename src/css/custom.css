@@ -662,6 +662,39 @@ article[class*='blogPost'] {
   line-height: 1.6;
 }
 
+.project-screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 34px;
+}
+
+.project-screenshot-grid figure {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-surface);
+  box-shadow: var(--site-shadow-sm);
+}
+
+.project-screenshot-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-charcoal);
+  object-fit: cover;
+}
+
+.project-screenshot-grid figcaption {
+  margin-top: 10px;
+  color: var(--site-muted);
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
 .project-feature-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1021,6 +1054,7 @@ article[class*='blogPost'] {
   .profile-summary-grid,
   .profile-skill-grid,
   .project-feature-grid,
+  .project-screenshot-grid,
   .project-hub-grid {
     grid-template-columns: 1fr;
   }
