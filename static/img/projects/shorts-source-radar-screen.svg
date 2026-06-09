@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Shorts Source Radar public screen preview</title>
+  <desc id="desc">A public-safe dashboard mockup showing candidate discovery, scoring, status review, and export actions.</desc>
+  <rect width="1200" height="760" fill="#F7F1E4"/>
+  <rect x="46" y="42" width="1108" height="676" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+  <rect x="46" y="42" width="1108" height="72" rx="8" fill="#191715"/>
+  <text x="82" y="88" fill="#FFF6E7" font-family="Pretendard, Arial, sans-serif" font-size="28" font-weight="850">Shorts Source Radar</text>
+  <circle cx="1078" cy="78" r="9" fill="#2F6F55"/>
+  <text x="1096" y="86" fill="#C8BDA9" font-family="Pretendard, Arial, sans-serif" font-size="18" font-weight="700">READY</text>
+
+  <rect x="82" y="148" width="266" height="518" rx="8" fill="#F1E8D7" stroke="#D8CFBD"/>
+  <text x="110" y="188" fill="#191715" font-family="Pretendard, Arial, sans-serif" font-size="21" font-weight="850">Discovery Controls</text>
+  <rect x="110" y="218" width="210" height="42" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+  <text x="128" y="245" fill="#655F54" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="700">Category pool</text>
+  <rect x="110" y="278" width="210" height="42" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+  <text x="128" y="305" fill="#655F54" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="700">1min+ filter</text>
+  <rect x="110" y="338" width="210" height="42" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+  <text x="128" y="365" fill="#655F54" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="700">Quota saver</text>
+  <rect x="110" y="414" width="210" height="52" rx="8" fill="#315CFF"/>
+  <text x="142" y="447" fill="#FFFFFF" font-family="Pretendard, Arial, sans-serif" font-size="18" font-weight="850">후보 찾기</text>
+  <rect x="110" y="482" width="98" height="38" rx="8" fill="#FFB238"/>
+  <text x="136" y="506" fill="#191715" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">Sample</text>
+  <rect x="222" y="482" width="98" height="38" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+  <text x="250" y="506" fill="#34302A" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">Cache</text>
+
+  <text x="388" y="176" fill="#191715" font-family="Pretendard, Arial, sans-serif" font-size="24" font-weight="850">Candidate Queue</text>
+  <text x="388" y="206" fill="#847A6B" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="700">score, risk, status, export target</text>
+
+  <g>
+    <rect x="388" y="238" width="704" height="128" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+    <rect x="416" y="266" width="126" height="72" rx="8" fill="#191715"/>
+    <rect x="430" y="280" width="98" height="12" rx="6" fill="#315CFF"/>
+    <rect x="430" y="304" width="72" height="12" rx="6" fill="#FFB238"/>
+    <text x="568" y="278" fill="#191715" font-family="Pretendard, Arial, sans-serif" font-size="20" font-weight="850">오래된 고반응 영상 후보</text>
+    <text x="568" y="310" fill="#655F54" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="700">조회수 420K · 댓글 1.8K · 8m 21s</text>
+    <rect x="872" y="264" width="72" height="34" rx="8" fill="#E7EBFF"/>
+    <text x="892" y="287" fill="#315CFF" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="850">92</text>
+    <rect x="958" y="264" width="104" height="34" rx="8" fill="#FFF0C7"/>
+    <text x="981" y="287" fill="#8A5B00" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">검토</text>
+    <text x="568" y="340" fill="#2F6F55" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">Notion · Slack · CSV export selected</text>
+  </g>
+
+  <g>
+    <rect x="388" y="386" width="704" height="128" rx="8" fill="#FFFDF7" stroke="#D8CFBD"/>
+    <rect x="416" y="414" width="126" height="72" rx="8" fill="#191715"/>
+    <rect x="430" y="428" width="88" height="12" rx="6" fill="#FF6A4A"/>
+    <rect x="430" y="452" width="58" height="12" rx="6" fill="#2F6F55"/>
+    <text x="568" y="426" fill="#191715" font-family="Pretendard, Arial, sans-serif" font-size="20" font-weight="850">음악/MV 제외 후 남은 후보</text>
+    <text x="568" y="458" fill="#655F54" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="700">Creative Commons 우선 · 중복 노출 숨김</text>
+    <rect x="872" y="412" width="72" height="34" rx="8" fill="#E7EBFF"/>
+    <text x="892" y="435" fill="#315CFF" font-family="Pretendard, Arial, sans-serif" font-size="16" font-weight="850">84</text>
+    <rect x="958" y="412" width="104" height="34" rx="8" fill="#DCEEE5"/>
+    <text x="981" y="435" fill="#2F6F55" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">예정</text>
+    <text x="568" y="488" fill="#847A6B" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="700">API cache hit · quota saved</text>
+  </g>
+
+  <rect x="388" y="552" width="704" height="86" rx="8" fill="#191715"/>
+  <text x="422" y="586" fill="#FFF6E7" font-family="Pretendard, Arial, sans-serif" font-size="19" font-weight="850">Export Queue</text>
+  <text x="422" y="616" fill="#C8BDA9" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="700">선택한 후보만 Notion database, Slack TOP 후보 메시지, CSV 파일로 보냅니다.</text>
+  <rect x="890" y="578" width="78" height="34" rx="8" fill="#315CFF"/>
+  <text x="911" y="600" fill="#FFFFFF" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">Notion</text>
+  <rect x="982" y="578" width="78" height="34" rx="8" fill="#FFB238"/>
+  <text x="1003" y="600" fill="#191715" font-family="Pretendard, Arial, sans-serif" font-size="15" font-weight="850">Slack</text>
+</svg>

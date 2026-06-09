@@ -345,7 +345,8 @@ article[class*='blogPost'] {
 .profile-summary-grid div,
 .profile-skill-grid section,
 .career-card-body,
-.project-hub-card {
+.project-hub-card,
+.project-feature-grid section {
   border: 1px solid var(--site-line);
   border-radius: 8px;
   background: var(--site-surface);
@@ -562,7 +563,7 @@ article[class*='blogPost'] {
   position: relative;
   display: block;
   color: inherit;
-  padding: 22px;
+  padding: 18px;
   text-decoration: none;
   overflow: hidden;
   transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
@@ -600,6 +601,17 @@ article[class*='blogPost'] {
   box-shadow: var(--site-shadow-md);
 }
 
+.project-hub-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 0 0 18px;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-bg-alt);
+  object-fit: cover;
+}
+
 .project-hub-card span {
   display: inline-block;
   margin-bottom: 12px;
@@ -628,6 +640,133 @@ article[class*='blogPost'] {
   color: var(--site-soft);
   font-size: 0.86rem;
   font-style: normal;
+}
+
+.project-showcase {
+  margin: 28px 0 34px;
+}
+
+.project-showcase img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-bg-alt);
+  box-shadow: var(--site-shadow-md);
+}
+
+.project-showcase figcaption {
+  margin-top: 10px;
+  color: var(--site-soft);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.project-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 34px;
+}
+
+.project-feature-grid section {
+  position: relative;
+  min-height: 172px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.project-feature-grid section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--site-accent);
+}
+
+.project-feature-grid section:nth-child(2)::before {
+  background: var(--site-sun);
+}
+
+.project-feature-grid section:nth-child(3)::before {
+  background: var(--site-coral);
+}
+
+.project-feature-grid section:nth-child(4)::before {
+  background: var(--site-forest);
+}
+
+.project-feature-grid span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 28px;
+  margin-bottom: 14px;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-bg-alt);
+  color: var(--site-muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.project-feature-grid h3 {
+  margin: 0 0 8px;
+  color: var(--site-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.project-feature-grid p {
+  margin: 0;
+  color: var(--site-muted);
+  line-height: 1.68;
+}
+
+.project-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0 38px;
+}
+
+.project-flow div {
+  padding: 18px;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-surface);
+  box-shadow: var(--site-shadow-sm);
+}
+
+.project-flow span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: var(--site-charcoal);
+  color: var(--site-paper);
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.project-flow strong {
+  display: block;
+  color: var(--site-ink);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.project-flow p {
+  margin: 8px 0 0;
+  color: var(--site-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 .timeline {
@@ -852,6 +991,10 @@ article[class*='blogPost'] {
   .project-hub-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .project-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -877,7 +1020,21 @@ article[class*='blogPost'] {
 
   .profile-summary-grid,
   .profile-skill-grid,
+  .project-feature-grid,
   .project-hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-hub-card {
+    padding: 14px;
+  }
+
+  .project-feature-grid section {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .project-flow {
     grid-template-columns: 1fr;
   }
 
