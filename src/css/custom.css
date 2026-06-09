@@ -688,6 +688,16 @@ article[class*='blogPost'] {
   object-fit: cover;
 }
 
+.project-screenshot-grid--workflow img {
+  object-position: top center;
+}
+
+.project-mobile-shot img {
+  max-height: 640px;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+}
+
 .project-screenshot-grid figcaption {
   margin-top: 10px;
   color: var(--site-muted);
