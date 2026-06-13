@@ -31,13 +31,9 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: function ({versionDocsDirPath, docPath}) {
-            return `https://github.com/eundo/TIL/edit/main/${versionDocsDirPath}/${docPath}`;
-          },
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/eundo/TIL/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
