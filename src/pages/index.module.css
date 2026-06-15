@@ -556,8 +556,17 @@
   border-top: 1px solid var(--site-line);
 }
 
+.productLab {
+  background: var(--site-bg);
+  padding-top: 54px;
+}
+
 .recentWork .sectionLabel {
   color: var(--site-accent);
+}
+
+.productLab .sectionLabel {
+  color: var(--site-forest);
 }
 
 .recentWork h2 {

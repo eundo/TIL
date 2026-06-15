@@ -6,44 +6,44 @@ import styles from './index.module.css';
 const portfolioLinks = [
   {
     title: 'Career Profile',
-    description: '금융, 보험, 마이데이터 도메인에서 쌓은 약 10년의 개발 이력',
+    description: '금융, 보험, 마이데이터 운영 고도화 경험과 실무 투입 포인트',
     href: '/docs/aboutMe/PARK%20EUNDO',
   },
   {
-    title: 'Selected Projects',
-    description: '사이드 프로젝트와 제품 아이디어를 기획부터 기술 관점까지 정리',
-    href: '/docs/project',
+    title: 'Case Studies',
+    description: '배치, 비동기 처리, SPA 전환처럼 현업 문제를 해결한 사례',
+    href: '/blog/dev-story',
   },
   {
-    title: 'Dev Story',
-    description: '실무에서 마주친 문제와 해결 과정을 회고형 글로 기록',
-    href: '/blog/dev-story',
+    title: 'Product Experiments',
+    description: '반복 작업을 도구화하는 개인 프로젝트와 제품화 실험',
+    href: '/docs/project',
   },
 ];
 
 const strengths = [
-  'Spring Boot + Batch',
-  'React + TypeScript',
-  'Oracle + PostgreSQL',
-  'GitHub + Netlify',
+  'Java/Spring 운영 고도화',
+  'Batch/대용량 처리',
+  'React 업무 화면 개선',
+  'Oracle/PostgreSQL 데이터 처리',
 ];
 
 const heroStats = [
   {value: '10y+', label: '금융, 보험, 마이데이터'},
-  {value: 'Full-stack', label: '백엔드와 프론트엔드 연결'},
-  {value: 'Product-minded', label: '반복 업무를 도구로 전환'},
+  {value: 'Operation', label: '배치, 인증, 연계, 장애 대응'},
+  {value: 'Full-stack', label: 'Spring Boot와 React 연결'},
 ];
 
 const signalRows = [
   {label: 'Domain', value: 'Finance / Insurance / MyData'},
-  {label: 'Build', value: 'Spring Boot / React / Batch'},
-  {label: 'Current', value: '증권 상품 업무와 개인 제품 실험'},
+  {label: 'Scope', value: '운영 개선 / 업무 화면 / 데이터 처리'},
+  {label: 'Current', value: '증권 상품 업무 설계 및 개발'},
 ];
 
 const flowSteps = [
-  {label: 'Observe', value: '운영 맥락'},
-  {label: 'Shape', value: '제품 흐름'},
-  {label: 'Ship', value: '배포와 회고'},
+  {label: 'Diagnose', value: '운영 병목'},
+  {label: 'Design', value: '처리 흐름'},
+  {label: 'Stabilize', value: '배포와 운영'},
 ];
 
 const stackTicker = [
@@ -60,20 +60,48 @@ const stackTicker = [
 
 const principles = [
   {
-    title: '운영 맥락',
-    description: '장애, 배치, 인증, 대외 연계처럼 운영에서 드러나는 병목을 먼저 읽습니다.',
+    title: '운영 안정성',
+    description: '장애, 배치, 인증, 대외 연계처럼 운영에서 드러나는 병목과 리스크를 먼저 봅니다.',
   },
   {
-    title: '제품화',
-    description: '반복되는 수작업을 검토 가능한 화면과 워크플로우로 옮깁니다.',
+    title: '업무 흐름 개선',
+    description: '수작업으로 처리하던 예외와 반복 업무를 화면, 상태, 재처리 흐름으로 옮깁니다.',
   },
   {
-    title: '공개 범위',
-    description: '진행 중인 private 프로젝트는 아이디어를 보호하면서 문제 정의와 설계 판단만 공개합니다.',
+    title: '레거시와 현대화',
+    description: 'Pro-C, JSP 같은 레거시 환경과 Spring Boot, React 기반 고도화 작업을 함께 다룹니다.',
   },
 ];
 
-const featuredWork = [
+const caseStudies = [
+  {
+    title: '실시간 로그적재 배치 개발',
+    meta: 'Spring Batch / 멀티스레드 / 로그 적재',
+    href: '/blog/dev-story/실시간%20로그적재%20배치개발',
+  },
+  {
+    title: 'API 비동기 호출 데이터 처리',
+    meta: '비동기 호출 / 상태 확인 / 재시도',
+    href: '/blog/dev-story/API%20비동기호출%20데이터처리%20개발',
+  },
+  {
+    title: 'React 기반 웹앱 SPA 전환',
+    meta: 'React / Redux / 상태 유지',
+    href: '/docs/aboutMe/PARK%20EUNDO#react-기반-웹앱-spa-전환',
+  },
+  {
+    title: '보험금 재이체 처리 시스템',
+    meta: '운영 자동화 / 오류 재처리 / 업무 화면',
+    href: '/docs/aboutMe/PARK%20EUNDO#보험금-지급-오류-재이체-처리-시스템',
+  },
+];
+
+const productExperiments = [
+  {
+    title: 'Shorts Pipeline',
+    meta: 'AI 영상 제작 워크플로우',
+    href: '/docs/project/shorts-pipeline',
+  },
   {
     title: 'Shorts Source Radar',
     meta: '콘텐츠 리서치 자동화',
@@ -84,27 +112,21 @@ const featuredWork = [
     meta: 'Local-first 개인 도구',
     href: '/docs/project/reread-bookshelf',
   },
-  {
-    title: 'Shorts Pipeline',
-    meta: 'AI 영상 제작 워크플로우',
-    href: '/docs/project/shorts-pipeline',
-  },
 ];
 
 export default function Home(): JSX.Element {
   return (
-    <Layout
-      title="Portfolio"
-      description="박은도의 개발자 포트폴리오입니다. 금융, 보험, 마이데이터 프로젝트와 제품형 개인 프로젝트를 정리합니다.">
+      <Layout
+      title="Operational Full-stack Portfolio"
+      description="박은도의 개발자 포트폴리오입니다. 금융, 보험, 마이데이터 운영 고도화 경험과 실무 문제 해결 사례를 정리합니다.">
       <main className={styles.portfolioPage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>eundo.today portfolio</p>
             <h1>박은도</h1>
             <p className={styles.heroCopy}>
-              운영을 이해하고 제품으로 정리하는 풀스택 개발자입니다. 금융, 보험,
-              마이데이터 시스템에서 쌓은 실무 경험을 바탕으로 안정적인 업무 흐름과
-              사용자 경험을 함께 설계합니다.
+              금융, 보험, 마이데이터 운영 시스템을 고도화해 온 풀스택 개발자입니다.
+              Java/Spring 기반 배치, 인증, 데이터 처리와 React 업무 화면 개선을 함께 다룹니다.
             </p>
             <div className={styles.heroStats} aria-label="Portfolio summary">
               {heroStats.map((item) => (
@@ -118,8 +140,8 @@ export default function Home(): JSX.Element {
               <a className="button button--primary button--lg" href="/docs/aboutMe/PARK%20EUNDO">
                 경력 보기
               </a>
-              <a className="button button--secondary button--lg" href="/docs/project">
-                프로젝트 보기
+              <a className="button button--secondary button--lg" href="/blog/dev-story">
+                실무 사례 보기
               </a>
             </div>
           </div>
@@ -185,7 +207,7 @@ export default function Home(): JSX.Element {
         <section className={styles.operatingSection}>
           <div>
             <p className={styles.sectionLabel}>Working Principles</p>
-            <h2>실무 시스템과 개인 제품을 같은 기준으로 다룹니다</h2>
+            <h2>운영에서 드러나는 문제를 안정적인 업무 흐름으로 바꿉니다</h2>
           </div>
           <div className={styles.principleGrid}>
             {principles.map((item) => (
@@ -199,11 +221,26 @@ export default function Home(): JSX.Element {
 
         <section className={styles.recentWork}>
           <div>
-            <p className={styles.sectionLabel}>Featured Work</p>
-            <h2>반복 작업을 제품형 도구로 정리하는 프로젝트</h2>
+            <p className={styles.sectionLabel}>Case Studies</p>
+            <h2>현업 문제를 어떻게 분석하고 구현했는지 보여주는 사례</h2>
           </div>
           <div className={styles.workList}>
-            {featuredWork.map((item) => (
+            {caseStudies.map((item) => (
+              <a key={item.title} href={item.href}>
+                <span>{item.meta}</span>
+                <strong>{item.title}</strong>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className={`${styles.recentWork} ${styles.productLab}`}>
+          <div>
+            <p className={styles.sectionLabel}>Product Experiments</p>
+            <h2>반복 작업을 도구화하는 개인 프로젝트</h2>
+          </div>
+          <div className={styles.workList}>
+            {productExperiments.map((item) => (
               <a key={item.title} href={item.href}>
                 <span>{item.meta}</span>
                 <strong>{item.title}</strong>

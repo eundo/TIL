@@ -13,4 +13,4 @@ sidebar_position: 1
 - TIL: 짧은 학습 기록
 - Project: 프로젝트별 정리
 - Book: 독서와 학습 노트
-- Dev Story: 개발 과정에서 얻은 인사이트와 회고
+- Case Studies: 실무 문제 해결 과정과 기술적 판단

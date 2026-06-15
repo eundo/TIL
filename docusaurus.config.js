@@ -8,7 +8,7 @@ const siteUrl = process.env.URL || 'https://eundo.today';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eundo Park Portfolio',
-  tagline: 'Product-minded full-stack developer',
+  tagline: 'Operational full-stack developer',
   favicon: 'img/brand-mark.svg',
 
   url: siteUrl,
@@ -34,6 +34,8 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarTitle: 'Case Studies',
+          blogSidebarCount: 'ALL',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -61,13 +63,13 @@ const config = {
               position: 'left',
               label: 'About Me',
             },
+            { to: '/blog/dev-story', label: 'Case Studies', position: 'left' },
             {
               type: 'docSidebar',
               sidebarId: 'projectSidebar',
               position: 'left',
               label: 'Projects',
             },
-            { to: '/blog/dev-story', label: 'Dev Story', position: 'left' },
             {
               type: 'dropdown',
               position: 'left',
@@ -101,12 +103,12 @@ const config = {
                   to: '/docs/aboutMe/PARK%20EUNDO',
                 },
                 {
-                  label: 'Projects',
-                  to: '/docs/project',
+                  label: 'Case Studies',
+                  to: '/blog/dev-story',
                 },
                 {
-                  label: 'Dev Story',
-                  to: '/blog/dev-story',
+                  label: 'Projects',
+                  to: '/docs/project',
                 },
               ],
             },

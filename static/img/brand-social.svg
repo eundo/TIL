@@ -10,10 +10,10 @@
   <circle cx="199" cy="203" r="12" fill="#FF6A4A"/>
   <text x="96" y="326" fill="#FFB238" font-family="Pretendard, Arial, sans-serif" font-size="30" font-weight="800">eundo.today</text>
   <text x="96" y="408" fill="#F7F1E4" font-family="Pretendard, Arial, sans-serif" font-size="72" font-weight="850">Eundo Park</text>
-  <text x="96" y="474" fill="#DED4C0" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="600">Product-minded full-stack developer</text>
+  <text x="96" y="474" fill="#DED4C0" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="600">Operational full-stack developer</text>
   <rect x="850" y="96" width="42" height="342" rx="8" fill="#315CFF"/>
   <rect x="912" y="168" width="42" height="270" rx="8" fill="#FFB238"/>
   <rect x="974" y="238" width="42" height="200" rx="8" fill="#FF6A4A"/>
   <rect x="1036" y="304" width="42" height="134" rx="8" fill="#2F6F55"/>
-  <text x="850" y="493" fill="#F7F1E4" font-family="Pretendard, Arial, sans-serif" font-size="24" font-weight="700">Finance · Insurance · MyData · Product Tools</text>
+  <text x="850" y="493" fill="#F7F1E4" font-family="Pretendard, Arial, sans-serif" font-size="24" font-weight="700">Finance · Insurance · MyData · Case Studies</text>
 </svg>
