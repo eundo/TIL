@@ -29,21 +29,28 @@ const strengths = [
 ];
 
 const heroStats = [
-  {value: '10y+', label: '금융, 보험, 마이데이터'},
-  {value: 'Operation', label: '배치, 인증, 연계, 장애 대응'},
-  {value: 'Full-stack', label: 'Spring Boot와 React 연결'},
+  {value: '10y+', label: '금융, 보험, 증권 운영 도메인'},
+  {value: 'Ops Builder', label: '장애 대응을 재처리 흐름으로 전환'},
+  {value: 'Full-stack', label: 'Spring Boot, Pro-C, React 연결'},
 ];
 
 const signalRows = [
-  {label: 'Domain', value: 'Finance / Insurance / MyData'},
-  {label: 'Scope', value: '운영 개선 / 업무 화면 / 데이터 처리'},
+  {label: 'Signal', value: '운영 병목을 구조화해 구현까지 끝내는 사람'},
+  {label: 'Domain', value: 'Finance / Insurance / Securities / MyData'},
   {label: 'Current', value: '증권 상품 업무 설계 및 개발'},
 ];
 
 const flowSteps = [
-  {label: 'Diagnose', value: '운영 병목'},
-  {label: 'Design', value: '처리 흐름'},
-  {label: 'Stabilize', value: '배포와 운영'},
+  {label: 'Find', value: '운영 병목'},
+  {label: 'Build', value: '업무 흐름'},
+  {label: 'Prove', value: '안정화 근거'},
+];
+
+const proofEvents = [
+  {time: '01', title: '로그 파일을 DB 적재 배치로 전환', tag: 'Batch'},
+  {time: '02', title: 'API 비동기 결과를 상태 기반으로 통제', tag: 'Async'},
+  {time: '03', title: 'React 화면의 끊기는 상태를 SPA로 안정화', tag: 'Frontend'},
+  {time: '04', title: '보험금 오류 건 재처리 흐름을 화면화', tag: 'Operation'},
 ];
 
 const stackTicker = [
@@ -70,6 +77,24 @@ const principles = [
   {
     title: '레거시와 현대화',
     description: 'Pro-C, JSP 같은 레거시 환경과 Spring Boot, React 기반 고도화 작업을 함께 다룹니다.',
+  },
+];
+
+const leaderSignals = [
+  {
+    metric: '3 min',
+    title: '검토 루트가 짧습니다',
+    description: '경력 요약, 실무 사례, 개인 제품 실험이 분리되어 처음 온 사람이 빠르게 판단할 수 있습니다.',
+  },
+  {
+    metric: '4 cases',
+    title: '현업 문제 해결 근거가 있습니다',
+    description: '배치, 비동기 API, React SPA, 운영 재처리처럼 면접 질문으로 이어질 수 있는 사례를 앞에 배치했습니다.',
+  },
+  {
+    metric: 'Private-safe',
+    title: '코드 대신 문제 해결 방식을 보여줍니다',
+    description: 'private repository의 구현 세부를 노출하지 않고도 문제 정의, 처리 흐름, 기술 선택을 설명합니다.',
   },
 ];
 
@@ -125,8 +150,9 @@ export default function Home(): JSX.Element {
             <p className={styles.eyebrow}>eundo.today portfolio</p>
             <h1>박은도</h1>
             <p className={styles.heroCopy}>
-              금융, 보험, 마이데이터 운영 시스템을 고도화해 온 풀스택 개발자입니다.
-              Java/Spring 기반 배치, 인증, 데이터 처리와 React 업무 화면 개선을 함께 다룹니다.
+              운영 장애, 반복 수작업, 레거시 화면처럼 기술팀장이 바로 신경 쓰는 문제를
+              배치, 데이터 처리, 프론트엔드 흐름으로 정리해 온 풀스택 개발자입니다.
+              코드를 많이 쓰는 것보다 문제를 다시 발생하지 않게 만드는 구조에 집중합니다.
             </p>
             <div className={styles.heroStats} aria-label="Portfolio summary">
               {heroStats.map((item) => (
@@ -137,11 +163,11 @@ export default function Home(): JSX.Element {
               ))}
             </div>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href="/docs/aboutMe/PARK%20EUNDO">
-                경력 보기
+              <a className="button button--primary button--lg" href="#leader-scan">
+                3분 검토 루트
               </a>
               <a className="button button--secondary button--lg" href="/blog/dev-story">
-                실무 사례 보기
+                핵심 사례 먼저 보기
               </a>
             </div>
           </div>
@@ -151,9 +177,9 @@ export default function Home(): JSX.Element {
               <img src="/img/brand-mark.svg" alt="" />
               <div>
                 <span>eundo.today</span>
-                <strong>Developer Portfolio</strong>
+                <strong>Hiring Signal Board</strong>
               </div>
-              <em>Live</em>
+              <em>Lead View</em>
             </div>
             <div className={styles.pipelineMap} aria-label="Working flow">
               {flowSteps.map((item) => (
@@ -171,11 +197,14 @@ export default function Home(): JSX.Element {
                 </div>
               ))}
             </dl>
-            <div className={styles.signalBars} aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
+            <div className={styles.proofStream} aria-label="Representative proof stream">
+              {proofEvents.map((item) => (
+                <div key={item.title}>
+                  <span>{item.time}</span>
+                  <strong>{item.title}</strong>
+                  <em>{item.tag}</em>
+                </div>
+              ))}
             </div>
           </aside>
         </section>
@@ -184,6 +213,26 @@ export default function Home(): JSX.Element {
           <div>
             {[...stackTicker, ...stackTicker].map((item, index) => (
               <span key={`${item}-${index}`}>{item}</span>
+            ))}
+          </div>
+        </section>
+
+        <section id="leader-scan" className={styles.leaderScan}>
+          <div className={styles.scanIntro}>
+            <p className={styles.sectionLabel}>For Tech Leads</p>
+            <h2>처음 들어온 사람이 바로 흥미를 느끼도록, 판단 신호를 앞에 둡니다</h2>
+            <p>
+              대기업 기술팀장이나 핵심인재 채용 담당자가 궁금해할 지점은 단순 기술 나열이 아니라
+              어떤 문제를 맡겼을 때 어디까지 책임지고 안정화할 수 있는지입니다.
+            </p>
+          </div>
+          <div className={styles.scanCards}>
+            {leaderSignals.map((item) => (
+              <article key={item.title}>
+                <span>{item.metric}</span>
+                <strong>{item.title}</strong>
+                <p>{item.description}</p>
+              </article>
             ))}
           </div>
         </section>
