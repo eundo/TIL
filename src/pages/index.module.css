@@ -407,7 +407,7 @@
   line-height: 1.2;
 }
 
-.leaderScan {
+.workMap {
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(340px, 1.14fr);
   gap: 42px;
@@ -782,7 +782,7 @@
   }
 
   .portfolioGrid,
-  .leaderScan,
+  .workMap,
   .operatingSection,
   .recentWork {
     grid-template-columns: 1fr;
@@ -804,7 +804,7 @@
 @media screen and (max-width: 640px) {
   .hero,
   .portfolioGrid,
-  .leaderScan,
+  .workMap,
   .operatingSection,
   .recentWork {
     padding-left: 20px;

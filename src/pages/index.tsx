@@ -35,7 +35,7 @@ const heroStats = [
 ];
 
 const signalRows = [
-  {label: 'Signal', value: '운영 병목을 구조화해 구현까지 끝내는 사람'},
+  {label: 'Signal', value: '운영 병목을 구조화하고 구현까지 연결'},
   {label: 'Domain', value: 'Finance / Insurance / Securities / MyData'},
   {label: 'Current', value: '증권 상품 업무 설계 및 개발'},
 ];
@@ -80,20 +80,20 @@ const principles = [
   },
 ];
 
-const leaderSignals = [
+const workSignals = [
   {
-    metric: '3 min',
-    title: '검토 루트가 짧습니다',
-    description: '경력 요약, 실무 사례, 개인 제품 실험이 분리되어 처음 온 사람이 빠르게 판단할 수 있습니다.',
+    metric: 'Profile',
+    title: '경력 맥락을 빠르게 훑습니다',
+    description: '금융, 보험, 증권, 마이데이터 도메인에서 어떤 역할을 맡아왔는지 한 흐름으로 정리했습니다.',
   },
   {
-    metric: '4 cases',
-    title: '현업 문제 해결 근거가 있습니다',
-    description: '배치, 비동기 API, React SPA, 운영 재처리처럼 면접 질문으로 이어질 수 있는 사례를 앞에 배치했습니다.',
+    metric: 'Cases',
+    title: '실무 문제 해결 과정을 봅니다',
+    description: '배치, 비동기 API, React SPA, 운영 재처리처럼 실제로 마주한 문제와 처리 방식을 사례로 묶었습니다.',
   },
   {
-    metric: 'Private-safe',
-    title: '코드 대신 문제 해결 방식을 보여줍니다',
+    metric: 'Labs',
+    title: '개인 실험으로 확장성을 보여줍니다',
     description: 'private repository의 구현 세부를 노출하지 않고도 문제 정의, 처리 흐름, 기술 선택을 설명합니다.',
   },
 ];
@@ -150,7 +150,7 @@ export default function Home(): JSX.Element {
             <p className={styles.eyebrow}>eundo.today portfolio</p>
             <h1>박은도</h1>
             <p className={styles.heroCopy}>
-              운영 장애, 반복 수작업, 레거시 화면처럼 기술팀장이 바로 신경 쓰는 문제를
+              운영 장애, 반복 수작업, 레거시 화면에서 드러나는 문제를
               배치, 데이터 처리, 프론트엔드 흐름으로 정리해 온 풀스택 개발자입니다.
               코드를 많이 쓰는 것보다 문제를 다시 발생하지 않게 만드는 구조에 집중합니다.
             </p>
@@ -163,11 +163,11 @@ export default function Home(): JSX.Element {
               ))}
             </div>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href="#leader-scan">
-                3분 검토 루트
+              <a className="button button--primary button--lg" href="#work-map">
+                작업 방식 보기
               </a>
               <a className="button button--secondary button--lg" href="/blog/dev-story">
-                핵심 사례 먼저 보기
+                실무 사례 보기
               </a>
             </div>
           </div>
@@ -177,9 +177,9 @@ export default function Home(): JSX.Element {
               <img src="/img/brand-mark.svg" alt="" />
               <div>
                 <span>eundo.today</span>
-                <strong>Hiring Signal Board</strong>
+                <strong>Work Signal Board</strong>
               </div>
-              <em>Lead View</em>
+              <em>Live</em>
             </div>
             <div className={styles.pipelineMap} aria-label="Working flow">
               {flowSteps.map((item) => (
@@ -217,17 +217,17 @@ export default function Home(): JSX.Element {
           </div>
         </section>
 
-        <section id="leader-scan" className={styles.leaderScan}>
+        <section id="work-map" className={styles.workMap}>
           <div className={styles.scanIntro}>
-            <p className={styles.sectionLabel}>For Tech Leads</p>
-            <h2>처음 들어온 사람이 바로 흥미를 느끼도록, 판단 신호를 앞에 둡니다</h2>
+            <p className={styles.sectionLabel}>Portfolio Map</p>
+            <h2>운영 문제를 발견하고, 다시 쓸 수 있는 처리 흐름으로 바꿉니다</h2>
             <p>
-              대기업 기술팀장이나 핵심인재 채용 담당자가 궁금해할 지점은 단순 기술 나열이 아니라
-              어떤 문제를 맡겼을 때 어디까지 책임지고 안정화할 수 있는지입니다.
+              이 포트폴리오는 경력 요약, 실무 사례, 개인 제품 실험을 분리해 정리했습니다.
+              어떤 문제를 맡았고, 어떤 방식으로 구현했으며, 다음 개선 방향을 어떻게 잡았는지 이어서 볼 수 있습니다.
             </p>
           </div>
           <div className={styles.scanCards}>
-            {leaderSignals.map((item) => (
+            {workSignals.map((item) => (
               <article key={item.title}>
                 <span>{item.metric}</span>
                 <strong>{item.title}</strong>
