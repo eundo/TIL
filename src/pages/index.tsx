@@ -29,28 +29,23 @@ const strengths = [
 ];
 
 const heroStats = [
-  {value: '10y+', label: '금융, 보험, 증권 운영 도메인'},
-  {value: 'Ops Builder', label: '장애 대응을 재처리 흐름으로 전환'},
-  {value: 'Full-stack', label: 'Spring Boot, Pro-C, React 연결'},
+  {value: 'Ops', label: '장애와 반복 작업을 처리 흐름으로'},
+  {value: 'UI', label: '끊기는 업무 화면을 상태가 있는 화면으로'},
+  {value: 'Lab', label: '아이디어를 개인 도구로 빠르게 실험'},
 ];
 
-const signalRows = [
-  {label: 'Signal', value: '운영 병목을 구조화하고 구현까지 연결'},
-  {label: 'Domain', value: 'Finance / Insurance / Securities / MyData'},
-  {label: 'Current', value: '증권 상품 업무 설계 및 개발'},
+const fractureCards = [
+  {mark: '01', crack: '1분마다 쌓이는 로그', move: '중복 없이 적재되는 배치'},
+  {mark: '02', crack: '빈 응답과 재시도', move: '상태를 가진 비동기 처리'},
+  {mark: '03', crack: '끊기는 팝업 화면', move: '흐름이 유지되는 SPA'},
+  {mark: '04', crack: '수작업 재처리', move: '운영자가 누를 수 있는 화면'},
 ];
 
-const flowSteps = [
-  {label: 'Find', value: '운영 병목'},
-  {label: 'Build', value: '업무 흐름'},
-  {label: 'Prove', value: '안정화 근거'},
-];
-
-const proofEvents = [
-  {time: '01', title: '로그 파일을 DB 적재 배치로 전환', tag: 'Batch'},
-  {time: '02', title: 'API 비동기 결과를 상태 기반으로 통제', tag: 'Async'},
-  {time: '03', title: 'React 화면의 끊기는 상태를 SPA로 안정화', tag: 'Frontend'},
-  {time: '04', title: '보험금 오류 건 재처리 흐름을 화면화', tag: 'Operation'},
+const labNodes = [
+  {label: 'log', value: '파일'},
+  {label: 'api', value: '상태'},
+  {label: 'screen', value: '흐름'},
+  {label: 'tool', value: '도구'},
 ];
 
 const stackTicker = [
@@ -82,19 +77,19 @@ const principles = [
 
 const workSignals = [
   {
-    metric: 'Profile',
-    title: '경력 맥락을 빠르게 훑습니다',
-    description: '금융, 보험, 증권, 마이데이터 도메인에서 어떤 역할을 맡아왔는지 한 흐름으로 정리했습니다.',
+    metric: 'Trace',
+    title: '문제의 흔적을 먼저 봅니다',
+    description: '로그, 상태, 예외, 수작업처럼 시스템이 삐걱거리는 지점을 작게 쪼개서 확인합니다.',
   },
   {
-    metric: 'Cases',
-    title: '실무 문제 해결 과정을 봅니다',
-    description: '배치, 비동기 API, React SPA, 운영 재처리처럼 실제로 마주한 문제와 처리 방식을 사례로 묶었습니다.',
+    metric: 'Flow',
+    title: '흐름으로 다시 설계합니다',
+    description: '배치, 비동기 API, React SPA, 운영 재처리처럼 반복 가능한 처리 구조로 바꿉니다.',
   },
   {
-    metric: 'Labs',
-    title: '개인 실험으로 확장성을 보여줍니다',
-    description: 'private repository의 구현 세부를 노출하지 않고도 문제 정의, 처리 흐름, 기술 선택을 설명합니다.',
+    metric: 'Build',
+    title: '작게 만들고 계속 다듬습니다',
+    description: '개인 프로젝트에서도 아이디어를 실제 화면과 워크플로우로 옮기며 제품처럼 실험합니다.',
   },
 ];
 
@@ -147,13 +142,21 @@ export default function Home(): JSX.Element {
       <main className={styles.portfolioPage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>eundo.today portfolio</p>
-            <h1>박은도</h1>
+            <h1>
+              <span>박은도</span>
+              문제를 보면
+              <br />
+              흐름을 만듭니다
+            </h1>
             <p className={styles.heroCopy}>
-              운영 장애, 반복 수작업, 레거시 화면에서 드러나는 문제를
-              배치, 데이터 처리, 프론트엔드 흐름으로 정리해 온 풀스택 개발자입니다.
-              코드를 많이 쓰는 것보다 문제를 다시 발생하지 않게 만드는 구조에 집중합니다.
+              운영 중인 시스템에서 1분마다 쌓이는 로그, 빈 API 응답, 끊기는 팝업 상태,
+              수작업 재처리를 그냥 버그 목록으로 보지 않습니다. 반복 가능한 흐름, 화면, 도구로 바꿔서 일이 굴러가게 만듭니다.
             </p>
+            <div className={styles.sparkList} aria-label="Problem fragments">
+              {fractureCards.slice(0, 3).map((item) => (
+                <span key={item.mark}>{item.crack}</span>
+              ))}
+            </div>
             <div className={styles.heroStats} aria-label="Portfolio summary">
               {heroStats.map((item) => (
                 <div key={item.value}>
@@ -172,37 +175,28 @@ export default function Home(): JSX.Element {
             </div>
           </div>
 
-          <aside className={styles.signalBoard} aria-label="Portfolio focus">
-            <div className={styles.boardHeader}>
-              <img src="/img/brand-mark.svg" alt="" />
-              <div>
-                <span>eundo.today</span>
-                <strong>Work Signal Board</strong>
-              </div>
-              <em>Live</em>
+          <aside className={styles.labCanvas} aria-label="Problem workbench">
+            <div className={styles.labHeader}>
+              <span>workbench</span>
+              <strong>문제 조각을 실행 가능한 흐름으로</strong>
             </div>
-            <div className={styles.pipelineMap} aria-label="Working flow">
-              {flowSteps.map((item) => (
-                <div key={item.label}>
+            <div className={styles.labStage} aria-hidden="true">
+              <div className={styles.labCore}>
+                <span>FLOW</span>
+              </div>
+              {labNodes.map((item, index) => (
+                <div key={item.label} className={`${styles.labNode} ${styles[`labNode${index + 1}`]}`}>
                   <span>{item.label}</span>
                   <strong>{item.value}</strong>
                 </div>
               ))}
             </div>
-            <dl className={styles.signalList}>
-              {signalRows.map((item) => (
-                <div key={item.label}>
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className={styles.proofStream} aria-label="Representative proof stream">
-              {proofEvents.map((item) => (
-                <div key={item.title}>
-                  <span>{item.time}</span>
-                  <strong>{item.title}</strong>
-                  <em>{item.tag}</em>
+            <div className={styles.fractureList}>
+              {fractureCards.map((item) => (
+                <div key={item.mark}>
+                  <span>{item.mark}</span>
+                  <p>{item.crack}</p>
+                  <strong>{item.move}</strong>
                 </div>
               ))}
             </div>
@@ -219,11 +213,11 @@ export default function Home(): JSX.Element {
 
         <section id="work-map" className={styles.workMap}>
           <div className={styles.scanIntro}>
-            <p className={styles.sectionLabel}>Portfolio Map</p>
-            <h2>운영 문제를 발견하고, 다시 쓸 수 있는 처리 흐름으로 바꿉니다</h2>
+            <p className={styles.sectionLabel}>Workbench Notes</p>
+            <h2>가볍게 포장한 이력서가 아니라, 문제를 다루는 방식의 기록입니다</h2>
             <p>
-              이 포트폴리오는 경력 요약, 실무 사례, 개인 제품 실험을 분리해 정리했습니다.
-              어떤 문제를 맡았고, 어떤 방식으로 구현했으며, 다음 개선 방향을 어떻게 잡았는지 이어서 볼 수 있습니다.
+              업무 시스템에서 마주친 병목과 개인 프로젝트에서 만든 실험을 같은 기준으로 정리했습니다.
+              문제를 어떻게 발견하고, 어떤 형태의 흐름으로 바꾸는지 이어서 볼 수 있습니다.
             </p>
           </div>
           <div className={styles.scanCards}>
