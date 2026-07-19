@@ -29,23 +29,9 @@ const strengths = [
 ];
 
 const heroStats = [
-  {value: 'Backend', label: 'Spring Boot · Batch'},
-  {value: 'Frontend', label: 'React · TypeScript'},
-  {value: 'Product', label: 'AI workflow · Automation'},
-];
-
-const selectedCards = [
-  {mark: '01', title: 'Shorts Pipeline', description: 'AI 영상 제작 워크플로우'},
-  {mark: '02', title: 'Source Radar', description: '콘텐츠 리서치 자동화'},
-  {mark: '03', title: 'Dev Stories', description: '운영 개발 회고'},
-  {mark: '04', title: 'Career', description: '금융 도메인 실무 경험'},
-];
-
-const labNodes = [
-  {label: 'Spring', value: 'Backend'},
-  {label: 'React', value: 'Frontend'},
-  {label: 'Batch', value: 'Ops'},
-  {label: 'AI', value: 'Tools'},
+  {value: '10y+', label: 'Finance · Insurance · Securities'},
+  {value: 'Full-stack', label: 'Spring · React · Batch'},
+  {value: 'Products', label: 'Automation · AI workflow'},
 ];
 
 const stackTicker = [
@@ -59,6 +45,15 @@ const stackTicker = [
   'GitHub Actions',
   'LLM Workflow',
 ];
+
+const featuredProject = {
+  title: 'Shorts Pipeline',
+  description: 'LLM 대본 생성, TTS, 편집 화면, FFmpeg 렌더링을 연결한 숏폼 제작 실험입니다.',
+  href: '/docs/project/shorts-pipeline',
+  desktopImage: '/img/projects/shorts-pipeline-live-editor.png',
+  mobileImage: '/img/projects/shorts-pipeline-live-mobile-editor.png',
+  tags: ['FastAPI', 'LLM API', 'FFmpeg', 'Docker'],
+};
 
 const principles = [
   {
@@ -136,7 +131,7 @@ const productExperiments = [
 
 export default function Home(): JSX.Element {
   return (
-      <Layout
+    <Layout
       title="Operational Full-stack Portfolio"
       description="박은도의 개발자 포트폴리오입니다. 금융 도메인 개발 경험과 개인 프로젝트를 정리합니다.">
       <main className={styles.portfolioPage}>
@@ -147,10 +142,10 @@ export default function Home(): JSX.Element {
               박은도
             </h1>
             <p className={styles.heroCopy}>
-              금융 도메인의 운영 시스템을 만들고, 개인 프로젝트로 자동화 제품을 실험합니다.
+              금융권 운영 시스템을 개발합니다. 반복되는 작업은 개인 제품으로 다시 만들어 봅니다.
             </p>
             <div className={styles.sparkList} aria-label="Core stack">
-              {stackTicker.slice(0, 5).map((item) => (
+              {['Web', 'Backend', 'Batch', 'API', 'Automation'].map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
@@ -164,38 +159,37 @@ export default function Home(): JSX.Element {
             </div>
             <div className={styles.heroActions}>
               <a className="button button--primary button--lg" href="#work-map">
-                Selected Work
+                프로젝트 보기
               </a>
               <a className="button button--secondary button--lg" href="/docs/aboutMe/PARK%20EUNDO">
-                About
+                경력 보기
               </a>
             </div>
           </div>
 
-          <aside className={styles.labCanvas} aria-label="Portfolio preview">
-            <div className={styles.labHeader}>
-              <span>portfolio</span>
-              <strong>Selected work</strong>
-            </div>
-            <div className={styles.labStage} aria-hidden="true">
-              <div className={styles.labCore}>
-                <span>EP</span>
+          <aside className={styles.showcasePanel} aria-label="Selected project preview">
+            <div className={styles.showcaseCopy}>
+              <span>Selected Work</span>
+              <strong>{featuredProject.title}</strong>
+              <p>{featuredProject.description}</p>
+              <div className={styles.showcaseTags}>
+                {featuredProject.tags.map((tag) => (
+                  <em key={tag}>{tag}</em>
+                ))}
               </div>
-              {labNodes.map((item, index) => (
-                <div key={item.label} className={`${styles.labNode} ${styles[`labNode${index + 1}`]}`}>
-                  <span>{item.label}</span>
-                  <strong>{item.value}</strong>
-                </div>
-              ))}
+              <a href={featuredProject.href}>프로젝트 상세 보기</a>
             </div>
-            <div className={styles.fractureList}>
-              {selectedCards.map((item) => (
-                <div key={item.mark}>
-                  <span>{item.mark}</span>
-                  <p>{item.title}</p>
-                  <strong>{item.description}</strong>
-                </div>
-              ))}
+            <div className={styles.showcaseVisual} aria-hidden="true">
+              <img
+                className={styles.desktopShot}
+                src={featuredProject.desktopImage}
+                alt=""
+              />
+              <img
+                className={styles.mobileShot}
+                src={featuredProject.mobileImage}
+                alt=""
+              />
             </div>
           </aside>
         </section>
@@ -211,9 +205,9 @@ export default function Home(): JSX.Element {
         <section id="work-map" className={styles.workMap}>
           <div className={styles.scanIntro}>
             <p className={styles.sectionLabel}>Selected</p>
-            <h2>필요한 것만 빠르게 볼 수 있게 정리했습니다</h2>
+            <h2>경력, 회고, 제품 실험을 분리했습니다</h2>
             <p>
-              경력, 실무 회고, 개인 프로젝트를 분리했습니다. 길게 읽기 전에도 방향을 알 수 있게 구성했습니다.
+              코드를 전부 공개하지 않아도, 어떤 화면을 만들고 어떤 판단을 했는지는 바로 보이게 정리했습니다.
             </p>
           </div>
           <div className={styles.scanCards}>
@@ -246,7 +240,7 @@ export default function Home(): JSX.Element {
         <section className={styles.operatingSection}>
           <div>
             <p className={styles.sectionLabel}>Notes</p>
-            <h2>운영 개발과 개인 제품 실험을 같이 기록합니다</h2>
+            <h2>운영 개발과 개인 제품 실험을 같이 남깁니다</h2>
           </div>
           <div className={styles.principleGrid}>
             {principles.map((item) => (
@@ -276,7 +270,7 @@ export default function Home(): JSX.Element {
         <section className={`${styles.recentWork} ${styles.productLab}`}>
           <div>
             <p className={styles.sectionLabel}>Product Experiments</p>
-            <h2>반복 작업을 도구화하는 개인 프로젝트</h2>
+            <h2>직접 쓰려고 만든 개인 프로젝트</h2>
           </div>
           <div className={styles.workList}>
             {productExperiments.map((item) => (
