@@ -50,6 +50,11 @@ const config = {
   themeConfig:
       ({
         image: 'img/brand-social.svg',
+        colorMode: {
+          defaultMode: 'light',
+          disableSwitch: true,
+          respectPrefersColorScheme: false,
+        },
         navbar: {
           title: 'eundo.today',
           logo: {

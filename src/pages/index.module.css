@@ -14,7 +14,7 @@
   min-height: min(760px, calc(100svh - var(--ifm-navbar-height) - 96px));
   padding: 52px max(28px, calc((100vw - 1240px) / 2)) 56px;
   background:
-    linear-gradient(115deg, rgba(242, 229, 255, 0.72), rgba(233, 255, 247, 0.54) 46%, rgba(255, 246, 207, 0.72)),
+    linear-gradient(115deg, #efe8ff 0%, #d8fff4 46%, #fff0a8 100%),
     var(--site-paper);
 }
 
@@ -36,8 +36,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.52), transparent 32%),
-    linear-gradient(180deg, transparent 72%, var(--site-bg) 100%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.28), transparent 34%),
+    linear-gradient(180deg, transparent 76%, var(--site-bg) 100%);
 }
 
 .heroContent {
@@ -95,7 +95,7 @@
   min-height: 34px;
   border: 1px solid rgba(14, 18, 28, 0.12);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.84);
   color: var(--site-ink-2);
   padding: 7px 11px;
   font-size: 0.82rem;
@@ -111,13 +111,13 @@
   margin-top: 34px;
   border: 1px solid rgba(14, 18, 28, 0.1);
   border-radius: 8px;
-  background: rgba(14, 18, 28, 0.08);
+  background: rgba(14, 18, 28, 0.14);
   overflow: hidden;
 }
 
 .heroStats div {
   min-height: 92px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.88);
   padding: 16px;
   transition: background 0.18s ease, transform 0.18s ease;
 }
@@ -188,10 +188,10 @@
   border: 1px solid rgba(14, 18, 28, 0.12);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(234, 222, 255, 0.9), rgba(218, 255, 246, 0.86) 48%, rgba(255, 242, 189, 0.9)),
+    linear-gradient(135deg, #e4d9ff 0%, #c1fff0 48%, #ffeb81 100%),
     #ffffff;
   padding: 38px;
-  box-shadow: 0 34px 80px rgba(84, 76, 110, 0.18);
+  box-shadow: 0 34px 80px rgba(66, 48, 160, 0.18);
   overflow: hidden;
   animation: panelFloat 8s ease-in-out infinite;
 }
@@ -252,7 +252,7 @@
 .showcaseTags em {
   border: 1px solid rgba(14, 18, 28, 0.12);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.88);
   color: var(--site-ink-2);
   padding: 5px 8px;
   font-size: 0.76rem;
@@ -322,7 +322,7 @@
   overflow: hidden;
   border-top: 1px solid rgba(14, 18, 28, 0.1);
   border-bottom: 1px solid rgba(14, 18, 28, 0.1);
-  background: var(--site-accent);
+  background: linear-gradient(90deg, var(--site-accent), #ff6bcb, #18cbb1, var(--site-accent));
   color: #ffffff;
 }
 
@@ -348,7 +348,7 @@
   align-items: start;
   padding: 72px max(28px, calc((100vw - 1180px) / 2));
   background:
-    linear-gradient(135deg, rgba(255, 246, 207, 0.64), rgba(255, 255, 255, 0) 48%),
+    linear-gradient(135deg, #fff0a8 0%, rgba(255, 255, 255, 0) 42%),
     var(--site-paper);
   border-bottom: 1px solid var(--site-line);
 }
@@ -380,7 +380,7 @@
 .workList a {
   border: 1px solid rgba(14, 18, 28, 0.1);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.78);
+  background: #ffffff;
   box-shadow: var(--site-shadow-sm);
 }
 
@@ -393,15 +393,15 @@
 }
 
 .scanCards article:nth-child(1) {
-  background: linear-gradient(145deg, rgba(238, 228, 255, 0.94), #ffffff 64%);
+  background: linear-gradient(145deg, #eee6ff 0%, #ffffff 68%);
 }
 
 .scanCards article:nth-child(2) {
-  background: linear-gradient(145deg, rgba(221, 255, 244, 0.94), #ffffff 64%);
+  background: linear-gradient(145deg, #d6fff3 0%, #ffffff 68%);
 }
 
 .scanCards article:nth-child(3) {
-  background: linear-gradient(145deg, rgba(255, 244, 202, 0.94), #ffffff 64%);
+  background: linear-gradient(145deg, #fff0a8 0%, #ffffff 68%);
 }
 
 .scanCards article:hover,
@@ -444,13 +444,13 @@
   display: grid;
   grid-template-columns: 1.15fr repeat(4, minmax(0, 1fr));
   gap: 1px;
-  background: rgba(14, 18, 28, 0.1);
+  background: rgba(14, 18, 28, 0.16);
   border-bottom: 1px solid var(--site-line);
 }
 
 .strengthBand strong,
 .strengthBand span {
-  background: rgba(255, 255, 255, 0.86);
+  background: #ffffff;
   padding: 20px 24px;
   line-height: 1.45;
 }
@@ -487,15 +487,15 @@
 }
 
 .portfolioCard:nth-child(1) {
-  background: linear-gradient(140deg, rgba(238, 228, 255, 0.92), #ffffff 62%);
+  background: linear-gradient(140deg, #eee6ff 0%, #ffffff 66%);
 }
 
 .portfolioCard:nth-child(2) {
-  background: linear-gradient(140deg, rgba(221, 255, 244, 0.92), #ffffff 62%);
+  background: linear-gradient(140deg, #d6fff3 0%, #ffffff 66%);
 }
 
 .portfolioCard:nth-child(3) {
-  background: linear-gradient(140deg, rgba(255, 244, 202, 0.92), #ffffff 62%);
+  background: linear-gradient(140deg, #fff0a8 0%, #ffffff 66%);
 }
 
 .portfolioCard span {
@@ -517,7 +517,7 @@
   gap: 46px;
   padding: 70px max(28px, calc((100vw - 1180px) / 2));
   background:
-    linear-gradient(135deg, rgba(238, 228, 255, 0.74), rgba(221, 255, 244, 0.58)),
+    linear-gradient(135deg, #eee6ff 0%, #d6fff3 100%),
     var(--site-paper);
   color: var(--site-ink);
 }
@@ -565,7 +565,7 @@
 
 .productLab {
   background:
-    linear-gradient(135deg, rgba(255, 226, 214, 0.48), transparent 54%),
+    linear-gradient(135deg, #ffe1d9 0%, rgba(255, 255, 255, 0) 58%),
     var(--site-bg);
   padding-top: 58px;
 }
