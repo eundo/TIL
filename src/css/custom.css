@@ -167,6 +167,39 @@ a {
   color: var(--site-accent);
 }
 
+.navbar-sidebar {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  background: #ffffff !important;
+  box-shadow: 18px 0 50px rgba(17, 19, 29, 0.16);
+}
+
+.navbar-sidebar__brand {
+  border-bottom: 1px solid var(--site-line);
+}
+
+.navbar-sidebar__items {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  padding: 8px 12px 24px;
+  background: #ffffff;
+}
+
+.navbar-sidebar .menu__link {
+  min-height: 42px;
+  color: var(--site-ink-2);
+  font-weight: 850;
+}
+
+.navbar-sidebar .menu__link:hover,
+.navbar-sidebar .menu__link--active {
+  background: var(--site-accent-soft);
+  color: var(--site-accent-strong);
+}
+
+.navbar-sidebar__back {
+  color: var(--site-ink) !important;
+}
+
 .dropdown__menu {
   border: 1px solid var(--site-line);
   border-radius: 8px;
