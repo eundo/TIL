@@ -48,7 +48,7 @@ const stackTicker = [
 
 const featuredProject = {
   title: 'Shorts Pipeline',
-  description: '영상 업로드부터 TTS, 자막, FFmpeg 합성까지 한 화면 흐름으로 묶어 본 작업입니다.',
+  description: '영상 업로드, TTS, 자막, FFmpeg 합성을 연결한 숏폼 제작 도구.',
   href: '/docs/project/shorts-pipeline',
   desktopImage: '/img/projects/shorts-pipeline-live-editor.png',
   mobileImage: '/img/projects/shorts-pipeline-live-mobile-editor.png',
@@ -57,34 +57,34 @@ const featuredProject = {
 
 const principles = [
   {
-    title: '운영 개발',
-    description: '정해진 업무 안에서도 손으로 반복하는 일은 줄일 방법을 찾습니다.',
+    title: 'Backend',
+    description: 'Spring 기반 운영 API, 인증, 대외 연계.',
   },
   {
-    title: '화면과 배치',
-    description: '백엔드 처리와 사용자가 보는 화면을 같이 맞춥니다.',
+    title: 'Batch',
+    description: '대용량 처리, 재시도, 상태 추적.',
   },
   {
-    title: '개인 제품',
-    description: '궁금한 아이디어는 작게라도 화면으로 만들어 확인합니다.',
+    title: 'Product UI',
+    description: 'React 업무 화면과 개인 프로젝트 UI.',
   },
 ];
 
 const workSignals = [
   {
     metric: 'About',
-    title: '경력 요약',
-    description: '회사명보다 맡은 일과 남은 결과가 먼저 보이게 정리했습니다.',
+    title: 'Career',
+    description: '금융, 보험, 증권 운영 개발 경력.',
   },
   {
     metric: 'Stories',
-    title: '실무 기록',
-    description: '배치, 비동기 API, SPA 전환처럼 직접 만진 문제만 적었습니다.',
+    title: 'Dev Stories',
+    description: '배치, 비동기 API, React SPA 작업 기록.',
   },
   {
     metric: 'Projects',
-    title: '개인 프로젝트',
-    description: '코드는 닫고, 화면과 흐름은 열어 둡니다.',
+    title: 'Projects',
+    description: 'Shorts Pipeline과 개인 제품 실험.',
   },
 ];
 
@@ -142,7 +142,7 @@ export default function Home(): JSX.Element {
               박은도
             </h1>
             <p className={styles.heroCopy}>
-              금융권 운영 개발을 해왔습니다. 배치로 줄이고, 화면으로 묶고, 개인 프로젝트로 다시 만들어 봅니다.
+              금융권 운영 시스템, 배치, API, React 화면을 다룹니다. 반복되는 일은 작은 제품으로 만들어 검증합니다.
             </p>
             <div className={styles.sparkList} aria-label="Core stack">
               {['Web', 'Backend', 'Batch', 'API', 'Automation'].map((item) => (
@@ -204,10 +204,10 @@ export default function Home(): JSX.Element {
 
         <section id="work-map" className={styles.workMap}>
           <div className={styles.scanIntro}>
-            <p className={styles.sectionLabel}>Selected</p>
-            <h2>먼저 볼 것만 앞에 뒀습니다</h2>
+            <p className={styles.sectionLabel}>Overview</p>
+            <h2>Career · Dev Stories · Projects</h2>
             <p>
-              경력은 About, 실무 기록은 Dev Stories, 직접 만든 도구는 Projects에 나눠 뒀습니다.
+              금융권 운영 개발 · 배치와 API · 개인 제품 실험
             </p>
           </div>
           <div className={styles.scanCards}>
@@ -239,8 +239,8 @@ export default function Home(): JSX.Element {
 
         <section className={styles.operatingSection}>
           <div>
-            <p className={styles.sectionLabel}>Notes</p>
-            <h2>실무에서 한 일, 혼자 만든 것</h2>
+            <p className={styles.sectionLabel}>Focus</p>
+            <h2>Backend · Batch · Product UI</h2>
           </div>
           <div className={styles.principleGrid}>
             {principles.map((item) => (
@@ -255,7 +255,7 @@ export default function Home(): JSX.Element {
         <section className={styles.recentWork}>
           <div>
             <p className={styles.sectionLabel}>Case Studies</p>
-            <h2>직접 겪고 고친 것</h2>
+            <h2>Dev Stories</h2>
           </div>
           <div className={styles.workList}>
             {caseStudies.map((item) => (
@@ -270,7 +270,7 @@ export default function Home(): JSX.Element {
         <section className={`${styles.recentWork} ${styles.productLab}`}>
           <div>
             <p className={styles.sectionLabel}>Product Experiments</p>
-            <h2>혼자 만들며 테스트한 것</h2>
+            <h2>Side Projects</h2>
           </div>
           <div className={styles.workList}>
             {productExperiments.map((item) => (
