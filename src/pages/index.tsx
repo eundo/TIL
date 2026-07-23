@@ -48,10 +48,10 @@ const stackTicker = [
 
 const featuredProject = {
   title: 'Shorts Pipeline',
-  description: '영상 업로드, TTS, 자막, FFmpeg 합성을 연결한 숏폼 제작 도구.',
+  description: '정밀 자막, 피사체 추적, FFmpeg 합성을 연결한 숏폼 제작 도구.',
   href: '/docs/project/shorts-pipeline',
-  desktopImage: '/img/projects/shorts-pipeline-live-editor.png',
-  mobileImage: '/img/projects/shorts-pipeline-live-mobile-editor.png',
+  desktopImage: '/img/projects/shorts-pipeline-live-latest-desktop.png',
+  mobileImage: '/img/projects/shorts-pipeline-live-latest-mobile.png',
   tags: ['FastAPI', 'LLM API', 'FFmpeg', 'Docker'],
 };
 

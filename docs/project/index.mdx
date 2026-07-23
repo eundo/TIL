@@ -27,24 +27,24 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
 
 <div className="project-hub-grid">
   <a className="project-hub-card" href="/docs/project/shorts-pipeline">
-    <img src="/img/projects/shorts-pipeline-live-editor.png" alt="Shorts Pipeline 실제 편집 화면 캡처" />
+    <img src="/img/projects/shorts-pipeline-live-latest-desktop.png" alt="Shorts Pipeline 최신 정밀 자막 화면 캡처" />
     <span>AI Workflow · Private</span>
     <strong>Shorts Pipeline</strong>
-    <p>영상 업로드, TTS 대본, 음성, 자막, FFmpeg 합성을 한 작업 흐름으로 묶은 숏폼 제작 도구입니다.</p>
+    <p>정밀 자막, 피사체 추적, FFmpeg 합성을 한 콘솔에서 확인하는 숏폼 제작 도구입니다.</p>
     <em>FastAPI · LLM API · FFmpeg · Docker</em>
   </a>
   <a className="project-hub-card" href="/docs/project/shorts-source-radar">
-    <img src="/img/projects/shorts-source-radar-screen.svg" alt="Shorts Source Radar 공개용 화면 프리뷰" />
+    <img src="/img/projects/shorts-source-radar-live-desktop.png" alt="Shorts Source Radar 추천 수집함 실제 화면 캡처" />
     <span>Productivity · Private</span>
     <strong>Shorts Source Radar</strong>
-    <p>유튜브 일반 영상에서 쇼츠 소재 후보를 찾고, 검토 상태와 외부 도구 전송까지 이어지는 콘텐츠 리서치 도구입니다.</p>
+    <p>YouTube 추천 화면에서 후보를 수집하고, 추천 수집함에서 검토하는 콘텐츠 리서치 도구입니다.</p>
     <em>Node.js · Netlify Functions · Notion API · Slack Webhook</em>
   </a>
   <a className="project-hub-card" href="/docs/project/reread-bookshelf">
-    <img src="/img/projects/reread-bookshelf-screen.svg" alt="Reread Bookshelf 공개용 화면 프리뷰" />
+    <img src="/img/projects/reread-bookshelf-live-mobile.png" alt="Reread Bookshelf 모바일 책 추가 시트 실제 화면 캡처" />
     <span>Local-first · Private</span>
     <strong>Reread Bookshelf</strong>
-    <p>다시 읽고 싶은 책과 웹소설을 인물, 관계성, 장면, 태그 중심으로 찾기 쉽게 저장하는 모바일 웹앱입니다.</p>
+    <p>RIDI, 네이버 시리즈, 카카오페이지 기록을 모바일 시트 중심으로 저장하는 재탕 책장입니다.</p>
     <em>JavaScript · PWA · localStorage · Netlify Function</em>
   </a>
   <a className="project-hub-card" href="/docs/project/portfolio-site">
@@ -54,6 +54,29 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
     <p>Docusaurus 기반 블로그를 포트폴리오 구조로 전환하고, GitHub push와 Netlify 배포 흐름을 연결한 사이트입니다.</p>
     <em>Docusaurus · TypeScript · Netlify · GitHub</em>
   </a>
+</div>
+
+## Recent GitHub Activity
+
+<div className="project-activity-feed">
+  <article>
+    <span>2026.07.24</span>
+    <strong>Reread Bookshelf</strong>
+    <p>모바일 시트에서 브라우저 뒤로가기로 닫히는 흐름을 정리했습니다. 직전에는 카카오페이지 가져오기, 중복 기록 방지, 발췌 이미지 관리가 이어졌습니다.</p>
+    <em>latest: Handle mobile back button for sheets</em>
+  </article>
+  <article>
+    <span>2026.07.23</span>
+    <strong>Shorts Pipeline</strong>
+    <p>단어 단위 정밀 자막과 피사체 자동 추적을 합성 흐름에 붙였습니다. 직전 커밋에서는 AI 편집안, 스마트 무음 정리, 타이틀/미리보기를 강화했습니다.</p>
+    <em>latest: feat: add precise captions and subject tracking</em>
+  </article>
+  <article>
+    <span>2026.07.21</span>
+    <strong>Shorts Source Radar</strong>
+    <p>YouTube 추천 화면을 Chrome 확장으로 읽어 추천 수집함에 넣는 lane을 추가했습니다. 최근 작업은 후보 품질 필터와 원본성 판단을 계속 조정하는 흐름이었습니다.</p>
+    <em>latest: Add YouTube recommendation capture lane</em>
+  </article>
 </div>
 
 :::note
