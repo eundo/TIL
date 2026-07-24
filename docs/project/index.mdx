@@ -10,15 +10,15 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
 
 <div className="project-proof-strip">
   <div>
-    <strong>화면 먼저</strong>
-    <span>실제 화면과 모바일 동작을 먼저 보여줍니다.</span>
+    <strong>실제 캡처</strong>
+    <span>데스크톱과 모바일 화면을 같이 둡니다.</span>
   </div>
   <div>
-    <strong>흐름 중심</strong>
-    <span>문제, 사용 흐름, 기술 판단만 남깁니다.</span>
+    <strong>샘플 데이터</strong>
+    <span>private 데이터는 공개용 예시로 바꿔 보여줍니다.</span>
   </div>
   <div>
-    <strong>코드 비공개</strong>
+    <strong>공개 범위</strong>
     <span>진행 중인 저장소의 구현 세부는 공개하지 않습니다.</span>
   </div>
 </div>
@@ -54,6 +54,59 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
     <p>Docusaurus 기반 블로그를 포트폴리오 구조로 전환하고, GitHub push와 Netlify 배포 흐름을 연결한 사이트입니다.</p>
     <em>Docusaurus · TypeScript · Netlify · GitHub</em>
   </a>
+</div>
+
+## 프로젝트별 화면 구성
+
+<div className="project-page-map">
+  <article>
+    <div className="project-page-map-media">
+      <img src="/img/projects/shorts-pipeline-live-latest-desktop.png" alt="Shorts Pipeline 데스크톱 합성 콘솔 화면" />
+      <img src="/img/projects/shorts-pipeline-live-tracking-mobile.png" alt="Shorts Pipeline 모바일 피사체 추적 화면" />
+    </div>
+    <div>
+      <span>Shorts Pipeline</span>
+      <h3>제작 콘솔형 프로젝트</h3>
+      <p>목록, 편집, TTS 대본, TTS 음성, 정밀 자막, 피사체 추적, 최종 합성 탭으로 이어지는 작업형 도구입니다. 화면 설명은 탭 단위로 나눠서 넣었습니다.</p>
+      <ul>
+        <li><strong>샘플 데이터</strong> 활성 클립 6개, 정밀 자막 12줄, 세로 합성 대기 상태</li>
+        <li><strong>데스크톱</strong> 영상/자막/설정 패널을 한 화면에서 비교</li>
+        <li><strong>모바일</strong> 같은 단계가 단일 컬럼으로 내려오고 저장 액션을 하단에서 처리</li>
+      </ul>
+    </div>
+  </article>
+  <article>
+    <div className="project-page-map-media">
+      <img src="/img/projects/shorts-source-radar-live-desktop.png" alt="Shorts Source Radar 데스크톱 추천 수집함 화면" />
+      <img src="/img/projects/shorts-source-radar-live-mobile.png" alt="Shorts Source Radar 모바일 추천 수집함 화면" />
+    </div>
+    <div>
+      <span>Shorts Source Radar</span>
+      <h3>콘텐츠 리서치 queue</h3>
+      <p>YouTube 추천 화면에서 후보를 가져와 추천 수집함, 검토 stage, 외부 전송으로 넘기는 흐름입니다. 화면 설명은 lane과 후보 카드의 상태 변화 중심으로 정리했습니다.</p>
+      <ul>
+        <li><strong>샘플 데이터</strong> 추천 후보 18개, 검토 대기 7개, 보관 3개</li>
+        <li><strong>데스크톱</strong> lane, 통계, 후보 카드, stage를 넓게 배치</li>
+        <li><strong>모바일</strong> 추천 수집함과 stage를 먼저 보고 queue를 아래에서 검토</li>
+      </ul>
+    </div>
+  </article>
+  <article>
+    <div className="project-page-map-media">
+      <img src="/img/projects/reread-bookshelf-live-desktop.png" alt="Reread Bookshelf 데스크톱 책 추가 시트" />
+      <img src="/img/projects/reread-bookshelf-live-mobile.png" alt="Reread Bookshelf 모바일 책 추가 시트" />
+    </div>
+    <div>
+      <span>Reread Bookshelf</span>
+      <h3>local-first 개인 기록장</h3>
+      <p>책과 웹소설을 제목보다 기억 단서로 다시 찾기 위한 도구입니다. 화면 설명은 모바일 입력 시트, 태그 검색, 발췌 이미지, 뒤로가기 동작을 중심으로 넣었습니다.</p>
+      <ul>
+        <li><strong>샘플 데이터</strong> 기록 42개, 태그 16개, 재탕 후보 5개</li>
+        <li><strong>데스크톱</strong> 입력 폼과 자동 채우기 상태를 넓게 확인</li>
+        <li><strong>모바일</strong> 하단 고정 저장 버튼과 브라우저 back 동작을 기준으로 설계</li>
+      </ul>
+    </div>
+  </article>
 </div>
 
 ## Recent GitHub Activity

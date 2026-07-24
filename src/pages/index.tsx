@@ -129,6 +129,69 @@ const productExperiments = [
   },
 ];
 
+const projectSamples = [
+  {
+    title: 'Shorts Pipeline',
+    label: 'Sample Job',
+    headline: '레시피 영상 1개를 쇼츠 제작 상태로 관리',
+    description:
+      '업로드한 원본에서 클립을 고르고, TTS 대본과 정밀 자막, 피사체 추적, FFmpeg 합성까지 같은 콘솔에서 확인합니다.',
+    desktopImage: '/img/projects/shorts-pipeline-live-latest-desktop.png',
+    mobileImage: '/img/projects/shorts-pipeline-live-tracking-mobile.png',
+    href: '/docs/project/shorts-pipeline',
+    stats: [
+      {value: '6 clips', label: '활성 클립'},
+      {value: '12 lines', label: '정밀 자막'},
+      {value: '9:16', label: '세로 합성'},
+    ],
+    sampleRows: [
+      'TTS 대본: 담백한 설명형 42초 버전',
+      '피사체 추적: 중앙 유지, 급격한 crop 이동 완화',
+      '렌더링 상태: preview 완료, final compose 대기',
+    ],
+  },
+  {
+    title: 'Shorts Source Radar',
+    label: 'Sample Queue',
+    headline: 'YouTube 추천 후보를 검토 queue로 이동',
+    description:
+      '추천 화면에서 수집한 후보를 중복, 원본성, 채널 성격 기준으로 걸러내고 보관/제외/제작 예정 상태로 분류합니다.',
+    desktopImage: '/img/projects/shorts-source-radar-live-desktop.png',
+    mobileImage: '/img/projects/shorts-source-radar-live-mobile.png',
+    href: '/docs/project/shorts-source-radar',
+    stats: [
+      {value: '18', label: '수집 후보'},
+      {value: '7', label: '검토 대기'},
+      {value: '3', label: '보관'},
+    ],
+    sampleRows: [
+      'Lane: 추천 수집함',
+      'Quality gate: 재가공/하이라이트 후보 제외',
+      'Export: 선택 후보만 Notion, Slack, CSV로 전송',
+    ],
+  },
+  {
+    title: 'Reread Bookshelf',
+    label: 'Sample Shelf',
+    headline: '제목보다 기억 단서로 다시 찾는 책장',
+    description:
+      'RIDI, 네이버 시리즈, 카카오페이지 기록을 작품 링크, 인물, 관계성, 분위기, 발췌 이미지 중심으로 저장합니다.',
+    desktopImage: '/img/projects/reread-bookshelf-live-desktop.png',
+    mobileImage: '/img/projects/reread-bookshelf-live-mobile.png',
+    href: '/docs/project/reread-bookshelf',
+    stats: [
+      {value: '42', label: '기록'},
+      {value: '16', label: '태그'},
+      {value: '5', label: '재탕 후보'},
+    ],
+    sampleRows: [
+      '기억 단서: 계약관계, 느린 감정선, 후반부 반전',
+      '입력 흐름: 링크 자동 채우기 후 수동 보완',
+      '모바일 UX: 시트 열림 상태를 back 버튼과 연결',
+    ],
+  },
+];
+
 export default function Home(): JSX.Element {
   return (
     <Layout
@@ -198,6 +261,54 @@ export default function Home(): JSX.Element {
           <div>
             {[...stackTicker, ...stackTicker].map((item, index) => (
               <span key={`${item}-${index}`}>{item}</span>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.projectSampleDeck} aria-labelledby="project-samples-title">
+          <div className={styles.sampleHeader}>
+            <p className={styles.sectionLabel}>Project Samples</p>
+            <h2 id="project-samples-title">프로젝트 샘플 워크스페이스</h2>
+            <p>
+              private 데이터는 공개용 샘플값으로 바꿨습니다. 화면, 상태, 다음 액션은 실제 구현 흐름을 기준으로 정리했습니다.
+            </p>
+          </div>
+          <div className={styles.sampleGrid}>
+            {projectSamples.map((project) => (
+              <article key={project.title} className={styles.sampleCard}>
+                <div className={styles.sampleVisual}>
+                  <img
+                    className={styles.sampleDesktop}
+                    src={project.desktopImage}
+                    alt={`${project.title} 데스크톱 화면`}
+                  />
+                  <img
+                    className={styles.sampleMobile}
+                    src={project.mobileImage}
+                    alt={`${project.title} 모바일 화면`}
+                  />
+                </div>
+                <div className={styles.sampleBody}>
+                  <span>{project.label}</span>
+                  <h3>{project.title}</h3>
+                  <strong>{project.headline}</strong>
+                  <p>{project.description}</p>
+                  <div className={styles.sampleStats} aria-label={`${project.title} sample metrics`}>
+                    {project.stats.map((stat) => (
+                      <div key={`${project.title}-${stat.label}`}>
+                        <strong>{stat.value}</strong>
+                        <span>{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <ul>
+                    {project.sampleRows.map((row) => (
+                      <li key={row}>{row}</li>
+                    ))}
+                  </ul>
+                  <a href={project.href}>상세 화면 보기</a>
+                </div>
+              </article>
             ))}
           </div>
         </section>
