@@ -152,32 +152,34 @@ const projectSamples = [
   },
   {
     title: 'Shorts Source Radar',
-    label: 'Sample Queue',
+    label: 'Mobile Web',
     headline: 'YouTube 추천 후보를 검토 queue로 이동',
     description:
-      '추천 화면에서 수집한 후보를 중복, 원본성, 채널 성격 기준으로 걸러내고 보관/제외/제작 예정 상태로 분류합니다.',
-    desktopImage: '/img/projects/shorts-source-radar-sample-desktop.png',
-    mobileImage: '/img/projects/shorts-source-radar-sample-mobile.png',
+      '추천 화면에서 후보를 수집하기 전의 모바일 웹 상태입니다. 후보가 쌓이면 이 화면에서 검토 queue가 이어집니다.',
+    desktopImage: '/img/projects/shorts-source-radar-empty-mobile.png',
+    mobileImage: '/img/projects/shorts-source-radar-empty-mobile.png',
+    mobileOnly: true,
     href: '/docs/project/shorts-source-radar',
     stats: [
-      {value: '8', label: '미검수'},
-      {value: '5', label: '추천 수집'},
-      {value: '2/1', label: '보관/제작'},
+      {value: '0', label: '미검수'},
+      {value: '0', label: '추천 수집'},
+      {value: '0/0', label: '보관/제작'},
     ],
     sampleRows: [
       'Lane: 추천 수집함',
-      'Quality gate: 재가공/하이라이트 후보 제외',
-      'Export: 선택 후보만 Notion, Slack, CSV로 전송',
+      'Empty state: 후보 수집 전 화면',
+      'Next action: Chrome 수집기로 후보 추가',
     ],
   },
   {
     title: 'Reread Bookshelf',
-    label: 'Sample Shelf',
+    label: 'Mobile Web',
     headline: '제목보다 기억 단서로 다시 찾는 책장',
     description:
       'RIDI, 네이버 시리즈, 카카오페이지 기록을 작품 링크, 인물, 관계성, 분위기, 발췌 이미지 중심으로 저장합니다.',
-    desktopImage: '/img/projects/reread-bookshelf-sample-desktop.png',
+    desktopImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
     mobileImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
+    mobileOnly: true,
     href: '/docs/project/reread-bookshelf',
     stats: [
       {value: '8', label: '기록'},
@@ -270,20 +272,22 @@ export default function Home(): JSX.Element {
             <p className={styles.sectionLabel}>Project Samples</p>
             <h2 id="project-samples-title">실제 화면 샘플</h2>
             <p>
-              개인 데이터는 빼고, 공개용 샘플 데이터로 앱 화면을 다시 채워 캡처했습니다.
+              개인 데이터는 빼고, 공개 가능한 앱 화면만 남겼습니다.
             </p>
           </div>
           <div className={styles.sampleGrid}>
             {projectSamples.map((project) => (
               <article key={project.title} className={styles.sampleCard}>
-                <div className={styles.sampleVisual}>
+                <div className={`${styles.sampleVisual} ${project.mobileOnly ? styles.sampleVisualMobileOnly : ''}`}>
+                  {!project.mobileOnly && (
+                    <img
+                      className={styles.sampleDesktop}
+                      src={project.desktopImage}
+                      alt={`${project.title} 데스크톱 화면`}
+                    />
+                  )}
                   <img
-                    className={styles.sampleDesktop}
-                    src={project.desktopImage}
-                    alt={`${project.title} 데스크톱 화면`}
-                  />
-                  <img
-                    className={styles.sampleMobile}
+                    className={project.mobileOnly ? styles.sampleMobileOnly : styles.sampleMobile}
                     src={project.mobileImage}
                     alt={`${project.title} 모바일 화면`}
                   />

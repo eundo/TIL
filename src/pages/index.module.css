@@ -415,7 +415,8 @@
 }
 
 .sampleDesktop,
-.sampleMobile {
+.sampleMobile,
+.sampleMobileOnly {
   display: block;
   border: 1px solid rgba(14, 18, 28, 0.14);
   border-radius: 8px;
@@ -435,6 +436,19 @@
   right: 8px;
   bottom: -4px;
   width: 132px;
+  aspect-ratio: 9 / 16;
+}
+
+.sampleVisualMobileOnly {
+  display: flex;
+  min-height: 360px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sampleMobileOnly {
+  width: min(56%, 230px);
+  max-height: 360px;
   aspect-ratio: 9 / 16;
 }
 
@@ -959,6 +973,15 @@
     right: 0;
     bottom: 0;
     width: 86px;
+  }
+
+  .sampleVisualMobileOnly {
+    min-height: 260px;
+  }
+
+  .sampleMobileOnly {
+    width: min(58%, 156px);
+    max-height: 260px;
   }
 
   .sampleBody h3 {
