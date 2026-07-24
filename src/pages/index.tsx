@@ -50,8 +50,8 @@ const featuredProject = {
   title: 'Shorts Pipeline',
   description: '정밀 자막, 피사체 추적, FFmpeg 합성을 연결한 숏폼 제작 도구.',
   href: '/docs/project/shorts-pipeline',
-  desktopImage: '/img/projects/shorts-pipeline-live-latest-desktop.png',
-  mobileImage: '/img/projects/shorts-pipeline-live-latest-mobile.png',
+  desktopImage: '/img/projects/shorts-pipeline-sample-captions-desktop.png',
+  mobileImage: '/img/projects/shorts-pipeline-sample-export-mobile.png',
   tags: ['FastAPI', 'LLM API', 'FFmpeg', 'Docker'],
 };
 
@@ -136,12 +136,12 @@ const projectSamples = [
     headline: '레시피 영상 1개를 쇼츠 제작 상태로 관리',
     description:
       '업로드한 원본에서 클립을 고르고, TTS 대본과 정밀 자막, 피사체 추적, FFmpeg 합성까지 같은 콘솔에서 확인합니다.',
-    desktopImage: '/img/projects/shorts-pipeline-live-latest-desktop.png',
-    mobileImage: '/img/projects/shorts-pipeline-live-tracking-mobile.png',
+    desktopImage: '/img/projects/shorts-pipeline-sample-captions-desktop.png',
+    mobileImage: '/img/projects/shorts-pipeline-sample-export-mobile.png',
     href: '/docs/project/shorts-pipeline',
     stats: [
       {value: '6 clips', label: '활성 클립'},
-      {value: '12 lines', label: '정밀 자막'},
+      {value: '8 lines', label: '정밀 자막'},
       {value: '9:16', label: '세로 합성'},
     ],
     sampleRows: [
@@ -156,13 +156,13 @@ const projectSamples = [
     headline: 'YouTube 추천 후보를 검토 queue로 이동',
     description:
       '추천 화면에서 수집한 후보를 중복, 원본성, 채널 성격 기준으로 걸러내고 보관/제외/제작 예정 상태로 분류합니다.',
-    desktopImage: '/img/projects/shorts-source-radar-live-desktop.png',
-    mobileImage: '/img/projects/shorts-source-radar-live-mobile.png',
+    desktopImage: '/img/projects/shorts-source-radar-sample-desktop.png',
+    mobileImage: '/img/projects/shorts-source-radar-sample-mobile.png',
     href: '/docs/project/shorts-source-radar',
     stats: [
-      {value: '18', label: '수집 후보'},
-      {value: '7', label: '검토 대기'},
-      {value: '3', label: '보관'},
+      {value: '8', label: '미검수'},
+      {value: '5', label: '추천 수집'},
+      {value: '2/1', label: '보관/제작'},
     ],
     sampleRows: [
       'Lane: 추천 수집함',
@@ -176,13 +176,13 @@ const projectSamples = [
     headline: '제목보다 기억 단서로 다시 찾는 책장',
     description:
       'RIDI, 네이버 시리즈, 카카오페이지 기록을 작품 링크, 인물, 관계성, 분위기, 발췌 이미지 중심으로 저장합니다.',
-    desktopImage: '/img/projects/reread-bookshelf-live-desktop.png',
-    mobileImage: '/img/projects/reread-bookshelf-live-mobile.png',
+    desktopImage: '/img/projects/reread-bookshelf-sample-desktop.png',
+    mobileImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
     href: '/docs/project/reread-bookshelf',
     stats: [
-      {value: '42', label: '기록'},
-      {value: '16', label: '태그'},
-      {value: '5', label: '재탕 후보'},
+      {value: '8', label: '기록'},
+      {value: '8', label: '재탕 후보'},
+      {value: '0', label: '표지 없음'},
     ],
     sampleRows: [
       '기억 단서: 계약관계, 느린 감정선, 후반부 반전',
@@ -268,9 +268,9 @@ export default function Home(): JSX.Element {
         <section className={styles.projectSampleDeck} aria-labelledby="project-samples-title">
           <div className={styles.sampleHeader}>
             <p className={styles.sectionLabel}>Project Samples</p>
-            <h2 id="project-samples-title">프로젝트 샘플 워크스페이스</h2>
+            <h2 id="project-samples-title">실제 화면 샘플</h2>
             <p>
-              private 데이터는 공개용 샘플값으로 바꿨습니다. 화면, 상태, 다음 액션은 실제 구현 흐름을 기준으로 정리했습니다.
+              개인 데이터는 빼고, 공개용 샘플 데이터로 앱 화면을 다시 채워 캡처했습니다.
             </p>
           </div>
           <div className={styles.sampleGrid}>
