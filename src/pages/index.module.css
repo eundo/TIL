@@ -409,6 +409,10 @@
   background: linear-gradient(135deg, #fffdf8 0%, #fff0a8 100%);
 }
 
+.sampleCard:nth-child(4) {
+  background: linear-gradient(135deg, #fffdf8 0%, #dff5ff 100%);
+}
+
 .sampleVisual {
   position: relative;
   min-height: 312px;

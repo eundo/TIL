@@ -44,6 +44,7 @@ const stackTicker = [
   'Netlify',
   'GitHub Actions',
   'LLM Workflow',
+  'WordPress REST',
 ];
 
 const featuredProject = {
@@ -84,7 +85,7 @@ const workSignals = [
   {
     metric: 'Projects',
     title: 'Projects',
-    description: 'Shorts Pipeline과 개인 제품 실험.',
+    description: 'Shorts, Content Studio, 개인 제품 실험.',
   },
 ];
 
@@ -121,6 +122,11 @@ const productExperiments = [
     title: 'Shorts Source Radar',
     meta: '후보 품질 게이트 · 스킵 학습',
     href: '/docs/project/shorts-source-radar',
+  },
+  {
+    title: 'Eundo Content Studio',
+    meta: 'WordPress 운영 콘솔 · SEO 자동화',
+    href: '/docs/project/eundo-content-studio',
   },
   {
     title: 'Reread Bookshelf',
@@ -169,6 +175,26 @@ const projectSamples = [
       'Lane: 추천 수집함',
       'Quality: 제목 훅과 채널 브랜드 단어 분리',
       'Learning: 반복 Skip 패턴을 다음 후보에 반영',
+    ],
+  },
+  {
+    title: 'Eundo Content Studio',
+    label: 'Dashboard',
+    headline: '주제 추천부터 WordPress draft까지 한 화면에서 처리',
+    description:
+      '주제 후보를 고르고, 글 작성 모델과 이미지 생성 옵션, SEO 체크리스트, WordPress 저장 여부를 한 대시보드에서 조정합니다.',
+    desktopImage: '/img/projects/eundo-content-studio-dashboard-desktop.png',
+    mobileImage: '/img/projects/eundo-content-studio-dashboard-mobile.png',
+    href: '/docs/project/eundo-content-studio',
+    stats: [
+      {value: '10 topics', label: '추천 후보'},
+      {value: '3 picked', label: '선택 주제'},
+      {value: 'WP draft', label: '저장 흐름'},
+    ],
+    sampleRows: [
+      '주제 추천: 기존 글과 겹치는 검색 의도 제외',
+      '생성 설정: 글 모델, 이미지 공급자, SEO/FAQ 옵션 조정',
+      '출력 흐름: HTML 본문, 이미지 패키지, WordPress draft 저장',
     ],
   },
   {
