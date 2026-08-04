@@ -119,12 +119,12 @@ const productExperiments = [
   },
   {
     title: 'Shorts Source Radar',
-    meta: '콘텐츠 리서치 자동화',
+    meta: '후보 품질 게이트 · 스킵 학습',
     href: '/docs/project/shorts-source-radar',
   },
   {
     title: 'Reread Bookshelf',
-    meta: 'Local-first 개인 도구',
+    meta: 'Local-first · 스크린샷 OCR',
     href: '/docs/project/reread-bookshelf',
   },
 ];
@@ -153,9 +153,9 @@ const projectSamples = [
   {
     title: 'Shorts Source Radar',
     label: 'Mobile Web',
-    headline: 'YouTube 추천 후보를 검토 queue로 이동',
+    headline: '추천 후보가 쌓이기 전에 거르는 queue',
     description:
-      '추천 화면에서 후보를 수집하기 전의 모바일 웹 상태입니다. 후보가 쌓이면 이 화면에서 검토 queue가 이어집니다.',
+      '추천 화면에서 후보를 수집하기 전의 모바일 웹 상태입니다. 후보가 쌓이면 제목 훅, 채널명 오탐, 설명문-only 신호를 거쳐 검토 queue로 들어옵니다.',
     desktopImage: '/img/projects/shorts-source-radar-empty-mobile.png',
     mobileImage: '/img/projects/shorts-source-radar-empty-mobile.png',
     mobileOnly: true,
@@ -163,12 +163,12 @@ const projectSamples = [
     stats: [
       {value: '0', label: '미검수'},
       {value: '0', label: '추천 수집'},
-      {value: '0/0', label: '보관/제작'},
+      {value: 'Gate', label: '품질 필터'},
     ],
     sampleRows: [
       'Lane: 추천 수집함',
-      'Empty state: 후보 수집 전 화면',
-      'Next action: Chrome 수집기로 후보 추가',
+      'Quality: 제목 훅과 채널 브랜드 단어 분리',
+      'Learning: 반복 Skip 패턴을 다음 후보에 반영',
     ],
   },
   {
@@ -176,7 +176,7 @@ const projectSamples = [
     label: 'Mobile Web',
     headline: '제목보다 기억 단서로 다시 찾는 책장',
     description:
-      'RIDI, 네이버 시리즈, 카카오페이지 기록을 작품 링크, 인물, 관계성, 분위기, 발췌 이미지 중심으로 저장합니다.',
+      'RIDI, 네이버 시리즈, 카카오페이지 기록을 작품 링크, 인물, 관계성, 분위기, 발췌 이미지, 스크린샷 OCR 중심으로 저장합니다.',
     desktopImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
     mobileImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
     mobileOnly: true,
@@ -184,11 +184,11 @@ const projectSamples = [
     stats: [
       {value: '8', label: '기록'},
       {value: '8', label: '재탕 후보'},
-      {value: '0', label: '표지 없음'},
+      {value: 'OCR', label: '스크린샷 등록'},
     ],
     sampleRows: [
       '기억 단서: 계약관계, 느린 감정선, 후반부 반전',
-      '입력 흐름: 링크 자동 채우기 후 수동 보완',
+      '입력 흐름: 링크 자동 채우기 또는 스크린샷 OCR 초안',
       '모바일 UX: 시트 열림 상태를 back 버튼과 연결',
     ],
   },

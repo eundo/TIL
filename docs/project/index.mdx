@@ -6,7 +6,7 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
 
 # Product Experiments
 
-직접 쓰려고 만들었거나, 만들면서 확인한 개인 프로젝트입니다. 코드는 닫아두고 공개 가능한 화면, 사용 흐름, 기술 선택만 정리합니다.
+직접 쓰려고 만들었거나, 만들면서 확인한 개인 프로젝트입니다. 코드는 닫아두고 공개 가능한 화면, 사용 흐름, 기술 선택, 최근 갱신 흐름만 정리합니다.
 
 <div className="project-proof-strip">
   <div>
@@ -37,14 +37,14 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
     <img src="/img/projects/shorts-source-radar-empty-mobile.png" alt="Shorts Source Radar 모바일 빈 추천 수집함 화면 캡처" />
     <span>Productivity · Private</span>
     <strong>Shorts Source Radar</strong>
-    <p>YouTube 추천 화면에서 후보를 수집하고, 추천 수집함에서 검토하는 콘텐츠 리서치 도구입니다.</p>
+    <p>YouTube 추천 화면에서 후보를 수집하고, 후보 품질 게이트와 스킵 학습으로 검토 queue를 줄이는 리서치 도구입니다.</p>
     <em>Node.js · Netlify Functions · Notion API · Slack Webhook</em>
   </a>
   <a className="project-hub-card" href="/docs/project/reread-bookshelf">
     <img src="/img/projects/reread-bookshelf-sample-mobile.png" alt="Reread Bookshelf 모바일 샘플 책장 화면 캡처" />
     <span>Local-first · Private</span>
     <strong>Reread Bookshelf</strong>
-    <p>RIDI, 네이버 시리즈, 카카오페이지 기록을 모바일 시트 중심으로 저장하는 재탕 책장입니다.</p>
+    <p>RIDI, 네이버 시리즈, 카카오페이지 기록을 모바일 시트와 스크린샷 OCR 중심으로 저장하는 재탕 책장입니다.</p>
     <em>JavaScript · PWA · localStorage · Netlify Function</em>
   </a>
   <a className="project-hub-card" href="/docs/project/portfolio-site">
@@ -82,11 +82,11 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
     <div>
       <span>Shorts Source Radar</span>
       <h3>콘텐츠 리서치 queue</h3>
-      <p>YouTube 추천 화면에서 후보를 가져와 추천 수집함, 검토 stage, 외부 전송으로 넘기는 흐름입니다. 화면 설명은 lane과 후보 카드의 상태 변화 중심으로 정리했습니다.</p>
+      <p>YouTube 추천 화면에서 후보를 가져와 추천 수집함, 검토 stage, 외부 전송으로 넘기는 흐름입니다. 최근에는 후보가 queue에 들어오기 전 품질 게이트와 반복 스킵 학습을 강화했습니다.</p>
       <ul>
         <li><strong>화면 상태</strong> 수집 전 빈 추천 수집함</li>
         <li><strong>모바일 웹</strong> 탭, 통계, empty stage, queue 영역을 한 흐름으로 배치</li>
-        <li><strong>다음 액션</strong> Chrome 수집기로 후보 추가</li>
+        <li><strong>최근 갱신</strong> 제목 훅, 채널명 오탐, 설명문-only 후보를 더 엄격하게 필터링</li>
       </ul>
     </div>
   </article>
@@ -97,11 +97,11 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
     <div>
       <span>Reread Bookshelf</span>
       <h3>local-first 개인 기록장</h3>
-      <p>책과 웹소설을 제목보다 기억 단서로 다시 찾기 위한 도구입니다. 화면 설명은 모바일 입력 시트, 태그 검색, 발췌 이미지, 뒤로가기 동작을 중심으로 넣었습니다.</p>
+      <p>책과 웹소설을 제목보다 기억 단서로 다시 찾기 위한 도구입니다. 화면 설명은 모바일 입력 시트, 태그 검색, 발췌 이미지, 스크린샷 OCR, 뒤로가기 동작을 중심으로 넣었습니다.</p>
       <ul>
         <li><strong>샘플 데이터</strong> 기록 8개, 재탕 후보 8개, 표지 없음 0개</li>
         <li><strong>모바일 웹</strong> 상세 시트와 브라우저 back 동작을 기준으로 설계</li>
-        <li><strong>화면 상태</strong> 재탕 이력, 인물/관계성 단서, 메모/발췌 액션 표시</li>
+        <li><strong>최근 갱신</strong> 19세/로그인 제한 작품은 스크린샷 업로드 후 OCR 초안 채우기 지원</li>
       </ul>
     </div>
   </article>
@@ -111,22 +111,22 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
 
 <div className="project-activity-feed">
   <article>
+    <span>2026.08.04</span>
+    <strong>Shorts Source Radar</strong>
+    <p>후보 품질 게이트를 다시 조정했습니다. 제목 자체에 장면 훅이 있는지, 채널명에서 복사된 단어인지, 설명문만 그럴듯한 후보인지 나눠 검토 queue에 들어오는 양을 줄였습니다.</p>
+    <em>latest: Ignore hook words copied from channel brands</em>
+  </article>
+  <article>
     <span>2026.07.24</span>
     <strong>Reread Bookshelf</strong>
-    <p>모바일 시트에서 브라우저 뒤로가기로 닫히는 흐름을 정리했습니다. 직전에는 카카오페이지 가져오기, 중복 기록 방지, 발췌 이미지 관리가 이어졌습니다.</p>
-    <em>latest: Handle mobile back button for sheets</em>
+    <p>스크린샷 기반 작품 등록과 OpenAI Vision OCR 초안 채우기를 추가했습니다. 19세/로그인 제한처럼 메타데이터 수집이 막히는 경우에도 화면 캡처로 기본 정보를 채울 수 있게 했습니다.</p>
+    <em>latest: Trigger Netlify redeploy for OCR env</em>
   </article>
   <article>
     <span>2026.07.23</span>
     <strong>Shorts Pipeline</strong>
     <p>단어 단위 정밀 자막과 피사체 자동 추적을 합성 흐름에 붙였습니다. 직전 커밋에서는 AI 편집안, 스마트 무음 정리, 타이틀/미리보기를 강화했습니다.</p>
     <em>latest: feat: add precise captions and subject tracking</em>
-  </article>
-  <article>
-    <span>2026.07.21</span>
-    <strong>Shorts Source Radar</strong>
-    <p>YouTube 추천 화면을 Chrome 확장으로 읽어 추천 수집함에 넣는 lane을 추가했습니다. 최근 작업은 후보 품질 필터와 원본성 판단을 계속 조정하는 흐름이었습니다.</p>
-    <em>latest: Add YouTube recommendation capture lane</em>
   </article>
 </div>
 
@@ -144,4 +144,4 @@ description: 박은도가 직접 만든 개인 프로젝트를 화면과 흐름 
 
 ## 보류한 항목
 
-`KeywordFinder`는 민감정보 정리 이력이 있어 공개 소개에서 제외했습니다. `allndo`, `firstlove_viewer`는 제품 방향과 README 정리가 더 필요해 이번 포트폴리오 반영에서는 보류했습니다.
+`KeywordFinder`는 민감정보 정리 이력이 있어 공개 소개에서 제외했습니다. `allndo`, `firstlove_viewer`, `al-ka-bot`, `react-app`은 제품 방향, 최신성, README 근거가 더 필요해 이번 대표 프로젝트 반영에서는 보류했습니다.

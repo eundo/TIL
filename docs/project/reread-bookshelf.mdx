@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 title: Reread Bookshelf
-description: RIDI, 네이버 시리즈, 카카오페이지 기록을 기억 단서와 발췌 이미지 중심으로 관리하는 local-first 웹앱입니다.
+description: RIDI, 네이버 시리즈, 카카오페이지 기록을 기억 단서, 발췌 이미지, 스크린샷 OCR 중심으로 관리하는 local-first 웹앱입니다.
 ---
 
 # Reread Bookshelf
 
-Reread Bookshelf는 RIDI, 네이버 시리즈, 카카오페이지에서 읽은 책과 웹소설을 다시 찾기 쉽게 저장하는 개인용 기록장입니다. 제목이나 작가보다 인물, 관계성, 분위기, 기억나는 장면, 발췌 이미지처럼 실제로 다시 찾을 때 떠오르는 단서를 중심에 둡니다.
+Reread Bookshelf는 RIDI, 네이버 시리즈, 카카오페이지에서 읽은 책과 웹소설을 다시 찾기 쉽게 저장하는 개인용 기록장입니다. 제목이나 작가보다 인물, 관계성, 분위기, 기억나는 장면, 발췌 이미지처럼 실제로 다시 찾을 때 떠오르는 단서를 중심에 둡니다. 최신 버전에서는 링크로 가져오기 어려운 작품도 스크린샷 업로드와 OCR 초안 채우기로 등록할 수 있게 했습니다.
 
 :::info
 Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리오 검토를 위한 공개 가능한 수준의 요약입니다.
@@ -46,6 +46,11 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
     <strong>열린 시트 3종</strong>
     <p>책 추가, 상세 보기, 발췌 이미지 시트를 history stack과 연결해 브라우저 back으로 닫습니다.</p>
   </section>
+  <section>
+    <span>Screenshot OCR</span>
+    <strong>링크가 막히는 작품도 등록</strong>
+    <p>19세/로그인 제한 화면은 스크린샷을 올려 제목, 작가, 장르, 태그, 목차 후보를 초안으로 채웁니다.</p>
+  </section>
 </div>
 
 ## 화면별 설명
@@ -63,10 +68,10 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
   <article>
     <span>02 · Add Sheet</span>
     <h3>작품 추가 시트</h3>
-    <p>링크를 넣으면 가능한 기본 정보를 먼저 채우고, 실패하면 직접 입력으로 이어집니다. 모바일에서는 저장 버튼을 하단에 고정해 긴 폼에서도 액션을 잃지 않게 했습니다.</p>
+    <p>링크를 넣으면 가능한 기본 정보를 먼저 채우고, 실패하면 직접 입력으로 이어집니다. 링크 접근이 막히는 작품은 스크린샷을 올려 OCR 초안을 만들 수 있습니다. 모바일에서는 저장 버튼을 하단에 고정해 긴 폼에서도 액션을 잃지 않게 했습니다.</p>
     <ul>
-      <li>샘플 상태: RIDI/시리즈/카카오페이지 링크 입력</li>
-      <li>확인 포인트: 자동 채우기, 중복 감지, 수동 보완</li>
+      <li>샘플 상태: RIDI/시리즈/카카오페이지 링크 입력 또는 스크린샷 업로드</li>
+      <li>확인 포인트: 자동 채우기, OCR 초안, 중복 감지, 수동 보완</li>
     </ul>
   </article>
   <article>
@@ -81,10 +86,10 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
   <article>
     <span>04 · Excerpt</span>
     <h3>발췌 이미지와 장면 메모</h3>
-    <p>기억나는 문장이나 장면을 이미지와 함께 저장합니다. 이미지는 IndexedDB에 분리해 보관하고, 텍스트 단서와 함께 다시 찾을 수 있게 했습니다.</p>
+    <p>기억나는 문장이나 장면을 이미지와 함께 저장합니다. 등록 스크린샷과 발췌 이미지는 IndexedDB에 분리해 보관하고, OCR 텍스트와 메모를 검색 단서로 다시 씁니다.</p>
     <ul>
-      <li>샘플 상태: 발췌 이미지 2장, 장면 메모 3개</li>
-      <li>확인 포인트: 이미지 추가/삭제, 메모 연결, 저장 크기</li>
+      <li>샘플 상태: 등록 스크린샷 2장, 발췌 이미지 2장, 장면 메모 3개</li>
+      <li>확인 포인트: 이미지 추가/삭제, OCR 텍스트, 메모 연결, 저장 크기</li>
     </ul>
   </article>
   <article>
@@ -114,12 +119,20 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
 | 상태 | In progress, private repository |
 | 문제 | 이미 읽은 책을 다시 찾을 때 제목보다 장면, 인물, 분위기 같은 기억 단서가 먼저 떠오름 |
 | 접근 | 작품 기록을 단순 목록이 아니라 검색 가능한 기억 인덱스와 모바일 시트 UX로 구성 |
-| 기술 | JavaScript, HTML/CSS, IndexedDB, PWA manifest, Service Worker, localStorage, Netlify Function |
+| 기술 | JavaScript, HTML/CSS, IndexedDB, PWA manifest, Service Worker, localStorage, Netlify Function, OpenAI Vision OCR |
 | 저장 | 브라우저 localStorage 기반 local-first 구조, JSON 내보내기/가져오기 지원 |
 
 ## Latest Notes
 
 <div className="project-update-stack project-update-stack--compact">
+  <article>
+    <span>2026.07.24</span>
+    <p><strong>OpenAI Vision OCR</strong> 스크린샷을 Netlify Function으로 보내 제목, 작가, 장르, 태그, 목차, 메모 초안을 채우는 흐름을 추가했습니다. OpenAI 키가 없거나 실패하면 기본 OCR로 폴백합니다.</p>
+  </article>
+  <article>
+    <span>2026.07.24</span>
+    <p><strong>스크린샷 등록</strong> 19세/로그인 제한 작품을 캡처 이미지로 보관하고 검색 텍스트에 포함할 수 있게 했습니다.</p>
+  </article>
   <article>
     <span>2026.07.24</span>
     <p><strong>모바일 뒤로가기</strong> 열린 책 추가, 상세, 재탕, 발췌 시트를 history stack과 맞춰 브라우저 back으로 닫히게 했습니다.</p>
@@ -144,6 +157,8 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
 - 제목, 작가, RIDI/시리즈/카카오페이지 링크, 표지, 장르, 권수/회차 정보를 저장합니다.
 - 주인공, 상대역, 관계성, 엔딩감, 분위기 키워드를 기록합니다.
 - 요약, 스포 메모, 재탕 횟수, 발췌 이미지와 장면 메모를 저장합니다.
+- 작품 등록 스크린샷을 첨부하고 OCR 텍스트를 검색 단서로 저장합니다.
+- OpenAI Vision OCR이 가능한 환경에서는 작품 정보 초안을 자동으로 채우고, 실패하면 로컬 OCR과 수동 입력으로 이어집니다.
 - 통합 검색, 태그 필터, 정렬 기능을 제공합니다.
 - 작품 링크 기반 기본 정보 자동 채우기를 시도하고, 실패 시 수동 입력으로 보완합니다.
 
@@ -152,8 +167,8 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
 <div className="project-feature-grid">
   <section>
     <span>01</span>
-    <h3>작품 링크 자동 채우기</h3>
-    <p>RIDI, 네이버 시리즈, 카카오페이지 링크를 넣으면 가능한 기본 정보를 먼저 채우고 실패하면 수동 입력으로 이어집니다.</p>
+    <h3>링크와 스크린샷 등록</h3>
+    <p>RIDI, 네이버 시리즈, 카카오페이지 링크를 넣으면 가능한 기본 정보를 먼저 채우고, 링크 접근이 막히면 스크린샷 OCR로 초안을 만듭니다.</p>
   </section>
   <section>
     <span>02</span>
@@ -175,7 +190,7 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
 ## 동작 흐름
 
 <div className="project-flow">
-  <div><span>1</span><strong>작품 입력</strong><p>RIDI 링크 또는 수동 입력으로 작품 기본 정보를 만듭니다.</p></div>
+  <div><span>1</span><strong>작품 입력</strong><p>RIDI 링크, 수동 입력, 스크린샷 OCR로 작품 기본 정보를 만듭니다.</p></div>
   <div><span>2</span><strong>단서 기록</strong><p>인물, 관계성, 분위기, 스포 메모와 발췌 이미지를 쌓습니다.</p></div>
   <div><span>3</span><strong>재탐색</strong><p>태그와 검색어로 기억나는 조각부터 작품을 찾아냅니다.</p></div>
   <div><span>4</span><strong>백업 관리</strong><p>JSON export/import로 local-first 데이터의 유실 위험을 줄입니다.</p></div>
@@ -183,12 +198,14 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
 
 ## Portfolio Signal
 
-이 프로젝트는 개인적인 불편을 실제 사용 가능한 도구로 바꾸는 과정이 잘 드러납니다. local-first 구조로 시작해 데이터 소유권과 간단한 백업을 우선하고, 모바일에서 반복해서 여는 시트와 뒤로가기 같은 작은 사용성을 계속 다듬었습니다.
+이 프로젝트는 개인적인 불편을 실제 사용 가능한 도구로 바꾸는 과정이 잘 드러납니다. local-first 구조로 시작해 데이터 소유권과 간단한 백업을 우선하고, 링크 수집이 막히는 예외는 스크린샷 OCR로 우회했습니다.
 
 ## Implementation Notes
 
 - 처음부터 계정/서버 저장소를 붙이지 않고 localStorage로 빠르게 사용성을 검증했습니다.
 - 발췌 이미지는 브라우저 저장소에서 다루기 위해 IndexedDB 기반 media store를 붙였습니다.
+- 작품 등록 스크린샷도 같은 media store에 저장하고, OCR 텍스트는 검색 대상에 포함했습니다.
+- OpenAI Vision OCR은 Netlify Function으로 분리하고, 키 미설정/용량 초과/서버 실패 시 기본 OCR로 폴백합니다.
 - PWA manifest와 service worker를 포함해 모바일에서 앱처럼 접근하는 사용성을 고려했습니다.
 - JSON export/import를 넣어 local-first 구조의 데이터 유실 리스크를 줄였습니다.
 - 외부 페이지 메타데이터 수집은 실패 가능성을 전제로 수동 입력 흐름과 중복 방지 흐름을 함께 설계했습니다.
@@ -197,4 +214,5 @@ Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리�
 
 - 작품 기록 스키마 정리와 마이그레이션 전략 추가
 - 태그 추천과 중복 태그 정리 기능 개선
+- OCR 결과를 저장 전 비교할 수 있는 확인 UI 개선
 - 서버 저장소를 붙일 경우에도 local-first 사용성을 유지하는 동기화 방식 검토
