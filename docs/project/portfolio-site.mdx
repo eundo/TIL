@@ -1,21 +1,21 @@
 ---
 sidebar_position: 6
-title: Eundo Today Portfolio
-description: Docusaurus 기반 블로그를 포트폴리오 사이트로 전환하고 Netlify 배포 흐름을 연결한 프로젝트입니다.
+title: eundo.today
+description: Docusaurus 기반 개인 포트폴리오 블로그를 GitHub push와 Netlify 배포 흐름으로 운영하는 프로젝트입니다.
 ---
 
-# Eundo Today Portfolio
+# eundo.today
 
-이 사이트는 기존 TIL 블로그를 포트폴리오 중심 구조로 재정리한 Docusaurus 프로젝트입니다. About Me, Case Studies, Projects, Notes의 역할을 나누고 GitHub push 기반 Netlify 배포 흐름을 사용합니다.
+TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로젝트입니다. 경력, 실무 회고, 개인 프로젝트, 학습 기록을 한 사이트에서 관리하고 `main` 브랜치 push로 Netlify에 배포합니다.
 
 <div className="project-screenshot-grid project-screenshot-grid--responsive">
   <figure>
-    <img src="/img/projects/portfolio-site-home-desktop.png" alt="Eundo Today Portfolio 홈 데스크톱 실제 화면 캡처" />
-    <figcaption>데스크톱 홈은 소개, 대표 프로젝트 캡처, 샘플 워크스페이스가 첫 흐름에 들어오도록 구성했습니다.</figcaption>
+    <img src="/img/projects/portfolio-site-home-desktop.png" alt="eundo.today 홈 데스크톱 화면" />
+    <figcaption>데스크톱에서는 이름, 작업 영역, 대표 프로젝트 화면을 첫 화면에 배치했습니다.</figcaption>
   </figure>
   <figure className="project-mobile-shot">
-    <img src="/img/projects/portfolio-site-home-mobile.png" alt="Eundo Today Portfolio 홈 모바일 실제 화면 캡처" />
-    <figcaption>모바일 홈은 메뉴, 소개, 대표 프로젝트, 샘플 섹션이 한 컬럼으로 이어지도록 정리했습니다.</figcaption>
+    <img src="/img/projects/portfolio-site-home-mobile.png" alt="eundo.today 홈 모바일 화면" />
+    <figcaption>모바일에서는 메뉴, 소개, 대표 프로젝트가 한 흐름으로 읽히도록 단일 컬럼으로 정리했습니다.</figcaption>
   </figure>
 </div>
 
@@ -24,108 +24,107 @@ description: Docusaurus 기반 블로그를 포트폴리오 사이트로 전환�
 | 구분 | 내용 |
 | --- | --- |
 | 상태 | Public portfolio site |
-| 문제 | TIL, 회고, 프로젝트 기록이 섞여 있어 포트폴리오 관점의 첫인상이 약함 |
-| 접근 | 첫 화면과 메뉴 구조를 포트폴리오 중심으로 재배치하고, 프로젝트 허브를 별도 설계 |
+| 목적 | 경력, 실무 회고, 개인 프로젝트를 빠르게 훑을 수 있는 개인 사이트 |
+| 접근 | 홈과 메뉴 구조를 포트폴리오 중심으로 재배치하고, 프로젝트는 실제 화면 중심으로 설명 |
 | 기술 | Docusaurus, TypeScript, MDX, CSS Modules, Netlify |
-| 배포 | `main` 브랜치 push 후 Netlify에서 정적 빌드 및 배포 |
+| 배포 | `main` 브랜치 push 후 Netlify 자동 빌드 및 배포 |
 
 ## What It Does
 
-- 개발자 소개, 실무 사례, 프로젝트, 학습 노트를 목적별 메뉴로 분리합니다.
-- 실무 문제 해결 사례는 Case Studies로, 제품형 개인 실험은 Projects로 분리합니다.
-- MDX 기반으로 프로젝트 상세 페이지를 계속 확장할 수 있습니다.
-- Netlify 설정을 repository에 고정해 배포 재현성을 높였습니다.
+- About, Stories, Projects, Notes의 역할을 분리합니다.
+- Private repository는 코드 대신 실제 화면, 샘플 데이터, 구현 단위로 소개합니다.
+- MDX로 프로젝트 상세 페이지를 계속 확장합니다.
+- GitHub와 Netlify를 연결해 콘텐츠 수정 후 배포까지 같은 흐름으로 처리합니다.
 
-## 페이지별 구성
+## 페이지 구성
 
 <div className="project-screen-tour">
   <article>
     <span>01 · Home</span>
-    <h3>샘플 워크스페이스</h3>
-    <p>첫 화면에서 프로젝트 이름만 나열하지 않고, Shorts Pipeline, Source Radar, Reread Bookshelf의 샘플 상태값과 실제 캡처를 바로 보여줍니다.</p>
+    <h3>포트폴리오 첫 화면</h3>
+    <p>이름, 작업 영역, 대표 프로젝트를 바로 보여줍니다. 과한 설명보다 실제 화면과 짧은 기술 신호를 앞에 둡니다.</p>
     <ul>
-      <li>샘플 상태: 클립 수, queue 수, 태그 수처럼 화면에서 읽히는 값</li>
-      <li>확인 포인트: desktop/mobile 캡처, 다음 액션, 상세 페이지 링크</li>
+      <li>박은도 / Backend / Batch / Product UI</li>
+      <li>Shorts Pipeline 데스크톱·모바일 화면 공존</li>
+      <li>Spring Boot, Batch, React, Netlify 등 스택 티커</li>
     </ul>
   </article>
   <article>
     <span>02 · About</span>
-    <h3>경력과 실무 범위</h3>
-    <p>학력은 노출하지 않고, 운영 개발, 배치, API, React 화면 전환처럼 실제 업무에서 다룬 범위를 중심으로 정리합니다.</p>
+    <h3>경력과 역할</h3>
+    <p>학력은 제외하고, 금융권 운영 개발과 실제 맡았던 역할 중심으로 정리합니다.</p>
     <ul>
-      <li>샘플 상태: 회사/프로젝트별 역할과 기술 스택</li>
-      <li>확인 포인트: 어떤 문제를 맡았고 어디까지 책임졌는지</li>
+      <li>회사와 프로젝트별 담당 범위</li>
+      <li>배치, API, React 화면 전환 등 핵심 경험</li>
     </ul>
   </article>
   <article>
-    <span>03 · Case Studies</span>
-    <h3>실무 문제 해결 기록</h3>
-    <p>실시간 로그 적재 배치, API 비동기 호출, React SPA 전환 같은 업무형 글은 프로젝트가 아니라 회고/사례로 분리했습니다.</p>
+    <span>03 · Stories</span>
+    <h3>실무 회고</h3>
+    <p>프로젝트 홍보가 아니라 운영 문제를 어떻게 다뤘는지 정리하는 영역입니다.</p>
     <ul>
-      <li>샘플 상태: 문제, 접근, 구현, 운영 관점의 배운 점</li>
-      <li>확인 포인트: 면접 질문으로 이어질 수 있는 근거</li>
+      <li>실시간 로그적재 배치 개발</li>
+      <li>API 비동기 호출 데이터 처리</li>
+      <li>React 기반 웹앱 SPA 전환</li>
     </ul>
   </article>
   <article>
     <span>04 · Projects</span>
-    <h3>개인 제품 실험</h3>
-    <p>private repository는 코드 대신 실제 화면, 공개용 샘플 데이터, 최근 커밋 흐름, 다음 개선 항목으로 소개합니다.</p>
+    <h3>개인 도구</h3>
+    <p>Shorts Pipeline, Content Studio, Reread Bookshelf처럼 직접 쓰려고 만든 도구를 화면 중심으로 보여줍니다.</p>
     <ul>
-      <li>샘플 상태: 각 프로젝트별 desktop/mobile 화면</li>
-      <li>확인 포인트: 왜 만들었고, 어떻게 쓰는 도구인지</li>
+      <li>프로젝트별 샘플 데이터와 주요 화면</li>
+      <li>Private repo를 유지하면서 공개 가능한 범위만 설명</li>
     </ul>
   </article>
   <article>
     <span>05 · Notes</span>
     <h3>TIL과 책 기록</h3>
-    <p>채용 관점의 첫 화면에서는 뒤로 빼고, 필요한 사람이 들어가서 볼 수 있는 학습 기록 영역으로 유지합니다.</p>
+    <p>학습 기록은 포트폴리오 흐름을 방해하지 않도록 별도 메뉴로 유지합니다.</p>
     <ul>
-      <li>샘플 상태: TIL, Book Notes</li>
-      <li>확인 포인트: 꾸준한 기록은 남기되 포트폴리오 흐름을 방해하지 않게 배치</li>
+      <li>TIL</li>
+      <li>Book Notes</li>
     </ul>
   </article>
   <article>
     <span>06 · Deploy</span>
-    <h3>GitHub push와 Netlify 배포</h3>
-    <p>main 브랜치에 push하면 Netlify가 정적 빌드를 실행하고 eundo.today에 반영합니다. 콘텐츠 수정도 같은 흐름으로 운영합니다.</p>
+    <h3>GitHub to Netlify</h3>
+    <p>로컬에서 수정하고 push하면 Netlify가 정적 빌드와 배포를 처리합니다.</p>
     <ul>
-      <li>샘플 상태: commit → build → ready</li>
-      <li>확인 포인트: 배포 재현성, 공개 URL, 커스텀 도메인</li>
+      <li>main branch push</li>
+      <li>Docusaurus production build</li>
+      <li>eundo.today 반영</li>
     </ul>
   </article>
 </div>
 
-## 화면으로 보는 기능
+## 구현 포인트
 
 <div className="project-feature-grid">
   <section>
     <span>01</span>
-    <h3>포트폴리오형 첫 화면</h3>
-    <p>단순 블로그 인덱스가 아니라 경력, 프로젝트, 개발 회고로 이동하는 첫 화면 흐름을 구성했습니다.</p>
+    <h3>홈 구조 재설계</h3>
+    <p>블로그 인덱스처럼 보이지 않도록 첫 화면을 포트폴리오, 프로젝트 미리보기, 스택 티커 중심으로 재배치했습니다.</p>
   </section>
   <section>
     <span>02</span>
-    <h3>메뉴 역할 분리</h3>
-    <p>About Me는 경력, Case Studies는 실무 문제 해결, Projects는 제품형 개인 실험, Notes는 학습 기록으로 나눴습니다.</p>
+    <h3>명칭 정리</h3>
+    <p>실무 회고는 Stories, 개인 도구는 Projects로 분리해 위치가 섞이지 않게 했습니다.</p>
   </section>
   <section>
     <span>03</span>
-    <h3>Private repo 공개 전략</h3>
-    <p>코드 링크 없이 화면 예시, 문제 정의, 구현 범위, 다음 개선 방향으로 프로젝트를 소개합니다.</p>
+    <h3>Private repo 소개 방식</h3>
+    <p>코드 공개 대신 화면, 샘플 데이터, 기능 단위, 다음 개선 방향으로 프로젝트를 설명합니다.</p>
   </section>
   <section>
     <span>04</span>
-    <h3>GitHub to Netlify</h3>
-    <p>main 브랜치 push 후 Netlify가 정적 빌드와 배포를 수행하도록 운영 흐름을 연결했습니다.</p>
+    <h3>배포 흐름</h3>
+    <p>Docusaurus 빌드 결과를 Netlify가 자동 배포하도록 연결해 사이트 수정과 공개 흐름을 단순하게 유지합니다.</p>
   </section>
 </div>
 
-## Portfolio Signal
-
-이 프로젝트는 결과물 자체가 포트폴리오이면서, 문서화와 배포 자동화까지 포함한 작은 운영 시스템입니다. 단순한 정적 페이지가 아니라 콘텐츠 구조, 경력 소개, 프로젝트 정리 방식까지 함께 개선하고 있습니다.
-
 ## Next
 
-- 실제 사용 흐름이 바뀔 때마다 공개 가능한 화면 프리뷰 갱신
-- 각 private 프로젝트의 공개 가능한 아키텍처 다이어그램 추가
-- Case Studies와 Projects 사이의 연결 강화
+- 프로젝트별 최신 화면 갱신
+- 공개 가능한 아키텍처 다이어그램 추가
+- Stories와 Projects 사이의 관련 링크 강화

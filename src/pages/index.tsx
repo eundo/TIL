@@ -3,36 +3,18 @@ import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
 
-const portfolioLinks = [
-  {
-    title: 'About',
-    description: '경력과 맡았던 일',
-    href: '/docs/aboutMe/PARK%20EUNDO',
-  },
-  {
-    title: 'Dev Stories',
-    description: '실무에서 고친 문제',
-    href: '/blog/dev-story',
-  },
-  {
-    title: 'Projects',
-    description: '혼자 만든 도구들',
-    href: '/docs/project',
-  },
-];
-
-const strengths = [
-  'Java/Spring',
-  'Batch/대용량 처리',
-  'React 업무 화면',
-  'Oracle/PostgreSQL',
-];
-
-const heroStats = [
-  {value: '10y+', label: '금융권 운영 개발'},
-  {value: 'Batch/API', label: '로그 적재 · 비동기 호출'},
-  {value: 'Product', label: '개인 자동화 실험'},
-];
+type ProjectSample = {
+  title: string;
+  label: string;
+  summary: string;
+  href: string;
+  accent: string;
+  desktopImage: string;
+  mobileImage: string;
+  mobileOnly?: boolean;
+  stack: string[];
+  signals: string[];
+};
 
 const stackTicker = [
   'Spring Boot',
@@ -47,45 +29,58 @@ const stackTicker = [
   'WordPress REST',
 ];
 
-const featuredProject = {
-  title: 'Shorts Pipeline',
-  description: '정밀 자막, 피사체 추적, FFmpeg 합성을 연결한 숏폼 제작 도구.',
-  href: '/docs/project/shorts-pipeline',
-  desktopImage: '/img/projects/shorts-pipeline-sample-captions-desktop.png',
-  mobileImage: '/img/projects/shorts-pipeline-sample-export-mobile.png',
-  tags: ['FastAPI', 'LLM API', 'FFmpeg', 'Docker'],
-};
-
-const principles = [
-  {
-    title: 'Backend',
-    description: 'Spring 기반 운영 API, 인증, 대외 연계.',
-  },
-  {
-    title: 'Batch',
-    description: '대용량 처리, 재시도, 상태 추적.',
-  },
-  {
-    title: 'Product UI',
-    description: 'React 업무 화면과 개인 프로젝트 UI.',
-  },
+const heroStats = [
+  {value: '10y+', label: '금융권 운영 개발'},
+  {value: 'Batch/API', label: '적재, 호출, 재처리'},
+  {value: 'Products', label: '개인 자동화 도구'},
 ];
 
-const workSignals = [
+const projectSamples: ProjectSample[] = [
   {
-    metric: 'About',
-    title: 'Career',
-    description: '금융, 보험, 증권 운영 개발 경력.',
+    title: 'Shorts Pipeline',
+    label: 'Featured',
+    summary: '수집, 편집, TTS, 자막, 피사체 추적, FFmpeg 합성을 한 콘솔에서 다루는 숏폼 제작 파이프라인.',
+    href: '/docs/project/shorts-pipeline',
+    accent: '#6c4dff',
+    desktopImage: '/img/projects/shorts-pipeline-sample-captions-desktop.png',
+    mobileImage: '/img/projects/shorts-pipeline-sample-export-mobile.png',
+    stack: ['FastAPI', 'LLM API', 'FFmpeg', 'Docker'],
+    signals: ['6 clips', '8 caption lines', '9:16 export'],
   },
   {
-    metric: 'Stories',
-    title: 'Dev Stories',
-    description: '배치, 비동기 API, React SPA 작업 기록.',
+    title: 'Source Radar',
+    label: 'Research Queue',
+    summary: 'YouTube 후보가 쌓이기 전에 제목 훅, 채널명 오탐, 설명문-only 신호를 걸러내는 리서치 queue.',
+    href: '/docs/project/shorts-source-radar',
+    accent: '#ff5a7a',
+    desktopImage: '/img/projects/shorts-source-radar-empty-mobile.png',
+    mobileImage: '/img/projects/shorts-source-radar-empty-mobile.png',
+    mobileOnly: true,
+    stack: ['Node.js', 'Netlify Functions', 'Notion API'],
+    signals: ['quality gate', 'skip learning', 'mobile first'],
   },
   {
-    metric: 'Projects',
-    title: 'Projects',
-    description: 'Shorts, Content Studio, 개인 제품 실험.',
+    title: 'Content Studio',
+    label: 'Publishing Console',
+    summary: '주제 추천, 글 생성, 이미지 패키지, SEO 검수, WordPress draft 저장을 묶은 콘텐츠 운영 콘솔.',
+    href: '/docs/project/eundo-content-studio',
+    accent: '#00d6b3',
+    desktopImage: '/img/projects/eundo-content-studio-dashboard-desktop.png',
+    mobileImage: '/img/projects/eundo-content-studio-dashboard-mobile.png',
+    stack: ['React', 'Express', 'Python', 'WordPress REST'],
+    signals: ['10 topics', '3 picked', 'WP draft'],
+  },
+  {
+    title: 'Reread Bookshelf',
+    label: 'Local-first',
+    summary: 'RIDI, 시리즈, 카카오페이지 기록을 기억 단서와 스크린샷 OCR 중심으로 저장하는 개인 책장.',
+    href: '/docs/project/reread-bookshelf',
+    accent: '#ffe85c',
+    desktopImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
+    mobileImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
+    mobileOnly: true,
+    stack: ['JavaScript', 'PWA', 'localStorage', 'OCR'],
+    signals: ['8 records', 'OCR input', 'mobile sheet'],
   },
 ];
 
@@ -112,133 +107,100 @@ const caseStudies = [
   },
 ];
 
-const productExperiments = [
+const routeCards = [
   {
-    title: 'Shorts Pipeline',
-    meta: 'AI 영상 제작 워크플로우',
-    href: '/docs/project/shorts-pipeline',
+    title: 'About',
+    description: '경력, 역할, 맡았던 시스템',
+    href: '/docs/aboutMe/PARK%20EUNDO',
   },
   {
-    title: 'Shorts Source Radar',
-    meta: '후보 품질 게이트 · 스킵 학습',
-    href: '/docs/project/shorts-source-radar',
+    title: 'Stories',
+    description: '배치, API, React 실무 기록',
+    href: '/blog/dev-story',
   },
   {
-    title: 'Eundo Content Studio',
-    meta: 'WordPress 운영 콘솔 · SEO 자동화',
-    href: '/docs/project/eundo-content-studio',
-  },
-  {
-    title: 'Reread Bookshelf',
-    meta: 'Local-first · 스크린샷 OCR',
-    href: '/docs/project/reread-bookshelf',
+    title: 'Projects',
+    description: '직접 만든 개인 도구',
+    href: '/docs/project',
   },
 ];
 
-const projectSamples = [
-  {
-    title: 'Shorts Pipeline',
-    label: 'Sample Job',
-    headline: '레시피 영상 1개를 쇼츠 제작 상태로 관리',
-    description:
-      '업로드한 원본에서 클립을 고르고, TTS 대본과 정밀 자막, 피사체 추적, FFmpeg 합성까지 같은 콘솔에서 확인합니다.',
-    desktopImage: '/img/projects/shorts-pipeline-sample-captions-desktop.png',
-    mobileImage: '/img/projects/shorts-pipeline-sample-export-mobile.png',
-    href: '/docs/project/shorts-pipeline',
-    stats: [
-      {value: '6 clips', label: '활성 클립'},
-      {value: '8 lines', label: '정밀 자막'},
-      {value: '9:16', label: '세로 합성'},
-    ],
-    sampleRows: [
-      'TTS 대본: 담백한 설명형 42초 버전',
-      '피사체 추적: 중앙 유지, 급격한 crop 이동 완화',
-      '렌더링 상태: preview 완료, final compose 대기',
-    ],
-  },
-  {
-    title: 'Shorts Source Radar',
-    label: 'Mobile Web',
-    headline: '추천 후보가 쌓이기 전에 거르는 queue',
-    description:
-      '추천 화면에서 후보를 수집하기 전의 모바일 웹 상태입니다. 후보가 쌓이면 제목 훅, 채널명 오탐, 설명문-only 신호를 거쳐 검토 queue로 들어옵니다.',
-    desktopImage: '/img/projects/shorts-source-radar-empty-mobile.png',
-    mobileImage: '/img/projects/shorts-source-radar-empty-mobile.png',
-    mobileOnly: true,
-    href: '/docs/project/shorts-source-radar',
-    stats: [
-      {value: '0', label: '미검수'},
-      {value: '0', label: '추천 수집'},
-      {value: 'Gate', label: '품질 필터'},
-    ],
-    sampleRows: [
-      'Lane: 추천 수집함',
-      'Quality: 제목 훅과 채널 브랜드 단어 분리',
-      'Learning: 반복 Skip 패턴을 다음 후보에 반영',
-    ],
-  },
-  {
-    title: 'Eundo Content Studio',
-    label: 'Dashboard',
-    headline: '주제 추천부터 WordPress draft까지 한 화면에서 처리',
-    description:
-      '주제 후보를 고르고, 글 작성 모델과 이미지 생성 옵션, SEO 체크리스트, WordPress 저장 여부를 한 대시보드에서 조정합니다.',
-    desktopImage: '/img/projects/eundo-content-studio-dashboard-desktop.png',
-    mobileImage: '/img/projects/eundo-content-studio-dashboard-mobile.png',
-    href: '/docs/project/eundo-content-studio',
-    stats: [
-      {value: '10 topics', label: '추천 후보'},
-      {value: '3 picked', label: '선택 주제'},
-      {value: 'WP draft', label: '저장 흐름'},
-    ],
-    sampleRows: [
-      '주제 추천: 기존 글과 겹치는 검색 의도 제외',
-      '생성 설정: 글 모델, 이미지 공급자, SEO/FAQ 옵션 조정',
-      '출력 흐름: HTML 본문, 이미지 패키지, WordPress draft 저장',
-    ],
-  },
-  {
-    title: 'Reread Bookshelf',
-    label: 'Mobile Web',
-    headline: '제목보다 기억 단서로 다시 찾는 책장',
-    description:
-      'RIDI, 네이버 시리즈, 카카오페이지 기록을 작품 링크, 인물, 관계성, 분위기, 발췌 이미지, 스크린샷 OCR 중심으로 저장합니다.',
-    desktopImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
-    mobileImage: '/img/projects/reread-bookshelf-sample-detail-mobile.png',
-    mobileOnly: true,
-    href: '/docs/project/reread-bookshelf',
-    stats: [
-      {value: '8', label: '기록'},
-      {value: '8', label: '재탕 후보'},
-      {value: 'OCR', label: '스크린샷 등록'},
-    ],
-    sampleRows: [
-      '기억 단서: 계약관계, 느린 감정선, 후반부 반전',
-      '입력 흐름: 링크 자동 채우기 또는 스크린샷 OCR 초안',
-      '모바일 UX: 시트 열림 상태를 back 버튼과 연결',
-    ],
-  },
+const capabilityRows = [
+  ['Backend', 'Spring 기반 운영 API, 인증, 대외 연계'],
+  ['Batch', '대용량 처리, 재시도, 상태 추적'],
+  ['Product UI', 'React 업무 화면과 개인 프로젝트 UI'],
+  ['Automation', '반복 작업을 줄이는 작은 도구 설계'],
 ];
+
+function ProjectVisual({project}: {project: ProjectSample}) {
+  return (
+    <div className={`${styles.projectVisual} ${project.mobileOnly ? styles.mobileOnlyVisual : ''}`}>
+      {!project.mobileOnly && (
+        <img
+          className={styles.desktopShot}
+          src={project.desktopImage}
+          alt={`${project.title} desktop screen`}
+        />
+      )}
+      <img
+        className={project.mobileOnly ? styles.mobileOnlyShot : styles.mobileShot}
+        src={project.mobileImage}
+        alt={`${project.title} mobile screen`}
+      />
+    </div>
+  );
+}
+
+function ProjectCard({project, index}: {project: ProjectSample; index: number}) {
+  return (
+    <a
+      className={styles.projectCard}
+      href={project.href}
+      style={{'--project-accent': project.accent} as React.CSSProperties}
+    >
+      <div className={styles.projectCardTop}>
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <em>{project.label}</em>
+      </div>
+      <ProjectVisual project={project} />
+      <div className={styles.projectCardBody}>
+        <h3>{project.title}</h3>
+        <p>{project.summary}</p>
+        <div className={styles.signalList}>
+          {project.signals.map((signal) => (
+            <span key={signal}>{signal}</span>
+          ))}
+        </div>
+        <div className={styles.stackList}>
+          {project.stack.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </div>
+    </a>
+  );
+}
 
 export default function Home(): JSX.Element {
+  const featured = projectSamples[0];
+
   return (
     <Layout
-      title="박은도 Portfolio"
-      description="박은도의 개발자 포트폴리오입니다. 실무 경력, 개발 기록, 개인 프로젝트를 정리합니다.">
+      title="박은도 | Backend / Batch / Product UI"
+      description="박은도의 개발자 포트폴리오입니다. 금융권 운영 개발, 배치와 API, 개인 프로젝트를 정리합니다.">
       <main className={styles.portfolioPage}>
         <section className={styles.hero}>
-          <div className={styles.heroContent}>
+          <div className={styles.heroCopy}>
             <h1>
-              <span>Backend · Batch · Frontend</span>
-              박은도
+              <span>박은도</span>
+              Backend / Batch / Product UI
             </h1>
-            <p className={styles.heroCopy}>
-              금융권 운영 시스템, 배치, API, React 화면을 다룹니다. 반복되는 일은 작은 제품으로 만들어 검증합니다.
+            <p>
+              금융권 운영 개발을 해왔고, 개인 프로젝트는 직접 쓰려고 만듭니다.
             </p>
-            <div className={styles.sparkList} aria-label="Core stack">
-              {['Web', 'Backend', 'Batch', 'API', 'Automation'].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
+            <div className={styles.heroActions}>
+              <a className={styles.primaryAction} href="#selected-work">Projects</a>
+              <a className={styles.secondaryAction} href="/docs/aboutMe/PARK%20EUNDO">About</a>
             </div>
             <div className={styles.heroStats} aria-label="Portfolio summary">
               {heroStats.map((item) => (
@@ -248,41 +210,24 @@ export default function Home(): JSX.Element {
                 </div>
               ))}
             </div>
-            <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href="#work-map">
-                프로젝트 보기
-              </a>
-              <a className="button button--secondary button--lg" href="/docs/aboutMe/PARK%20EUNDO">
-                경력 보기
-              </a>
-            </div>
           </div>
 
-          <aside className={styles.showcasePanel} aria-label="Selected project preview">
-            <div className={styles.showcaseCopy}>
-              <span>Selected Work</span>
-              <strong>{featuredProject.title}</strong>
-              <p>{featuredProject.description}</p>
-              <div className={styles.showcaseTags}>
-                {featuredProject.tags.map((tag) => (
-                  <em key={tag}>{tag}</em>
-                ))}
-              </div>
-              <a href={featuredProject.href}>프로젝트 상세 보기</a>
+          <a
+            className={styles.heroShowcase}
+            href={featured.href}
+            style={{'--project-accent': featured.accent} as React.CSSProperties}
+            aria-label="Shorts Pipeline project detail"
+          >
+            <div className={styles.showcaseHeader}>
+              <strong>{featured.title}</strong>
+              <span>Featured Project</span>
             </div>
-            <div className={styles.showcaseVisual} aria-hidden="true">
-              <img
-                className={styles.desktopShot}
-                src={featuredProject.desktopImage}
-                alt=""
-              />
-              <img
-                className={styles.mobileShot}
-                src={featuredProject.mobileImage}
-                alt=""
-              />
+            <ProjectVisual project={featured} />
+            <div className={styles.showcaseFooter}>
+              <span>{featured.stack.join(' / ')}</span>
+              <b>View</b>
             </div>
-          </aside>
+          </a>
         </section>
 
         <section className={styles.stackTicker} aria-label="Technology stack">
@@ -293,128 +238,52 @@ export default function Home(): JSX.Element {
           </div>
         </section>
 
-        <section className={styles.projectSampleDeck} aria-labelledby="project-samples-title">
-          <div className={styles.sampleHeader}>
-            <p className={styles.sectionLabel}>Project Samples</p>
-            <h2 id="project-samples-title">실제 화면 샘플</h2>
-            <p>
-              개인 데이터는 빼고, 공개 가능한 앱 화면만 남겼습니다.
-            </p>
+        <section id="selected-work" className={styles.selectedWork}>
+          <div className={styles.sectionHead}>
+            <h2>Selected Work</h2>
+            <p>Private repo는 닫아두고, 실제 화면과 구현 단위만 공개합니다.</p>
           </div>
-          <div className={styles.sampleGrid}>
-            {projectSamples.map((project) => (
-              <article key={project.title} className={styles.sampleCard}>
-                <div className={`${styles.sampleVisual} ${project.mobileOnly ? styles.sampleVisualMobileOnly : ''}`}>
-                  {!project.mobileOnly && (
-                    <img
-                      className={styles.sampleDesktop}
-                      src={project.desktopImage}
-                      alt={`${project.title} 데스크톱 화면`}
-                    />
-                  )}
-                  <img
-                    className={project.mobileOnly ? styles.sampleMobileOnly : styles.sampleMobile}
-                    src={project.mobileImage}
-                    alt={`${project.title} 모바일 화면`}
-                  />
-                </div>
-                <div className={styles.sampleBody}>
-                  <span>{project.label}</span>
-                  <h3>{project.title}</h3>
-                  <strong>{project.headline}</strong>
-                  <p>{project.description}</p>
-                  <div className={styles.sampleStats} aria-label={`${project.title} sample metrics`}>
-                    {project.stats.map((stat) => (
-                      <div key={`${project.title}-${stat.label}`}>
-                        <strong>{stat.value}</strong>
-                        <span>{stat.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <ul>
-                    {project.sampleRows.map((row) => (
-                      <li key={row}>{row}</li>
-                    ))}
-                  </ul>
-                  <a href={project.href}>상세 화면 보기</a>
-                </div>
-              </article>
+          <div className={styles.projectGrid}>
+            {projectSamples.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </div>
         </section>
 
-        <section id="work-map" className={styles.workMap}>
-          <div className={styles.scanIntro}>
-            <p className={styles.sectionLabel}>Overview</p>
-            <h2>Career · Dev Stories · Projects</h2>
-            <p>
-              금융권 운영 개발 · 배치와 API · 개인 제품 실험
-            </p>
+        <section className={styles.routeSection}>
+          <div className={styles.routeIntro}>
+            <h2>Career / Stories / Products</h2>
+            <p>경력, 실무 회고, 개인 도구를 따로 볼 수 있게 나눴습니다.</p>
           </div>
-          <div className={styles.scanCards}>
-            {workSignals.map((item) => (
-              <article key={item.title}>
-                <span>{item.metric}</span>
-                <strong>{item.title}</strong>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.strengthBand} aria-label="Core strengths">
-          <strong>Core Stack</strong>
-          {strengths.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </section>
-
-        <section className={styles.portfolioGrid}>
-          {portfolioLinks.map((item) => (
-            <a key={item.title} className={styles.portfolioCard} href={item.href}>
-              <span>{item.title}</span>
-              <p>{item.description}</p>
-            </a>
-          ))}
-        </section>
-
-        <section className={styles.operatingSection}>
-          <div>
-            <p className={styles.sectionLabel}>Focus</p>
-            <h2>Backend · Batch · Product UI</h2>
-          </div>
-          <div className={styles.principleGrid}>
-            {principles.map((item) => (
-              <article key={item.title}>
-                <strong>{item.title}</strong>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.recentWork}>
-          <div>
-            <p className={styles.sectionLabel}>Case Studies</p>
-            <h2>Dev Stories</h2>
-          </div>
-          <div className={styles.workList}>
-            {caseStudies.map((item) => (
+          <div className={styles.routeGrid}>
+            {routeCards.map((item) => (
               <a key={item.title} href={item.href}>
-                <span>{item.meta}</span>
                 <strong>{item.title}</strong>
+                <span>{item.description}</span>
               </a>
             ))}
           </div>
         </section>
 
-        <section className={`${styles.recentWork} ${styles.productLab}`}>
-          <div>
-            <p className={styles.sectionLabel}>Product Experiments</p>
-            <h2>Side Projects</h2>
+        <section className={styles.capabilitySection}>
+          <h2>Core Stack</h2>
+          <div className={styles.capabilityGrid}>
+            {capabilityRows.map(([title, description]) => (
+              <article key={title}>
+                <strong>{title}</strong>
+                <p>{description}</p>
+              </article>
+            ))}
           </div>
-          <div className={styles.workList}>
-            {productExperiments.map((item) => (
+        </section>
+
+        <section className={styles.storySection}>
+          <div className={styles.sectionHead}>
+            <h2>Stories</h2>
+            <p>배치, API, SPA 전환처럼 실제로 손댔던 것만 남겼습니다.</p>
+          </div>
+          <div className={styles.storyList}>
+            {caseStudies.map((item) => (
               <a key={item.title} href={item.href}>
                 <span>{item.meta}</span>
                 <strong>{item.title}</strong>

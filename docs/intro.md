@@ -2,15 +2,13 @@
 sidebar_position: 1
 ---
 
-# Eundo's Today
+# eundo.today
 
-개발하면서 배운 내용, 프로젝트 경험, 책을 읽으며 정리한 내용을 모아두는
-개인 기록 공간입니다.
+개발 경력, 실무 회고, 개인 프로젝트를 정리하는 포트폴리오 블로그입니다.
 
-## 주요 섹션
+## 메뉴
 
-- About Me: 경력과 기술 스택
-- TIL: 짧은 학습 기록
-- Project: 프로젝트별 정리
-- Book: 독서와 학습 노트
-- Case Studies: 실무 문제 해결 과정과 기술적 판단
+- About: 경력과 맡았던 역할
+- Stories: 배치, API, React 전환처럼 실무에서 다룬 문제
+- Projects: 직접 만든 개인 도구와 화면
+- Notes: TIL과 책 기록

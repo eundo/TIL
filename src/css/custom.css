@@ -1,18 +1,18 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css');
 
 :root {
-  --ifm-color-primary: #6848ff;
-  --ifm-color-primary-dark: #5338dd;
-  --ifm-color-primary-darker: #432dbb;
-  --ifm-color-primary-darkest: #2f1f8a;
-  --ifm-color-primary-light: #866dff;
-  --ifm-color-primary-lighter: #a999ff;
-  --ifm-color-primary-lightest: #efeaff;
-  --ifm-background-color: #fffdf8;
+  --ifm-color-primary: #6552ff;
+  --ifm-color-primary-dark: #4f3ee7;
+  --ifm-color-primary-darker: #4132c7;
+  --ifm-color-primary-darkest: #2d238e;
+  --ifm-color-primary-light: #8374ff;
+  --ifm-color-primary-lighter: #a89fff;
+  --ifm-color-primary-lightest: #f0edff;
+  --ifm-background-color: #ffffff;
   --ifm-navbar-background-color: rgba(255, 255, 255, 0.92);
-  --ifm-footer-background-color: #10131d;
-  --ifm-font-color-base: #11131d;
-  --ifm-heading-color: #11131d;
+  --ifm-footer-background-color: #0e1118;
+  --ifm-font-color-base: #0e1118;
+  --ifm-heading-color: #0e1118;
   --ifm-font-family-base: "Pretendard Variable", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --ifm-heading-font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --ifm-heading-font-weight: 850;
@@ -20,83 +20,83 @@
   --ifm-code-border-radius: 6px;
   --ifm-button-border-radius: 8px;
   --ifm-navbar-height: 68px;
-  --site-bg: #fffdf8;
-  --site-bg-alt: #f3f0ff;
+  --site-bg: #ffffff;
+  --site-bg-alt: #f7f8ff;
   --site-paper: #ffffff;
-  --site-paper-muted: #f1f3fb;
-  --site-paper-soft: #b4bfd4;
+  --site-paper-muted: #f5f6fb;
+  --site-paper-soft: #b8c1d3;
   --site-surface: #ffffff;
-  --site-ink: #11131d;
-  --site-ink-2: #2a3142;
-  --site-muted: #4c586f;
-  --site-soft: #6b768d;
-  --site-line: #cfd7eb;
-  --site-line-strong: #aeb8d0;
-  --site-charcoal: #10131d;
-  --site-accent: #6848ff;
-  --site-accent-strong: #4b30d6;
-  --site-accent-soft: #eee8ff;
-  --site-mint: #42f0cf;
-  --site-mint-soft: #d8fff4;
-  --site-sun: #ffe45c;
-  --site-sun-soft: #fff5b8;
-  --site-coral: #ff6b5a;
-  --site-coral-soft: #ffe1d9;
-  --site-sky: #76d9ff;
-  --site-sky-soft: #dff5ff;
-  --site-pink: #ff8ed8;
-  --site-pink-soft: #ffe4f6;
-  --site-forest: #0aa882;
-  --site-forest-soft: #d6fff0;
-  --site-shadow-sm: 0 1px 2px rgba(39, 32, 91, 0.1);
-  --site-shadow-md: 0 18px 34px rgba(39, 32, 91, 0.16);
-  --site-shadow-lg: 0 34px 74px rgba(39, 32, 91, 0.2);
+  --site-ink: #0e1118;
+  --site-ink-2: #242936;
+  --site-muted: #4d5667;
+  --site-soft: #6c7587;
+  --site-line: #d9deea;
+  --site-line-strong: #aab4c7;
+  --site-charcoal: #0e1118;
+  --site-accent: #6552ff;
+  --site-accent-strong: #4935dd;
+  --site-accent-soft: #f0edff;
+  --site-mint: #00d6b3;
+  --site-mint-soft: #dffff8;
+  --site-sun: #ffe85c;
+  --site-sun-soft: #fff4a8;
+  --site-coral: #ff4f78;
+  --site-coral-soft: #ffe5ed;
+  --site-sky: #53c8ff;
+  --site-sky-soft: #e0f6ff;
+  --site-pink: #ff70cf;
+  --site-pink-soft: #ffe4f7;
+  --site-forest: #007f6d;
+  --site-forest-soft: #dffff8;
+  --site-shadow-sm: 0 1px 0 rgba(14, 17, 24, 0.08);
+  --site-shadow-md: 8px 8px 0 rgba(14, 17, 24, 0.08);
+  --site-shadow-lg: 14px 14px 0 rgba(14, 17, 24, 0.1);
 }
 
 html[data-theme='dark'] {
-  --ifm-color-primary: #6848ff;
-  --ifm-color-primary-dark: #5338dd;
-  --ifm-color-primary-darker: #432dbb;
-  --ifm-color-primary-darkest: #2f1f8a;
-  --ifm-color-primary-light: #866dff;
-  --ifm-color-primary-lighter: #a999ff;
-  --ifm-color-primary-lightest: #efeaff;
-  --ifm-background-color: #fffdf8;
+  --ifm-color-primary: #6552ff;
+  --ifm-color-primary-dark: #4f3ee7;
+  --ifm-color-primary-darker: #4132c7;
+  --ifm-color-primary-darkest: #2d238e;
+  --ifm-color-primary-light: #8374ff;
+  --ifm-color-primary-lighter: #a89fff;
+  --ifm-color-primary-lightest: #f0edff;
+  --ifm-background-color: #ffffff;
   --ifm-navbar-background-color: rgba(255, 255, 255, 0.92);
-  --ifm-footer-background-color: #10131d;
-  --ifm-font-color-base: #11131d;
-  --ifm-heading-color: #11131d;
-  --site-bg: #fffdf8;
-  --site-bg-alt: #f3f0ff;
+  --ifm-footer-background-color: #0e1118;
+  --ifm-font-color-base: #0e1118;
+  --ifm-heading-color: #0e1118;
+  --site-bg: #ffffff;
+  --site-bg-alt: #f7f8ff;
   --site-paper: #ffffff;
-  --site-paper-muted: #f1f3fb;
-  --site-paper-soft: #b4bfd4;
+  --site-paper-muted: #f5f6fb;
+  --site-paper-soft: #b8c1d3;
   --site-surface: #ffffff;
-  --site-ink: #11131d;
-  --site-ink-2: #2a3142;
-  --site-muted: #4c586f;
-  --site-soft: #6b768d;
-  --site-line: #cfd7eb;
-  --site-line-strong: #aeb8d0;
-  --site-charcoal: #10131d;
-  --site-accent: #6848ff;
-  --site-accent-strong: #4b30d6;
-  --site-accent-soft: #eee8ff;
-  --site-mint: #42f0cf;
-  --site-mint-soft: #d8fff4;
-  --site-sun: #ffe45c;
-  --site-sun-soft: #fff5b8;
-  --site-coral: #ff6b5a;
-  --site-coral-soft: #ffe1d9;
-  --site-sky: #76d9ff;
-  --site-sky-soft: #dff5ff;
-  --site-pink: #ff8ed8;
-  --site-pink-soft: #ffe4f6;
-  --site-forest: #0aa882;
-  --site-forest-soft: #d6fff0;
-  --site-shadow-sm: 0 1px 2px rgba(39, 32, 91, 0.1);
-  --site-shadow-md: 0 18px 34px rgba(39, 32, 91, 0.16);
-  --site-shadow-lg: 0 34px 74px rgba(39, 32, 91, 0.2);
+  --site-ink: #0e1118;
+  --site-ink-2: #242936;
+  --site-muted: #4d5667;
+  --site-soft: #6c7587;
+  --site-line: #d9deea;
+  --site-line-strong: #aab4c7;
+  --site-charcoal: #0e1118;
+  --site-accent: #6552ff;
+  --site-accent-strong: #4935dd;
+  --site-accent-soft: #f0edff;
+  --site-mint: #00d6b3;
+  --site-mint-soft: #dffff8;
+  --site-sun: #ffe85c;
+  --site-sun-soft: #fff4a8;
+  --site-coral: #ff4f78;
+  --site-coral-soft: #ffe5ed;
+  --site-sky: #53c8ff;
+  --site-sky-soft: #e0f6ff;
+  --site-pink: #ff70cf;
+  --site-pink-soft: #ffe4f7;
+  --site-forest: #007f6d;
+  --site-forest-soft: #dffff8;
+  --site-shadow-sm: 0 1px 0 rgba(14, 17, 24, 0.08);
+  --site-shadow-md: 8px 8px 0 rgba(14, 17, 24, 0.08);
+  --site-shadow-lg: 14px 14px 0 rgba(14, 17, 24, 0.1);
 }
 
 * {
@@ -104,15 +104,23 @@ html[data-theme='dark'] {
 }
 
 body {
-  background:
-    linear-gradient(135deg, rgba(238, 232, 255, 0.9), transparent 36%),
-    linear-gradient(225deg, rgba(216, 255, 244, 0.84), transparent 40%),
-    var(--site-bg);
+  background: var(--site-bg);
   color: var(--site-ink);
   font-feature-settings: "kern";
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
   word-break: keep-all;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+.navbar__title,
+.navbar__link,
+.menu__link {
+  letter-spacing: 0;
 }
 
 ::selection {
@@ -249,9 +257,10 @@ a {
 
 .main-wrapper {
   background:
-    linear-gradient(135deg, rgba(238, 232, 255, 0.72), transparent 36%),
-    linear-gradient(225deg, rgba(255, 240, 168, 0.72), transparent 40%),
+    linear-gradient(90deg, rgba(14, 17, 24, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(14, 17, 24, 0.02) 1px, transparent 1px),
     var(--site-bg);
+  background-size: 64px 64px;
 }
 
 .theme-doc-markdown,
@@ -1914,4 +1923,99 @@ article[class*='blogPost'] {
     display: inline-block;
     margin-top: 10px;
   }
+}
+
+.profile-summary-grid div,
+.profile-proof-strip div,
+.profile-focus-grid section,
+.profile-impact-grid article,
+.profile-skill-grid section,
+.project-proof-strip div,
+.case-proof-strip div,
+.career-card-body,
+.project-hub-card,
+.project-activity-feed article,
+.project-page-map article,
+.project-sample-board section,
+.project-data-list article,
+.project-screen-tour article,
+.case-study-list a,
+.project-screenshot-grid figure,
+.project-feature-grid section,
+.project-flow div,
+.timeline-content,
+.education-content,
+.skill-card,
+.custom-timeline-content {
+  background: #ffffff !important;
+  box-shadow: var(--site-shadow-sm);
+}
+
+.profile-summary-grid div,
+.profile-proof-strip div,
+.project-proof-strip div,
+.case-proof-strip div,
+.project-hub-card,
+.project-activity-feed article,
+.project-page-map article,
+.project-sample-board section,
+.project-data-list article,
+.project-screen-tour article,
+.case-study-list a,
+.project-screenshot-grid figure,
+.project-feature-grid section,
+.project-flow div {
+  border-top: 6px solid var(--site-accent);
+}
+
+.profile-summary-grid div:nth-child(4n+2),
+.profile-proof-strip div:nth-child(3n+2),
+.project-proof-strip div:nth-child(3n+2),
+.case-proof-strip div:nth-child(3n+2),
+.project-hub-card:nth-child(4n+2),
+.project-activity-feed article:nth-child(4n+2),
+.project-page-map article:nth-child(4n+2),
+.project-sample-board section:nth-child(4n+2),
+.project-data-list article:nth-child(3n+2),
+.project-screen-tour article:nth-child(4n+2),
+.case-study-list a:nth-child(2),
+.project-screenshot-grid figure:nth-child(2n),
+.project-feature-grid section:nth-child(4n+2),
+.project-flow div:nth-child(4n+2) {
+  border-top-color: var(--site-mint);
+}
+
+.profile-summary-grid div:nth-child(4n+3),
+.profile-proof-strip div:nth-child(3n+3),
+.project-proof-strip div:nth-child(3n+3),
+.case-proof-strip div:nth-child(3n+3),
+.project-hub-card:nth-child(4n+3),
+.project-activity-feed article:nth-child(4n+3),
+.project-page-map article:nth-child(4n+3),
+.project-sample-board section:nth-child(4n+3),
+.project-data-list article:nth-child(3n+3),
+.project-screen-tour article:nth-child(4n+3),
+.project-feature-grid section:nth-child(4n+3),
+.project-flow div:nth-child(4n+3) {
+  border-top-color: var(--site-sun);
+}
+
+.profile-summary-grid div:nth-child(4n),
+.project-hub-card:nth-child(4n),
+.project-activity-feed article:nth-child(4n),
+.project-page-map article:nth-child(4n),
+.project-sample-board section:nth-child(4n),
+.project-screen-tour article:nth-child(4n),
+.project-feature-grid section:nth-child(4n),
+.project-flow div:nth-child(4n) {
+  border-top-color: var(--site-coral);
+}
+
+.project-hub-card::before,
+.case-study-list a::before {
+  display: none;
+}
+
+.project-lane-board section:first-child {
+  background: #ffffff !important;
 }
