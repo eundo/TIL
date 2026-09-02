@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Layout from '@theme/Layout';
 
 import ProjectGalaxy, {type GalaxyProject} from '../components/ProjectGalaxy';
@@ -373,16 +373,30 @@ function ProjectCard({
   project,
   index,
   onFocus,
+  isActive,
+  projectRef,
 }: {
   project: PortfolioProject;
   index: number;
   onFocus: () => void;
+  isActive: boolean;
+  projectRef: (node: HTMLAnchorElement | null) => void;
 }) {
   return (
     <a
-      className={`${styles.projectCard} ${styles[project.size]}`}
+      id={`project-${index}`}
+      ref={projectRef}
+      data-project-index={index}
+      className={`${styles.projectCard} ${styles[project.size]} ${
+        isActive ? styles.projectCardActive : ''
+      }`}
       href={project.href}
-      style={{'--project-accent': project.accent} as React.CSSProperties}
+      style={
+        {
+          '--project-accent': project.accent,
+          '--card-index': index,
+        } as React.CSSProperties
+      }
       onMouseEnter={onFocus}
       onFocus={onFocus}>
       <div className={styles.projectCardTop}>
@@ -415,15 +429,174 @@ function ProjectCard({
   );
 }
 
+function MotionRail({
+  projects,
+  activeIndex,
+  onSelect,
+}: {
+  projects: PortfolioProject[];
+  activeIndex: number;
+  onSelect: (index: number) => void;
+}) {
+  const progress = `${((activeIndex + 1) / projects.length) * 100}%`;
+
+  return (
+    <nav className={styles.motionRail} aria-label="Project scroll navigation">
+      <span className={styles.motionRailTrack} aria-hidden="true">
+        <i style={{height: progress}} />
+      </span>
+      {projects.map((project, index) => (
+        <button
+          key={project.title}
+          type="button"
+          className={`${styles.motionRailDot} ${
+            index === activeIndex ? styles.motionRailDotActive : ''
+          }`}
+          style={{'--project-accent': project.accent} as React.CSSProperties}
+          onClick={() => {
+            onSelect(index);
+          }}>
+          <span>
+            {String(index + 1).padStart(2, '0')} {project.title}
+          </span>
+        </button>
+      ))}
+    </nav>
+  );
+}
+
 export default function Home(): JSX.Element {
   const [activeIndex, setActiveIndex] = useState(0);
+  const pageRef = useRef<HTMLElement | null>(null);
+  const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  const activeIndexRef = useRef(0);
+  const scrollIntentRef = useRef<number | null>(null);
+  const scrollIntentTimeoutRef = useRef<number | null>(null);
+  const selectProject = useCallback((index: number) => {
+    const boundedIndex = Math.min(Math.max(index, 0), portfolioProjects.length - 1);
+
+    activeIndexRef.current = boundedIndex;
+    setActiveIndex((currentIndex) => (currentIndex === boundedIndex ? currentIndex : boundedIndex));
+  }, []);
+  const scrollToProject = useCallback(
+    (index: number) => {
+      const boundedIndex = Math.min(Math.max(index, 0), portfolioProjects.length - 1);
+      const target = document.getElementById(`project-${boundedIndex}`);
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      scrollIntentRef.current = boundedIndex;
+      selectProject(boundedIndex);
+
+      if (scrollIntentTimeoutRef.current) {
+        window.clearTimeout(scrollIntentTimeoutRef.current);
+      }
+
+      target?.scrollIntoView({
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        block: 'center',
+      });
+
+      scrollIntentTimeoutRef.current = window.setTimeout(
+        () => {
+          if (scrollIntentRef.current === boundedIndex) {
+            scrollIntentRef.current = null;
+            selectProject(boundedIndex);
+          }
+
+          scrollIntentTimeoutRef.current = null;
+        },
+        prefersReducedMotion ? 0 : 1200,
+      );
+    },
+    [selectProject],
+  );
   const activeProject = portfolioProjects[activeIndex] ?? portfolioProjects[0];
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
+
+  useEffect(() => {
+    const page = pageRef.current;
+    let animationFrame = 0;
+
+    const updateScrollState = () => {
+      const scrollableHeight = Math.max(
+        1,
+        document.documentElement.scrollHeight - window.innerHeight,
+      );
+      const scrollProgress = Math.min(1, Math.max(0, window.scrollY / scrollableHeight));
+      const viewportAnchor = window.innerHeight * 0.52;
+      let nextIndex = activeIndexRef.current;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      page?.style.setProperty('--scroll-progress', scrollProgress.toFixed(4));
+
+      if (scrollIntentRef.current !== null) {
+        animationFrame = 0;
+        return;
+      }
+
+      cardRefs.current.forEach((card, index) => {
+        if (!card) {
+          return;
+        }
+
+        const rect = card.getBoundingClientRect();
+
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+          return;
+        }
+
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(cardCenter - viewportAnchor);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          nextIndex = index;
+        }
+      });
+
+      if (nextIndex !== activeIndexRef.current) {
+        selectProject(nextIndex);
+      }
+
+      animationFrame = 0;
+    };
+
+    const requestUpdate = () => {
+      if (animationFrame) {
+        return;
+      }
+
+      animationFrame = window.requestAnimationFrame(updateScrollState);
+    };
+
+    updateScrollState();
+    window.addEventListener('scroll', requestUpdate, {passive: true});
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      if (animationFrame) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+
+      if (scrollIntentTimeoutRef.current) {
+        window.clearTimeout(scrollIntentTimeoutRef.current);
+      }
+
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+    };
+  }, [selectProject]);
 
   return (
     <Layout
       title="박은도 | Backend / Batch / Product UI"
       description="박은도의 개발자 포트폴리오입니다. 금융권 운영 개발, 배치와 API, 개인 프로젝트를 정리합니다.">
-      <main className={styles.portfolioPage}>
+      <main ref={pageRef} className={styles.portfolioPage}>
+        <div className={styles.scrollProgress} aria-hidden="true" />
+        <MotionRail projects={portfolioProjects} activeIndex={activeIndex} onSelect={scrollToProject} />
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
             <h1>
@@ -453,7 +626,7 @@ export default function Home(): JSX.Element {
             <ProjectGalaxy
               projects={portfolioProjects}
               activeIndex={activeIndex}
-              onSelect={setActiveIndex}
+              onSelect={selectProject}
             />
             <a
               className={styles.activeProjectPanel}
@@ -500,7 +673,11 @@ export default function Home(): JSX.Element {
                 key={project.title}
                 project={project}
                 index={index}
-                onFocus={() => setActiveIndex(index)}
+                isActive={index === activeIndex}
+                projectRef={(node) => {
+                  cardRefs.current[index] = node;
+                }}
+                onFocus={() => selectProject(index)}
               />
             ))}
           </div>
@@ -522,7 +699,7 @@ export default function Home(): JSX.Element {
         <section className={styles.routeSection}>
           <div className={styles.routeIntro}>
             <h2>Career / Stories / Products</h2>
-            <p>경력, 실무 회고, 개인 도구를 따로 볼 수 있게 나눴습니다.</p>
+            <p>경력은 짧게, 회고는 기술 중심, 프로젝트는 화면 중심.</p>
           </div>
           <div className={styles.routeGrid}>
             {routeCards.map((item) => (
@@ -549,7 +726,7 @@ export default function Home(): JSX.Element {
         <section className={styles.storySection}>
           <div className={styles.sectionHead}>
             <h2>Stories</h2>
-            <p>배치, API, SPA 전환처럼 실제로 손댔던 것만 남겼습니다.</p>
+            <p>운영 개발에서 남긴 기술 기록입니다.</p>
           </div>
           <div className={styles.storyList}>
             {caseStudies.map((item) => (

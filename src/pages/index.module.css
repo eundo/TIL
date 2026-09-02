@@ -1,4 +1,5 @@
 .portfolioPage {
+  --scroll-progress: 0;
   min-height: 100%;
   background:
     linear-gradient(90deg, rgba(14, 17, 24, 0.035) 1px, transparent 1px),
@@ -6,6 +7,120 @@
     #ffffff;
   background-size: 62px 62px;
   color: var(--site-ink);
+}
+
+.scrollProgress {
+  position: fixed;
+  top: var(--ifm-navbar-height);
+  left: 0;
+  z-index: 80;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--site-accent),
+    var(--site-mint),
+    var(--site-sun),
+    var(--site-coral)
+  );
+  pointer-events: none;
+  transform: scaleX(var(--scroll-progress));
+  transform-origin: left center;
+}
+
+.motionRail {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  z-index: 55;
+  display: grid;
+  gap: 11px;
+  transform: translateY(-50%);
+}
+
+.motionRailTrack {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 8px;
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(14, 17, 24, 0.12);
+  overflow: hidden;
+}
+
+.motionRailTrack i {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+  background: var(--site-ink);
+  transition: height 0.22s ease;
+}
+
+.motionRailDot {
+  position: relative;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid var(--site-ink);
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.motionRailDot::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--project-accent);
+  transform: scale(0.55);
+  transition: transform 0.18s ease;
+}
+
+.motionRailDot span {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  min-width: max-content;
+  max-width: 220px;
+  border: 1px solid var(--site-ink);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--site-ink);
+  padding: 7px 10px;
+  font-size: 0.72rem;
+  font-weight: 880;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(8px, -50%);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.motionRailDot:hover,
+.motionRailDot:focus-visible,
+.motionRailDotActive {
+  background: var(--project-accent);
+  box-shadow: 4px 4px 0 rgba(14, 17, 24, 0.15);
+  transform: translateX(-3px);
+}
+
+.motionRailDot:hover::before,
+.motionRailDot:focus-visible::before,
+.motionRailDotActive::before {
+  background: #ffffff;
+  transform: scale(1);
+}
+
+.motionRailDot:hover span,
+.motionRailDot:focus-visible span,
+.motionRailDotActive span {
+  opacity: 1;
+  transform: translate(0, -50%);
 }
 
 .hero {
@@ -145,6 +260,7 @@
 .galaxyStage {
   position: relative;
   min-height: 660px;
+  perspective: 1200px;
 }
 
 .activeProjectPanel {
@@ -319,8 +435,11 @@
   background: #ffffff;
   color: inherit;
   overflow: hidden;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 28px);
   text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .feature {
@@ -348,6 +467,7 @@
   display: block;
   height: 8px;
   background: var(--project-accent);
+  transition: height 0.18s ease;
 }
 
 .projectCard:hover {
@@ -355,6 +475,18 @@
   text-decoration: none;
   transform: translateY(-5px);
   box-shadow: 10px 10px 0 var(--project-accent);
+}
+
+.projectCardActive {
+  border-color: var(--site-ink);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 16%, #ffffff), #ffffff 36%),
+    #ffffff;
+  box-shadow: 6px 6px 0 rgba(14, 17, 24, 0.16);
+}
+
+.projectCardActive::before {
+  height: 12px;
 }
 
 .projectCardTop {
@@ -749,6 +881,9 @@
 }
 
 .repoLane {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 3px);
+  z-index: 24;
   display: grid;
   grid-auto-columns: minmax(220px, 1fr);
   grid-auto-flow: column;
@@ -768,11 +903,14 @@
   color: inherit;
   padding: 16px;
   text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease;
 }
 
 .repoLane a:hover {
+  background: color-mix(in srgb, var(--project-accent) 12%, #ffffff);
   color: inherit;
   text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .repoLane span,
@@ -961,12 +1099,17 @@
 }
 
 @supports (animation-timeline: view()) {
-  .projectCard,
+  .projectCard {
+    animation: projectFloatIn both;
+    animation-range: entry 8% cover 28%;
+    animation-timeline: view();
+  }
+
   .routeGrid a,
   .capabilityGrid article,
   .storyList a {
     animation: revealOnScroll both;
-    animation-range: entry 8% cover 28%;
+    animation-range: entry 10% cover 30%;
     animation-timeline: view();
   }
 }
@@ -990,6 +1133,24 @@
   to {
     opacity: 1;
     transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes projectFloatIn {
+  from {
+    opacity: 0.16;
+    transform: translateY(52px) rotateX(8deg) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .motionRail {
+    display: none;
   }
 }
 
@@ -1204,7 +1365,13 @@
   .primaryAction,
   .secondaryAction,
   .activeProjectPanel,
+  .motionRailTrack i,
+  .motionRailDot,
+  .motionRailDot::before,
+  .motionRailDot span,
   .projectCard,
+  .projectCard::before,
+  .repoLane a,
   .routeGrid a,
   .capabilityGrid article,
   .storyList a {
