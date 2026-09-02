@@ -257,6 +257,10 @@
   line-height: 1.42;
 }
 
+.heroPulse {
+  margin-top: 12px;
+}
+
 .galaxyStage {
   position: relative;
   min-height: 660px;

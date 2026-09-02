@@ -75,6 +75,7 @@ const config = {
               position: 'left',
               label: 'Projects',
             },
+            { to: '/guestbook', label: 'Guestbook', position: 'left' },
             {
               type: 'dropdown',
               position: 'left',
@@ -114,6 +115,10 @@ const config = {
                 {
                   label: 'Projects',
                   to: '/docs/project',
+                },
+                {
+                  label: 'Guestbook',
+                  to: '/guestbook',
                 },
               ],
             },

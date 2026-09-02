@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Layout from '@theme/Layout';
 
 import ProjectGalaxy, {type GalaxyProject} from '../components/ProjectGalaxy';
+import SitePulse from '../components/SitePulse';
 import styles from './index.module.css';
 
 type PortfolioProject = GalaxyProject & {
@@ -654,6 +655,7 @@ export default function Home(): JSX.Element {
                 </div>
               ))}
             </div>
+            <SitePulse className={styles.heroPulse} compact />
           </div>
 
           <div className={styles.galaxyStage}>

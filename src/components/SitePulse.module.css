@@ -1,0 +1,98 @@
+.sitePulse {
+  display: grid;
+  gap: 1px;
+  width: 100%;
+  border: 1px solid var(--site-ink);
+  border-radius: 8px;
+  background: var(--site-ink);
+  color: var(--site-ink);
+  overflow: hidden;
+}
+
+.compact {
+  max-width: 456px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pulseCell,
+.guestbookLink {
+  display: grid;
+  min-height: 70px;
+  align-content: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+.pulseCell:nth-child(1) {
+  background: linear-gradient(135deg, var(--site-mint-soft), #ffffff 62%);
+}
+
+.pulseCell:nth-child(2) {
+  background: linear-gradient(135deg, var(--site-sun-soft), #ffffff 62%);
+}
+
+.guestbookLink {
+  background: linear-gradient(135deg, var(--site-accent-soft), #ffffff 62%);
+  color: inherit;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.guestbookLink:hover {
+  background: var(--site-ink);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.pulseCell span,
+.guestbookLink span {
+  color: var(--site-soft);
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.15;
+}
+
+.guestbookLink:hover span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.pulseCell strong,
+.guestbookLink strong {
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 930;
+  line-height: 1.1;
+}
+
+.pulseError {
+  color: var(--site-soft);
+}
+
+@media screen and (max-width: 640px) {
+  .compact {
+    max-width: none;
+  }
+
+  .pulseCell,
+  .guestbookLink {
+    min-height: 62px;
+    padding: 10px;
+  }
+
+  .pulseCell span,
+  .guestbookLink span {
+    font-size: 0.68rem;
+  }
+
+  .pulseCell strong,
+  .guestbookLink strong {
+    font-size: 0.86rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guestbookLink {
+    transition: none;
+  }
+}

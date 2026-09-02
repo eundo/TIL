@@ -12,6 +12,10 @@
   targetPort = 3000
   framework = "#custom"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[headers]]
   for = "/*"
   [headers.values]
