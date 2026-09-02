@@ -385,6 +385,12 @@
 
 .selectedWork {
   scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+  padding-bottom: 32px;
+  background:
+    linear-gradient(90deg, rgba(14, 17, 24, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(14, 17, 24, 0.025) 1px, transparent 1px),
+    #ffffff;
+  background-size: 62px 62px;
 }
 
 .sectionHead {
@@ -395,7 +401,23 @@
   margin-bottom: 28px;
 }
 
+.showcaseHeader {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 3px);
+  z-index: 20;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  margin: -8px 0 34px;
+  border-bottom: 1px solid rgba(14, 17, 24, 0.13);
+  background: rgba(255, 255, 255, 0.84);
+  padding: 8px 0 20px;
+  backdrop-filter: blur(14px);
+}
+
 .sectionHead h2,
+.showcaseHeader h2,
 .routeIntro h2,
 .capabilitySection h2 {
   margin: 0;
@@ -406,6 +428,7 @@
 }
 
 .sectionHead p,
+.showcaseHeader p,
 .routeIntro p,
 .capabilityGrid p {
   margin: 0;
@@ -418,28 +441,160 @@
   max-width: 430px;
 }
 
+.showcaseHeader p {
+  margin-top: 12px;
+  max-width: 360px;
+}
+
+.showcaseHeader > span {
+  color: var(--site-ink);
+  font-size: 1.02rem;
+  font-weight: 940;
+  line-height: 1;
+}
+
+.projectShowcase {
+  display: grid;
+  grid-template-columns: minmax(420px, 0.92fr) minmax(0, 1.08fr);
+  gap: 44px;
+  align-items: start;
+}
+
+.showcaseSticky {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 124px);
+  min-height: calc(100svh - var(--ifm-navbar-height) - 150px);
+  display: flex;
+  align-items: center;
+}
+
+.showcasePreview {
+  --project-accent: var(--site-accent);
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1px solid var(--site-ink);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 18%, #ffffff), #ffffff 42%),
+    #ffffff;
+  color: inherit;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 14px 14px 0 rgba(14, 17, 24, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.showcasePreview:hover {
+  color: inherit;
+  text-decoration: none;
+  transform: translate(-4px, -4px);
+  box-shadow: 18px 18px 0 color-mix(in srgb, var(--project-accent) 42%, rgba(14, 17, 24, 0.16));
+}
+
+.showcasePreview::before {
+  content: '';
+  display: block;
+  height: 10px;
+  background: var(--project-accent);
+}
+
+.showcasePreviewTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 0;
+}
+
+.showcasePreviewTop span,
+.showcasePreviewTop em {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  border: 1px solid rgba(14, 17, 24, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--site-ink);
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.showcasePreviewTop em {
+  color: var(--site-accent);
+}
+
+.showcasePreview .projectVisual,
+.showcasePreview .roadScreens,
+.showcasePreview .syntheticVisual {
+  margin: 18px 20px 0;
+  min-height: 340px;
+}
+
+.showcasePreview .roadScreens {
+  align-items: center;
+}
+
+.showcasePreview .roadScreens img {
+  max-height: 300px;
+}
+
+.showcasePreview .mobileOnlyShot {
+  width: min(52%, 230px);
+  max-height: 300px;
+}
+
+.showcasePreviewBody {
+  padding: 16px 20px 18px;
+}
+
+.showcasePreviewBody h3 {
+  margin: 0;
+  color: var(--site-ink);
+  font-size: 1.72rem;
+  font-weight: 940;
+  line-height: 1.12;
+}
+
+.showcasePreviewBody p:not(.projectMeta) {
+  margin: 12px 0 0;
+  color: var(--site-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
 .projectBoard {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 8svh 0 18svh;
 }
 
 .projectCard {
   --project-accent: var(--site-accent);
   position: relative;
   display: grid;
-  min-height: 100%;
-  border: 1px solid var(--site-ink);
-  border-radius: 8px;
-  background: #ffffff;
+  grid-template-columns: 72px minmax(0, 1fr);
+  min-height: min(640px, 58svh);
+  align-items: center;
+  border: 0;
+  border-top: 1px solid rgba(14, 17, 24, 0.14);
+  border-radius: 0;
+  background: transparent;
   color: inherit;
-  overflow: hidden;
+  opacity: 0.44;
+  overflow: visible;
   scroll-margin-top: calc(var(--ifm-navbar-height) + 28px);
   text-decoration: none;
   transform-style: preserve-3d;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
-    border-color 0.18s ease;
+  transition: opacity 0.18s ease, transform 0.18s ease, filter 0.18s ease;
+}
+
+.projectCard:last-child {
+  border-bottom: 1px solid rgba(14, 17, 24, 0.14);
 }
 
 .feature {
@@ -464,29 +619,32 @@
 
 .projectCard::before {
   content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 34px;
   display: block;
-  height: 8px;
+  width: 2px;
+  height: auto;
   background: var(--project-accent);
-  transition: height 0.18s ease;
+  opacity: 0.18;
+  transition: opacity 0.18s ease;
 }
 
 .projectCard:hover {
   color: inherit;
   text-decoration: none;
-  transform: translateY(-5px);
-  box-shadow: 10px 10px 0 var(--project-accent);
+  opacity: 1;
+  transform: translateX(6px);
 }
 
 .projectCardActive {
-  border-color: var(--site-ink);
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 16%, #ffffff), #ffffff 36%),
-    #ffffff;
-  box-shadow: 6px 6px 0 rgba(14, 17, 24, 0.16);
+  opacity: 1;
+  filter: none;
 }
 
 .projectCardActive::before {
-  height: 12px;
+  opacity: 1;
 }
 
 .projectCardTop {
@@ -494,20 +652,51 @@
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 16px 18px 0;
+  padding: 0;
 }
 
 .projectCardTop span {
-  color: var(--site-ink);
-  font-size: 0.86rem;
-  font-weight: 950;
+  color: var(--site-soft);
+  font-size: 0.76rem;
+  font-weight: 860;
+  line-height: 1.3;
 }
 
 .projectCardBody {
   display: grid;
   align-content: space-between;
   gap: 18px;
-  padding: 0 18px 20px;
+  padding: 42px 0;
+}
+
+.projectStepNumber {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  border: 1px solid var(--site-ink);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--site-ink);
+  font-size: 0.9rem;
+  font-weight: 950;
+  line-height: 1;
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.projectCardActive .projectStepNumber,
+.projectCard:hover .projectStepNumber {
+  background: var(--project-accent);
+  color: var(--site-ink);
+  box-shadow: 5px 5px 0 rgba(14, 17, 24, 0.15);
+  transform: scale(1.04);
+}
+
+.projectStepVisual {
+  display: none;
 }
 
 .projectMeta {
@@ -519,18 +708,19 @@
 }
 
 .projectCardBody h3 {
-  margin: 0;
+  margin: 12px 0 0;
   color: var(--site-ink);
-  font-size: 1.46rem;
+  font-size: 2.1rem;
   font-weight: 930;
-  line-height: 1.18;
+  line-height: 1.08;
 }
 
 .projectCardBody p {
-  margin: 12px 0 0;
+  max-width: 620px;
+  margin: 14px 0 0;
   color: var(--site-muted);
-  font-size: 0.95rem;
-  line-height: 1.62;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .projectVisual {
@@ -881,9 +1071,6 @@
 }
 
 .repoLane {
-  position: sticky;
-  top: calc(var(--ifm-navbar-height) + 3px);
-  z-index: 24;
   display: grid;
   grid-auto-columns: minmax(220px, 1fr);
   grid-auto-flow: column;
@@ -1175,6 +1362,17 @@
     width: min(330px, calc(100vw - 72px));
   }
 
+  .projectShowcase {
+    grid-template-columns: minmax(360px, 0.82fr) minmax(0, 1.18fr);
+    gap: 30px;
+  }
+
+  .showcasePreview .projectVisual,
+  .showcasePreview .roadScreens,
+  .showcasePreview .syntheticVisual {
+    min-height: 330px;
+  }
+
   .feature,
   .wide {
     grid-column: span 6;
@@ -1193,6 +1391,26 @@
 
   .sectionHead p {
     margin-top: 14px;
+  }
+
+  .showcaseHeader {
+    position: static;
+  }
+
+  .projectShowcase {
+    grid-template-columns: 1fr;
+  }
+
+  .showcaseSticky {
+    display: none;
+  }
+
+  .projectBoard {
+    padding: 0 0 12px;
+  }
+
+  .projectCard {
+    opacity: 0.76;
   }
 
   .routeSection {
@@ -1294,16 +1512,72 @@
   }
 
   .sectionHead h2,
+  .showcaseHeader h2,
   .routeIntro h2,
   .capabilitySection h2 {
     font-size: 1.9rem;
   }
 
-  .projectBoard,
   .routeGrid,
   .capabilityGrid,
   .storyList {
     grid-template-columns: 1fr;
+  }
+
+  .showcaseHeader {
+    display: flex;
+    align-items: end;
+    margin-bottom: 20px;
+  }
+
+  .showcaseHeader p {
+    margin-top: 8px;
+  }
+
+  .showcaseHeader > span {
+    font-size: 0.86rem;
+  }
+
+  .projectCard {
+    grid-template-columns: 48px minmax(0, 1fr);
+    min-height: 0;
+    align-items: start;
+    padding: 34px 0;
+  }
+
+  .projectCard::before {
+    left: 23px;
+  }
+
+  .projectStepNumber {
+    width: 46px;
+    height: 46px;
+    font-size: 0.74rem;
+  }
+
+  .projectStepVisual {
+    grid-column: 2;
+    display: block;
+    margin: 0 0 18px;
+  }
+
+  .projectStepVisual .projectVisual,
+  .projectStepVisual .roadScreens,
+  .projectStepVisual .syntheticVisual {
+    margin: 0;
+  }
+
+  .projectCardBody {
+    grid-column: 2;
+    padding: 0;
+  }
+
+  .projectCardTop {
+    gap: 8px;
+  }
+
+  .projectCardTop span {
+    display: none;
   }
 
   .feature,
@@ -1351,7 +1625,11 @@
   }
 
   .projectCardBody h3 {
-    font-size: 1.28rem;
+    font-size: 1.42rem;
+  }
+
+  .projectCardBody p {
+    font-size: 0.92rem;
   }
 
   .routeGrid a,

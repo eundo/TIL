@@ -387,9 +387,7 @@ function ProjectCard({
       id={`project-${index}`}
       ref={projectRef}
       data-project-index={index}
-      className={`${styles.projectCard} ${styles[project.size]} ${
-        isActive ? styles.projectCardActive : ''
-      }`}
+      className={`${styles.projectCard} ${isActive ? styles.projectCardActive : ''}`}
       href={project.href}
       style={
         {
@@ -399,13 +397,16 @@ function ProjectCard({
       }
       onMouseEnter={onFocus}
       onFocus={onFocus}>
-      <div className={styles.projectCardTop}>
-        <span>{String(index + 1).padStart(2, '0')}</span>
-        <em>{project.label}</em>
+      <span className={styles.projectStepNumber}>{String(index + 1).padStart(2, '0')}</span>
+      <div className={styles.projectStepVisual}>
+        <ProjectVisual project={project} />
       </div>
-      <ProjectVisual project={project} />
       <div className={styles.projectCardBody}>
         <div>
+          <div className={styles.projectCardTop}>
+            <em>{project.label}</em>
+            <span>{project.category}</span>
+          </div>
           <p className={styles.projectMeta}>
             {project.status} / Updated {project.updated}
           </p>
@@ -424,6 +425,39 @@ function ProjectCard({
             ))}
           </div>
         </div>
+      </div>
+    </a>
+  );
+}
+
+function ProjectShowcasePreview({
+  project,
+  index,
+  total,
+}: {
+  project: PortfolioProject;
+  index: number;
+  total: number;
+}) {
+  return (
+    <a
+      className={styles.showcasePreview}
+      href={project.href}
+      style={{'--project-accent': project.accent} as React.CSSProperties}
+      aria-label={`${project.title} project detail`}>
+      <div className={styles.showcasePreviewTop}>
+        <span>
+          {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+        </span>
+        <em>{project.label}</em>
+      </div>
+      <ProjectVisual project={project} />
+      <div className={styles.showcasePreviewBody}>
+        <p className={styles.projectMeta}>
+          {project.status} / Updated {project.updated}
+        </p>
+        <h3>{project.title}</h3>
+        <p>{project.signal}</p>
       </div>
     </a>
   );
@@ -663,23 +697,37 @@ export default function Home(): JSX.Element {
         </section>
 
         <section id="selected-work" className={styles.selectedWork}>
-          <div className={styles.sectionHead}>
-            <h2>Recent Builds</h2>
-            <p>GitHub 기준 2026.09.02에 다시 추린 작업물입니다.</p>
+          <div className={styles.showcaseHeader}>
+            <div>
+              <h2>Recent Builds</h2>
+              <p>GitHub 기준 2026.09.02 업데이트.</p>
+            </div>
+            <span>
+              {String(activeIndex + 1).padStart(2, '0')} / {portfolioProjects.length}
+            </span>
           </div>
-          <div className={styles.projectBoard}>
-            {portfolioProjects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-                index={index}
-                isActive={index === activeIndex}
-                projectRef={(node) => {
-                  cardRefs.current[index] = node;
-                }}
-                onFocus={() => selectProject(index)}
+          <div className={styles.projectShowcase}>
+            <aside className={styles.showcaseSticky} aria-label="Active project preview">
+              <ProjectShowcasePreview
+                project={activeProject}
+                index={activeIndex}
+                total={portfolioProjects.length}
               />
-            ))}
+            </aside>
+            <div className={styles.projectBoard}>
+              {portfolioProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  index={index}
+                  isActive={index === activeIndex}
+                  projectRef={(node) => {
+                    cardRefs.current[index] = node;
+                  }}
+                  onFocus={() => selectProject(index)}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
