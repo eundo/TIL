@@ -1,0 +1,61 @@
+---
+sidebar_position: 2
+title: Road Test 100
+description: 100점 감점제로 만든 세로형 Three.js 도로주행 시험 시뮬레이터입니다.
+---
+
+# Road Test 100
+
+도로주행 시험을 세로형 3D 게임으로 옮긴 public 프로젝트입니다. 100점에서 시작해 신호, 차로, 속도, 보행자, 어린이보호구역, 방향지시등 위반을 감점으로 처리합니다.
+
+<div className="project-screenshot-grid project-screenshot-grid--mobile-only">
+  <figure className="project-mobile-shot">
+    <img src="/img/projects/road-test-100-drive.png" alt="Road Test 100 주행 화면" />
+    <figcaption>주행 중 화면입니다. 주변 차량, 차선, 속도, 신호 상태가 한 화면에 들어옵니다.</figcaption>
+  </figure>
+  <figure className="project-mobile-shot">
+    <img src="/img/projects/road-test-100-school.png" alt="Road Test 100 어린이보호구역 화면" />
+    <figcaption>어린이보호구역에서는 제한 속도와 보행자 감점 조건이 더 민감하게 동작합니다.</figcaption>
+  </figure>
+</div>
+
+## Snapshot
+
+| 구분 | 내용 |
+| --- | --- |
+| 상태 | Public |
+| Demo | https://eundo.github.io/road-test-100/ |
+| 최신 갱신 | 2026.08.30 |
+| 기술 | Three.js, HTML, CSS, JavaScript, GitHub Pages |
+| 핵심 | 시험 규칙을 점수/상태/주행 피드백으로 바꾸는 것 |
+
+## 화면으로 보는 기능
+
+<div className="project-feature-grid">
+  <section>
+    <span>01</span>
+    <h3>감점 규칙</h3>
+    <p>신호 위반, 제한 속도, 차로 이탈, 중앙선 침범, 방향지시등 누락 같은 조건을 점수 변화로 보여줍니다.</p>
+  </section>
+  <section>
+    <span>02</span>
+    <h3>5×5 도심 맵</h3>
+    <p>교차로, 신호등, 어린이보호구역, 주변 차량을 배치해 짧은 플레이 안에서도 판단할 요소가 계속 생기게 했습니다.</p>
+  </section>
+  <section>
+    <span>03</span>
+    <h3>세로형 조작</h3>
+    <p>모바일에서 바로 플레이할 수 있도록 조작과 정보 표시를 세로 화면 기준으로 정리했습니다.</p>
+  </section>
+  <section>
+    <span>04</span>
+    <h3>정적 배포</h3>
+    <p>빌드 서버 없이 GitHub Pages에 올릴 수 있는 구조로 만들고, 렌더링 부하가 커지지 않게 장면 구성을 줄였습니다.</p>
+  </section>
+</div>
+
+## Next
+
+- 코스별 채점 리포트
+- 감점 순간 replay
+- 실제 시험 감점 기준과의 매핑 정리

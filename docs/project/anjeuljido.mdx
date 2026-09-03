@@ -1,0 +1,67 @@
+---
+sidebar_position: 7
+title: Anjeuljido
+description: 지하철에서 곧 비는 좌석 신호를 익명으로 공유하는 Apps in Toss 미니앱입니다.
+---
+
+# Anjeuljido
+
+같은 열차 안에서 곧 내릴 사람이 좌석 신호를 남기고, 앉고 싶은 사람이 그 신호를 참고하는 WebView 미니앱입니다. 핵심은 “좌석을 보장한다”가 아니라, 복잡한 지하철 안에서 작은 힌트를 부담 없이 주고받는 것입니다.
+
+:::info
+Repository는 private으로 운영 중입니다. 공개 페이지에는 제품 방향과 공개 가능한 구현 범위만 남깁니다.
+:::
+
+## Snapshot
+
+| 구분 | 내용 |
+| --- | --- |
+| 상태 | Private, in progress |
+| 최신 갱신 | 2026.08.29 · `fix: align cabin travel direction` |
+| 플랫폼 | Apps in Toss WebView |
+| 기술 | React, TypeScript, Vite |
+| 핵심 | 열차/방향/호차/좌석 신호를 너무 무겁지 않게 다루는 것 |
+
+## 화면으로 보는 기능
+
+<div className="project-feature-grid">
+  <section>
+    <span>01</span>
+    <h3>노선과 방향</h3>
+    <p>5호선/9호선 기준으로 열차 방향을 표시하고, 방향이 반대로 보이는 케이스를 최근에 보정했습니다.</p>
+  </section>
+  <section>
+    <span>02</span>
+    <h3>열차 확인</h3>
+    <p>차량번호와 운행번호를 구분해 같은 열차 안의 신호인지 판단할 수 있게 했습니다.</p>
+  </section>
+  <section>
+    <span>03</span>
+    <h3>좌석 신호</h3>
+    <p>호차, 문 위치, 좌석 근처 정보를 가볍게 남기고, 곧 내릴 예정인 사람의 신호를 목록에서 확인합니다.</p>
+  </section>
+  <section>
+    <span>04</span>
+    <h3>익명 흐름</h3>
+    <p>개인정보보다 현재 열차 안의 순간 신호만 다루는 방향으로 범위를 좁혔습니다.</p>
+  </section>
+</div>
+
+## Recent Notes
+
+<div className="project-update-stack project-update-stack--compact">
+  <article>
+    <span>2026.08.29</span>
+    <p>열차 진행 방향과 호차 표시가 어긋나는 케이스를 보정했습니다.</p>
+  </article>
+  <article>
+    <span>2026.08</span>
+    <p>Apps in Toss 안에서 바로 이해되는 짧은 화면 흐름을 우선해 MVP 범위를 줄였습니다.</p>
+  </article>
+</div>
+
+## Next
+
+- 혼잡도와 신호 만료 시간 조정
+- 잘못된 신호 신고/숨김 처리
+- 실제 기기에서 노선별 방향 표기 회귀 테스트

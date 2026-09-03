@@ -1,0 +1,67 @@
+---
+sidebar_position: 9
+title: Point Switch
+description: 보상형 광고 완료와 포인트 지급 경계를 분리한 Apps in Toss 미니앱입니다.
+---
+
+# Point Switch
+
+보상형 광고를 본 뒤 포인트를 지급하는 흐름을 실험한 미니앱입니다. 화면의 재미보다 중요한 부분은 광고 완료, 지급 요청, 중복 지급 방지를 어디서 끊을지 정리한 점입니다.
+
+:::info
+Repository는 private으로 운영 중입니다. 공개 페이지에는 제품 방향과 공개 가능한 구현 범위만 남깁니다.
+:::
+
+## Snapshot
+
+| 구분 | 내용 |
+| --- | --- |
+| 상태 | Private, in progress |
+| 최신 갱신 | 2026.08.21 · `ci: enable manual release verification` |
+| 플랫폼 | Apps in Toss WebView |
+| 기술 | React, TypeScript, PostgreSQL, worker |
+| 핵심 | 보상 지급을 클라이언트 이벤트만 믿지 않는 것 |
+
+## 화면으로 보는 기능
+
+<div className="project-feature-grid">
+  <section>
+    <span>01</span>
+    <h3>10회 충전</h3>
+    <p>광고 시청을 단순 반복 액션으로 두고, 마지막 지급 광고와 일반 충전 액션을 분리했습니다.</p>
+  </section>
+  <section>
+    <span>02</span>
+    <h3>Action Ticket</h3>
+    <p>지급 요청 전에 서버에서 처리 가능한 ticket을 만들고, 완료 후 같은 ticket으로 중복 지급되지 않게 합니다.</p>
+  </section>
+  <section>
+    <span>03</span>
+    <h3>멱등성</h3>
+    <p>네트워크 재시도와 새로고침이 있어도 같은 보상이 두 번 지급되지 않도록 지급 경계를 서버에 둡니다.</p>
+  </section>
+  <section>
+    <span>04</span>
+    <h3>Release Check</h3>
+    <p>수동 검증 workflow를 열어 운영 전 확인해야 할 흐름을 CI에서 놓치지 않게 했습니다.</p>
+  </section>
+</div>
+
+## Recent Notes
+
+<div className="project-update-stack project-update-stack--compact">
+  <article>
+    <span>2026.08.21</span>
+    <p>운영 전환 전 수동 release verification을 실행할 수 있게 CI 흐름을 정리했습니다.</p>
+  </article>
+  <article>
+    <span>2026.08</span>
+    <p>광고 완료 이벤트와 포인트 지급 요청 사이의 책임 경계를 다시 나눴습니다.</p>
+  </article>
+</div>
+
+## Next
+
+- 실패 상태별 사용자 메시지 정리
+- 지급 로그 확인 화면
+- 운영 전 스토어/광고 정책 체크리스트 보강

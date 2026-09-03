@@ -49,7 +49,7 @@ const portfolioProjects: PortfolioProject[] = [
     signal: '도로주행 시험을 100점 감점제로 만든 세로형 Three.js 게임.',
     summary:
       '신호, 차로, 속도, 방향지시등, 어린이보호구역, 주변 차량까지 점수화한 도로주행 시험 시뮬레이터.',
-    href: 'https://eundo.github.io/road-test-100/',
+    href: '/docs/project/road-test-100',
     accent: '#ff4f78',
     status: 'Public',
     updated: '2026.08.30',
@@ -88,7 +88,7 @@ const portfolioProjects: PortfolioProject[] = [
     signal: '곧 비는 좌석 신호를 같은 열차 사용자에게 익명 공유.',
     summary:
       '서울 지하철 5호선/9호선 기준으로 하차 예정 좌석 신호, 열차번호 검증, 호차/문/좌석 선택을 설계한 미니앱.',
-    href: '/docs/project#fresh-repos',
+    href: '/docs/project/anjeuljido',
     accent: '#ffe85c',
     status: 'Private',
     updated: '2026.08.29',
@@ -104,7 +104,7 @@ const portfolioProjects: PortfolioProject[] = [
     signal: '큰 틀을 질문 3개 안에서 실행 가능한 프롬프트로 정리.',
     summary:
       '대략적인 요청을 분야, 산출물, 검증 기준으로 나누고 부족한 조건만 물어 완성형 프롬프트를 만든다.',
-    href: '/docs/project#fresh-repos',
+    href: '/docs/project/prompt-coach',
     accent: '#6552ff',
     status: 'Private',
     updated: '2026.08.28',
@@ -120,7 +120,7 @@ const portfolioProjects: PortfolioProject[] = [
     signal: '보상형 광고와 포인트 지급 경계를 서버 중심으로 분리.',
     summary:
       '10회 충전과 마지막 지급 광고를 분리하고, action ticket과 멱등성으로 보상 플로우를 안전하게 설계한 미니앱.',
-    href: '/docs/project#fresh-repos',
+    href: '/docs/project/point-switch',
     accent: '#53c8ff',
     status: 'Private',
     updated: '2026.08.21',
@@ -192,7 +192,7 @@ const portfolioProjects: PortfolioProject[] = [
     signal: '평일 점심시간을 직무 네트워킹 슬롯으로 쓰는 미니앱 MVP.',
     summary:
       '직장인의 점심시간을 기준으로 이종 직무 매칭, 일정 후보, 가벼운 네트워킹 흐름을 실험하는 Apps-in-Toss 프로젝트.',
-    href: '/docs/project#fresh-repos',
+    href: '/docs/project/lunch-networking',
     accent: '#ff70cf',
     status: 'Private',
     updated: '2026.08.09',
