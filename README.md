@@ -50,6 +50,10 @@ corepack yarn build
 
 기존 Netlify 프로젝트와 eundo.today 도메인을 그대로 사용합니다. build command는 `yarn build`, publish directory는 `dist`입니다. 별도 유료 템플릿, CMS, 서버는 필요하지 않습니다.
 
-기존 `/docs/project/*`, `/docs/aboutMe/PARK%20EUNDO`, `/blog/dev-story/*` 주소를 유지합니다. 목록과 템플릿 주소 변경은 `static/_redirects`에 기록합니다. RSS는 `/blog/rss.xml`, JSON Feed는 `/blog/feed.json`, 사이트맵은 `/sitemap-index.xml`에서 제공됩니다.
+기존 `/docs/project/*`, `/docs/aboutMe/PARK%20EUNDO`, `/blog/dev-story/*` 주소를 유지합니다. 내부 페이지 링크와 리디렉션 목적지는 `/docs/project/`처럼 끝에 `/`를 붙입니다. Netlify의 디렉터리 주소와 맞춰 추가 301 이동을 피하며, 빌드에서 링크·메타데이터·피드·사이트맵의 주소를 검사합니다. 파일 주소와 피드의 영구 식별자는 바꾸지 않습니다.
+
+목록과 템플릿 주소 변경은 `static/_redirects`에 기록합니다. RSS는 `/blog/rss.xml`, JSON Feed는 `/blog/feed.json`, 사이트맵은 `/sitemap-index.xml`에서 제공됩니다. 내부 링크는 hover/focus 시, 프로젝트·글·메모 목록은 화면에 보일 때 HTML을 미리 받습니다. Astro 기본 prefetch를 사용하며 데이터 절약 모드와 느린 연결에서는 tap 방식으로 전환합니다.
+
+내용 해시가 파일명에 포함된 `/_astro/*` 빌드 파일에만 브라우저 장기 캐시를 적용합니다. HTML, 피드, `static/img` 캡처와 API에는 이 규칙을 적용하지 않습니다.
 
 GitHub private 프로젝트의 업데이트를 자동 공개하는 기능은 없습니다. 공개 가능한 설명과 캡처만 검토 후 등록합니다.

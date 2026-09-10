@@ -18,15 +18,15 @@ const {
   noindex = false,
 } = Astro.props;
 const canonical = new URL(
-  Astro.url.pathname.replace(/\/$/, "") || "/",
-  "https://eundo.today",
+  Astro.url.pathname === "/404/" ? "/404.html" : Astro.url.pathname,
+  Astro.site,
 );
 const navigation = [
-  { label: "Projects", href: "/docs/project", id: "projects" },
+  { label: "Projects", href: "/docs/project/", id: "projects" },
   { label: "About", href: aboutHref, id: "about" },
-  { label: "Stories", href: "/blog/dev-story", id: "stories" },
-  { label: "Notes", href: "/notes", id: "notes" },
-  { label: "Guestbook", href: "/guestbook", id: "guestbook" },
+  { label: "Stories", href: "/blog/dev-story/", id: "stories" },
+  { label: "Notes", href: "/notes/", id: "notes" },
+  { label: "Guestbook", href: "/guestbook/", id: "guestbook" },
 ];
 ---
 
@@ -82,7 +82,7 @@ const navigation = [
               {item.label}
             </a>
           ))}
-          <a class="icon-button" href="/search" aria-label="검색" title="검색">
+          <a class="icon-button" href="/search/" aria-label="검색" title="검색">
             <Search size={19} />
           </a>
         </nav>
@@ -94,13 +94,14 @@ const navigation = [
             {navigation.map((item) => (
               <a
                 href={item.href}
+                data-astro-prefetch="tap"
                 aria-current={section === item.id ? "page" : undefined}
               >
                 {item.label}
                 <ArrowUpRight size={18} />
               </a>
             ))}
-            <a href="/search">
+            <a href="/search/" data-astro-prefetch="tap">
               검색
               <Search size={18} />
             </a>
@@ -129,7 +130,7 @@ const navigation = [
             <ArrowUpRight size={17} />
             GitHub
           </a>
-          <a href="/blog/rss.xml">
+          <a href="/blog/rss.xml" data-astro-prefetch="false">
             <Rss size={17} />
             RSS
           </a>
@@ -144,7 +145,7 @@ const navigation = [
           <span>
             Total <b data-visits="total">--</b>
           </span>
-          <a href="/guestbook">
+          <a href="/guestbook/">
             Guestbook <ArrowUpRight size={14} />
           </a>
         </div>

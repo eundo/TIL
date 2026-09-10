@@ -6,7 +6,7 @@ const stories = await getStories();
 
 <div class="story-list">
   {stories.map((story) => (
-    <a class="story-row" href={story.href}>
+    <a class="story-row" href={story.href} data-astro-prefetch="viewport">
       <div>
         <div class="meta">
           {story.data.tags.map((tag) => (

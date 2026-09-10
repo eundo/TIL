@@ -24,7 +24,11 @@ const groups = [
         {notes
           .filter((entry) => entry.id.startsWith(group.prefix))
           .map((entry) => (
-            <a class="note-row" href={noteHref(entry.id)}>
+            <a
+              class="note-row"
+              href={noteHref(entry.id)}
+              data-astro-prefetch="viewport"
+            >
               <span>{entry.data.title}</span>
               <ArrowUpRight size={19} />
             </a>

@@ -31,7 +31,11 @@ const screen =
   data-category={project.presentation}
   data-search={`${project.title} ${project.summary} ${project.stack.join(" ")}`.toLowerCase()}
 >
-  <a class="project-row-link" href={project.href}>
+  <a
+    class="project-row-link"
+    href={project.href}
+    data-astro-prefetch="viewport"
+  >
     <div class="project-row-copy">
       <span class="project-number">{String(index + 1).padStart(2, "0")}</span>
       <div>

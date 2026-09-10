@@ -10,7 +10,9 @@ export default defineConfig({
   site: "https://eundo.today",
   publicDir: "./static",
   output: "static",
-  trailingSlash: "never",
+  trailingSlash: "always",
+  build: { format: "directory" },
+  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
   integrations: [
     react(),
     mdx(),
