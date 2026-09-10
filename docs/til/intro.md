@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+title: Today I Learned
 ---
 
 # Today I Learned

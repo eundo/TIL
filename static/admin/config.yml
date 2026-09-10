@@ -16,6 +16,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
       - { label: "Authors", name: "authors", widget: "list", default: ["eundo"] }
       - { label: "Tags", name: "tags", widget: "list", required: false }
-      - { label: "Body", name: "body", widget: "mdx" }
+      - { label: "Body", name: "body", widget: "markdown" }

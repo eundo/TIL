@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getStories } from "../../../lib/content";
+export async function getStaticPaths() {
+  const stories = await getStories();
+  return [...new Set(stories.flatMap((story) => story.data.tags))].map(
+    (tag) => ({
+      params: { tag: tag.toLowerCase().replaceAll(" ", "-") },
+      props: {
+        tag,
+        stories: stories.filter((story) => story.data.tags.includes(tag)),
+      },
+    }),
+  );
+}
+const { tag, stories } = Astro.props;
+---
+
+<BaseLayout title={tag} section="stories">
+  <header class="page-heading container">
+    <a class="back-link" href="/blog/tags">
+      Tags
+    </a>
+    <h1>{tag}</h1>
+  </header>
+  <div class="container">
+    {stories.map((story) => (
+      <a class="story-row" href={story.href}>
+        <div>
+          <h3>{story.data.title}</h3>
+          <p>{story.data.description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

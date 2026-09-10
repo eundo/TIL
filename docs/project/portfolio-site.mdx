@@ -1,21 +1,48 @@
 ---
-sidebar_position: 6
 title: eundo.today
-description: Docusaurus 기반 개인 포트폴리오 블로그를 GitHub push와 Netlify 배포 흐름으로 운영하는 프로젝트입니다.
+description: Astro와 React로 만든 개인 포트폴리오. 프로젝트 화면, 개발 글과 경력을 관리하고 Netlify로 배포합니다.
+summary: 경력, 개발 회고, 개인 프로젝트를 나눠 보여주고 GitHub push 기반 Netlify 배포까지 연결한 공개 포트폴리오.
+category: Portfolio System
+visibility: Public
+published: true
+updated: 2026-09-10
+order: 10
+featured: false
+accent: "#6552ff"
+presentation: journal
+stack:
+  - Astro
+  - React
+  - TypeScript
+  - Netlify
+  - GitHub
+cover: &a1
+  src: /img/projects/portfolio-site-astro-mobile.png
+  alt: Astro 포트폴리오 모바일 홈 화면
+  width: 390
+  height: 844
+gallery:
+  - label: 홈
+    caption: 실제 프로젝트 화면으로 구성한 3D 미리보기와 작업물 목록을 연결합니다.
+    mobile: *a1
 ---
 
 # eundo.today
 
-TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로젝트입니다. 경력, 실무 회고, 개인 프로젝트, 학습 기록을 한 사이트에서 관리하고 `main` 브랜치 push로 Netlify에 배포합니다.
+TIL 블로그에서 시작한 개인 포트폴리오입니다. Docusaurus에서 Astro로 이전했고, 글은 Markdown과 MDX로 관리합니다. 홈의 3D 화면과 프로젝트 갤러리는 React로 구현했으며 `main` 브랜치 push로 Netlify에 배포합니다.
+
+## Astro 이전
+
+- 프로젝트의 이름, 갱신일, 기술, 캡처를 MDX 메타데이터에 모으고 홈과 목록에서 함께 사용합니다.
+- 글과 경력은 정적 HTML로 제공하고 3D, 갤러리, 방명록에 필요한 JavaScript만 불러옵니다.
+- 기존 글 주소와 제목 링크를 유지하고, 목록 주소가 달라진 곳은 리디렉션합니다.
+- 방명록과 방문자 통계는 기존 Netlify Functions와 Blobs 저장소를 사용합니다.
+- 빌드할 때 내부 링크, 이미지, 제목 앵커, 이전 공개 주소와 프로젝트 목록 누락을 검사합니다.
 
 <div className="project-screenshot-grid project-screenshot-grid--responsive">
-  <figure>
-    <img src="/img/projects/portfolio-site-home-desktop.png" alt="eundo.today 홈 데스크톱 화면" />
-    <figcaption>데스크톱에서는 이름, 작업 영역, 대표 프로젝트 화면을 첫 화면에 배치했습니다.</figcaption>
-  </figure>
   <figure className="project-mobile-shot">
-    <img src="/img/projects/portfolio-site-home-mobile.png" alt="eundo.today 홈 모바일 화면" />
-    <figcaption>모바일에서는 메뉴, 소개, 대표 프로젝트가 한 흐름으로 읽히도록 단일 컬럼으로 정리했습니다.</figcaption>
+    <img src="/img/projects/portfolio-site-astro-mobile.png" alt="eundo.today Astro 모바일 홈 화면" />
+    <figcaption>Astro로 이전한 모바일 홈 화면입니다. 대표 프로젝트는 화살표와 화면 선택으로 전환합니다.</figcaption>
   </figure>
 </div>
 
@@ -26,7 +53,7 @@ TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로
 | 상태 | Public portfolio site |
 | 목적 | 경력, 실무 회고, 개인 프로젝트를 빠르게 훑을 수 있는 개인 사이트 |
 | 접근 | 홈과 메뉴 구조를 포트폴리오 중심으로 재배치하고, 프로젝트는 실제 화면 중심으로 설명 |
-| 기술 | Docusaurus, TypeScript, MDX, CSS Modules, Netlify |
+| 기술 | Astro, React, Three.js, TypeScript, MDX, Netlify |
 | 배포 | `main` 브랜치 push 후 Netlify 자동 빌드 및 배포 |
 
 ## What It Does
@@ -45,14 +72,14 @@ TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로
     <p>이름, 작업 영역, 대표 프로젝트를 바로 보여줍니다. 과한 설명보다 실제 화면과 짧은 기술 신호를 앞에 둡니다.</p>
     <ul>
       <li>박은도 / Backend / Batch / Product UI</li>
-      <li>Shorts Pipeline 데스크톱·모바일 화면 공존</li>
-      <li>Spring Boot, Batch, React, Netlify 등 스택 티커</li>
+      <li>실제 프로젝트 화면을 사용하는 Three.js 인터랙션</li>
+      <li>프로젝트 메타데이터에서 자동 생성되는 작업물 목록</li>
     </ul>
   </article>
   <article>
     <span>02 · About</span>
     <h3>경력과 역할</h3>
-    <p>학력은 제외하고, 금융권 운영 개발과 실제 맡았던 역할 중심으로 정리합니다.</p>
+    <p>금융권 운영 개발과 실제 맡았던 역할 중심으로 정리합니다.</p>
     <ul>
       <li>회사와 프로젝트별 담당 범위</li>
       <li>배치, API, React 화면 전환 등 핵심 경험</li>
@@ -65,7 +92,6 @@ TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로
     <ul>
       <li>실시간 로그적재 배치 개발</li>
       <li>API 비동기 호출 데이터 처리</li>
-      <li>React 기반 웹앱 SPA 전환</li>
     </ul>
   </article>
   <article>
@@ -92,7 +118,7 @@ TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로
     <p>로컬에서 수정하고 push하면 Netlify가 정적 빌드와 배포를 처리합니다.</p>
     <ul>
       <li>main branch push</li>
-      <li>Docusaurus production build</li>
+      <li>Astro 정적 빌드와 링크 검사</li>
       <li>eundo.today 반영</li>
     </ul>
   </article>
@@ -104,7 +130,7 @@ TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로
   <section>
     <span>01</span>
     <h3>홈 구조 재설계</h3>
-    <p>블로그 인덱스처럼 보이지 않도록 첫 화면을 포트폴리오, 프로젝트 미리보기, 스택 티커 중심으로 재배치했습니다.</p>
+    <p>실제 화면을 사용한 3D 미리보기와 작업물 목록을 연결했습니다. 모션을 줄이도록 설정한 기기에서는 정적인 화면을 제공합니다.</p>
   </section>
   <section>
     <span>02</span>
@@ -119,7 +145,7 @@ TIL 블로그를 포트폴리오 중심으로 다시 정리한 Docusaurus 프로
   <section>
     <span>04</span>
     <h3>배포 흐름</h3>
-    <p>Docusaurus 빌드 결과를 Netlify가 자동 배포하도록 연결해 사이트 수정과 공개 흐름을 단순하게 유지합니다.</p>
+    <p>Astro 빌드와 링크 검사를 통과한 결과를 기존 Netlify 사이트에 배포합니다. 방문 통계와 방명록 저장소는 그대로 유지합니다.</p>
   </section>
 </div>
 

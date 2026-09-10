@@ -1,0 +1,110 @@
+{
+  "/blog/dev-story/API%20%EB%B9%84%EB%8F%99%EA%B8%B0%ED%98%B8%EC%B6%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%EB%A6%AC%20%EA%B0%9C%EB%B0%9C": [
+    "비동기-호출-프로세스",
+    "문제-상황-및-해결-방안",
+    "데이터-부재-문제",
+    "빈-데이터-처리-문제",
+    "해결-방안",
+    "비동기-처리-중-객체-공유-문제",
+    "추가-고려-사항",
+    "결론"
+  ],
+  "/blog/dev-story/%EC%8B%A4%EC%8B%9C%EA%B0%84%20%EB%A1%9C%EA%B7%B8%EC%A0%81%EC%9E%AC%20%EB%B0%B0%EC%B9%98%EA%B0%9C%EB%B0%9C": [
+    "개발-주요작업",
+    "문제-해결",
+    "파티셔닝과-병렬처리",
+    "주요-성과"
+  ],
+  "/docs/aboutMe/PARK%20EUNDO": [
+    "현업-투입-포인트",
+    "대표-실무-성과",
+    "핵심-역량",
+    "프로젝트-경력",
+    "대표-개선-경험",
+    "react-기반-웹앱-spa-전환",
+    "보험금-지급-오류-재이체-처리-시스템",
+    "고객-히스토리-조회-시스템",
+    "연락처"
+  ],
+  "/docs/project/anjeuljido": [
+    "snapshot",
+    "화면으로-보는-기능",
+    "recent-notes",
+    "next"
+  ],
+  "/docs/project/eundo-content-studio": [
+    "snapshot",
+    "화면으로-보는-기능",
+    "작업-흐름",
+    "구현-메모",
+    "latest-notes",
+    "공개-범위",
+    "next"
+  ],
+  "/docs/project/lunch-networking": [
+    "snapshot",
+    "화면으로-보는-기능",
+    "recent-notes",
+    "next"
+  ],
+  "/docs/project/point-switch": [
+    "snapshot",
+    "화면으로-보는-기능",
+    "recent-notes",
+    "next"
+  ],
+  "/docs/project/portfolio-site": [
+    "snapshot",
+    "what-it-does",
+    "페이지-구성",
+    "구현-포인트",
+    "next"
+  ],
+  "/docs/project/prompt-coach": [
+    "snapshot",
+    "화면으로-보는-기능",
+    "recent-notes",
+    "next"
+  ],
+  "/docs/project/reread-bookshelf": [
+    "샘플-책장-데이터",
+    "화면별-설명",
+    "snapshot",
+    "latest-notes",
+    "what-it-does",
+    "모바일에서-중요한-것",
+    "동작-흐름",
+    "portfolio-signal",
+    "implementation-notes",
+    "next"
+  ],
+  "/docs/project/road-test-100": ["snapshot", "화면으로-보는-기능", "next"],
+  "/docs/project/shorts-pipeline": [
+    "snapshot",
+    "latest-console",
+    "샘플-제작-데이터",
+    "탭별-화면-설명",
+    "recent-build-notes",
+    "what-it-does",
+    "데스크톱모바일-화면",
+    "단계별-탭-화면",
+    "화면으로-보�는-기능",
+    "동작-흐름",
+    "portfolio-signal",
+    "implementation-notes",
+    "next"
+  ],
+  "/docs/project/shorts-source-radar": [
+    "snapshot",
+    "실제-화면",
+    "화면-상태",
+    "capture-flow",
+    "화면별-설명",
+    "what-changed-recently",
+    "what-it-does",
+    "화면으로-보는-기능",
+    "portfolio-signal",
+    "implementation-notes",
+    "next"
+  ]
+}

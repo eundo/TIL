@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+import { ArrowLeft } from "lucide-react";
+export async function getStaticPaths() {
+  return (await getCollection("notes")).map((entry) => ({
+    params: { slug: entry.id === "book/index" ? "book" : entry.id },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const isAbout = entry.id.startsWith("aboutMe/");
+const title = isAbout ? "박은도" : entry.data.title;
+---
+
+<BaseLayout
+  title={title}
+  description={entry.data.description}
+  section={isAbout ? "about" : "notes"}
+>
+  <header class="page-heading container">
+    <a class="back-link" href={isAbout ? "/" : "/notes"}>
+      <ArrowLeft size={16} />
+      {isAbout ? "Home" : "Notes"}
+    </a>
+    <h1>{title}</h1>
+    {isAbout && <p>Backend / Batch / Product UI</p>}
+  </header>
+  <div class="container">
+    <div class="article-grid">
+      <article>
+        <TableOfContents headings={headings} mobile />
+        <div class="prose">
+          <Content />
+        </div>
+      </article>
+      <TableOfContents headings={headings} />
+    </div>
+  </div>
+</BaseLayout>

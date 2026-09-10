@@ -1,0 +1,245 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import type { Project } from "../lib/content";
+interface Props {
+  project: Project;
+  index: number;
+  compact?: boolean;
+}
+const { project, index, compact = false } = Astro.props;
+const washes: Record<string, string> = {
+  game: "#eee9ff",
+  pipeline: "#e3f7ee",
+  mobile: "#e7f4f8",
+  product: "#fff9d8",
+  journal: "#f4e9ed",
+};
+const screen =
+  project.presentation === "pipeline"
+    ? project.gallery.find((step) => step.label === "정밀 자막")?.desktop
+    : project.cover;
+---
+
+<article
+  class:list={[
+    "project-row",
+    `row-${project.presentation}`,
+    { "row-compact": compact || !screen },
+  ]}
+  style={`--project-wash:${washes[project.presentation]}`}
+  data-project-row
+  data-category={project.presentation}
+  data-search={`${project.title} ${project.summary} ${project.stack.join(" ")}`.toLowerCase()}
+>
+  <a class="project-row-link" href={project.href}>
+    <div class="project-row-copy">
+      <span class="project-number">{String(index + 1).padStart(2, "0")}</span>
+      <div>
+        <p class="project-category">{project.category}</p>
+        <h3>{project.title}</h3>
+        <p class="project-summary">{project.summary}</p>
+        <div class="project-stack">{project.stack.join(" / ")}</div>
+        <div class="project-row-bottom">
+          <span>
+            {project.visibility} ·{" "}
+            <time datetime={project.updated}>
+              {project.updated.replaceAll("-", ".")}
+            </time>
+          </span>
+          <ArrowUpRight size={23} />
+        </div>
+      </div>
+    </div>
+    {screen && !compact && (
+      <div class="project-row-screen">
+        <img
+          src={screen.src}
+          alt={screen.alt}
+          width={screen.width}
+          height={screen.height}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    )}
+  </a>
+</article>
+<style>
+  .project-row {
+    border-top: 1px solid var(--line);
+    margin-bottom: 24px;
+    container-type: inline-size;
+  }
+  .project-row-link {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    background: var(--project-wash);
+    min-height: 420px;
+    align-items: center;
+    overflow: hidden;
+  }
+  .project-row-copy {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 18px;
+    padding: 36px;
+  }
+  .project-number {
+    font-size: 13px;
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .project-category {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .project-row h3 {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+  .project-summary {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #494d55;
+    max-width: 380px;
+  }
+  .project-stack {
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 22px;
+    color: var(--muted);
+  }
+  .project-row-bottom {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    border-top: 1px solid #17181c25;
+    padding-top: 18px;
+    margin-top: 24px;
+  }
+  .project-row-bottom svg {
+    color: var(--ink);
+    transition: transform 0.25s;
+  }
+  .project-row-link:hover .project-row-bottom svg {
+    transform: translate(3px, -3px);
+  }
+  .project-row-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    height: 440px;
+    overflow: hidden;
+  }
+  .project-row-screen img {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 14px 18px #17181c16);
+    border-radius: 4px;
+    transition: transform 0.5s;
+  }
+  .project-row-link:hover img {
+    transform: translateY(-5px);
+  }
+  .row-pipeline .project-row-screen {
+    padding-right: 30px;
+  }
+  .row-pipeline .project-row-screen img {
+    height: auto;
+    max-height: 100%;
+    width: 100%;
+  }
+  .row-compact .project-row-link {
+    display: block;
+    background: white;
+    min-height: 0;
+  }
+  .row-compact .project-row-copy {
+    padding: 24px 0;
+  }
+  .row-compact .project-row-copy > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+  .row-compact h3 {
+    font-size: 25px;
+    grid-column: 1;
+    margin-bottom: 10px;
+  }
+  .row-compact .project-category {
+    grid-column: 1;
+  }
+  .row-compact .project-summary {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    max-width: none;
+  }
+  .row-compact .project-stack {
+    margin: 0;
+    grid-column: 1;
+  }
+  .row-compact .project-row-bottom {
+    grid-column: 1 / -1;
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+  .row-compact {
+    margin-bottom: 0;
+  }
+  @media (max-width: 760px) {
+    .project-row-link {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .project-row-copy {
+      padding: 24px 20px;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 14px;
+    }
+    .project-row h3 {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+    .project-summary {
+      font-size: 13px;
+    }
+    .project-stack {
+      margin-top: 16px;
+    }
+    .project-row-bottom {
+      margin-top: 18px;
+      padding-top: 12px;
+    }
+    .project-row-screen {
+      height: 370px;
+      padding: 6px 28px 26px;
+    }
+    .row-pipeline .project-row-screen {
+      height: 260px;
+    }
+    .row-compact .project-row-copy > div {
+      display: block;
+    }
+    .row-compact h3 {
+      font-size: 24px;
+    }
+    .row-compact .project-summary {
+      margin: 12px 0;
+    }
+    .row-compact .project-row-copy {
+      padding: 24px 0;
+    }
+    .project-row {
+      margin-bottom: 18px;
+    }
+  }
+</style>

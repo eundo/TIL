@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Guestbook from "../components/Guestbook";
+---
+
+<BaseLayout
+  title="Guestbook"
+  section="guestbook"
+  description="eundo.today 방명록."
+>
+  <Guestbook client:load />
+</BaseLayout>

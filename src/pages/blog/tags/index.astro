@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getStories } from "../../../lib/content";
+const tags = [
+  ...new Set((await getStories()).flatMap((story) => story.data.tags)),
+];
+---
+
+<BaseLayout title="Tags" section="stories">
+  <header class="page-heading container">
+    <h1>Tags</h1>
+  </header>
+  <div class="container">
+    {tags.map((tag) => (
+      <a
+        class="story-row"
+        href={`/blog/tags/${tag.toLowerCase().replaceAll(" ", "-")}`}
+      >
+        {tag}
+      </a>
+    ))}
+  </div>
+</BaseLayout>

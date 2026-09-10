@@ -1,0 +1,118 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getProjects, getStories, noteHref } from "../lib/content";
+import { Search, ArrowUpRight } from "lucide-react";
+const [projects, stories, notes] = await Promise.all([
+  getProjects(),
+  getStories(),
+  getCollection("notes"),
+]);
+const items = [
+  ...projects.map((project) => ({
+    title: project.title,
+    description: project.summary,
+    href: project.href,
+    type: "Project",
+  })),
+  ...stories.map((story) => ({
+    title: story.data.title,
+    description: story.data.description,
+    href: story.href,
+    type: "Story",
+  })),
+  ...notes.map((note) => ({
+    title: note.data.title,
+    description: note.data.description ?? "",
+    href: noteHref(note.id),
+    type: note.id.startsWith("aboutMe") ? "About" : "Note",
+  })),
+];
+---
+
+<BaseLayout title="Search" noindex>
+  <header class="page-heading container">
+    <h1>Search</h1>
+  </header>
+  <section class="container search-page">
+    <label class="search-field">
+      <Search size={24} />
+      <span class="sr-only">사이트 검색</span>
+      <input
+        type="search"
+        id="site-search"
+        placeholder="프로젝트, 글 검색"
+        autocomplete="off"
+      />
+    </label>
+    <p class="search-count" aria-live="polite" id="search-count">
+      {items.length}개
+    </p>
+    <div>
+      {items.map((item) => (
+        <a
+          class="story-row"
+          data-result
+          data-query={`${item.title} ${item.description} ${item.type}`.toLowerCase()}
+          href={item.href}
+        >
+          <div>
+            <span class="meta">{item.type}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+          <ArrowUpRight size={21} />
+        </a>
+      ))}
+    </div>
+    <p id="search-empty" class="empty-message" hidden>
+      검색 결과가 없습니다.
+    </p>
+  </section>
+</BaseLayout>
+<script>
+  const input = document.querySelector<HTMLInputElement>("#site-search")!;
+  const results = [...document.querySelectorAll<HTMLElement>("[data-result]")];
+  const filter = () => {
+    const query = input.value.trim().toLowerCase();
+    let count = 0;
+    results.forEach((result) => {
+      result.hidden = !result.dataset.query!.includes(query);
+      if (!result.hidden) count++;
+    });
+    document.querySelector("#search-count")!.textContent = `${count}개`;
+    document.querySelector<HTMLElement>("#search-empty")!.hidden = count > 0;
+    const url = new URL(location.href);
+    if (query) url.searchParams.set("q", input.value);
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", url);
+  };
+  input.value = new URLSearchParams(location.search).get("q") ?? "";
+  input.addEventListener("input", filter);
+  filter();
+</script>
+<style>
+  .search-page {
+    max-width: 900px;
+  }
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 2px solid var(--ink);
+    padding: 16px 0;
+  }
+  .search-field input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    outline: none;
+  }
+  .search-count {
+    margin: 20px 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>

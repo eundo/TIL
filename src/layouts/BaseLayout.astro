@@ -1,0 +1,168 @@
+---
+import { ArrowUpRight, Copy, Menu, Search, Mail, Rss } from "lucide-react";
+import { aboutHref } from "../lib/content";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  section?: string;
+  noindex?: boolean;
+}
+const {
+  title = "박은도",
+  description = "박은도의 개발자 포트폴리오. 금융권 운영 개발, 배치와 API, 직접 만든 개인 프로젝트.",
+  image = "/img/brand-social.png",
+  section = "",
+  noindex = false,
+} = Astro.props;
+const canonical = new URL(
+  Astro.url.pathname.replace(/\/$/, "") || "/",
+  "https://eundo.today",
+);
+const navigation = [
+  { label: "Projects", href: "/docs/project", id: "projects" },
+  { label: "About", href: aboutHref, id: "about" },
+  { label: "Stories", href: "/blog/dev-story", id: "stories" },
+  { label: "Notes", href: "/notes", id: "notes" },
+  { label: "Guestbook", href: "/guestbook", id: "guestbook" },
+];
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title} | eundo.today</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/img/brand-mark.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="eundo.today Stories"
+      href="/blog/rss.xml"
+    />
+    <meta property="og:site_name" content="eundo.today" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | eundo.today`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, "https://eundo.today")} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      본문으로 이동
+    </a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="eundo.today 홈">
+          <img src="/img/brand-mark.svg" alt="" width="28" height="28" />
+          eundo.today
+        </a>
+        <nav class="desktop-nav" aria-label="주 메뉴">
+          {navigation.map((item) => (
+            <a
+              href={item.href}
+              aria-current={section === item.id ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a class="icon-button" href="/search" aria-label="검색" title="검색">
+            <Search size={19} />
+          </a>
+        </nav>
+        <details class="mobile-menu">
+          <summary class="icon-button" aria-label="메뉴">
+            <Menu size={24} />
+          </summary>
+          <nav aria-label="모바일 메뉴">
+            {navigation.map((item) => (
+              <a
+                href={item.href}
+                aria-current={section === item.id ? "page" : undefined}
+              >
+                {item.label}
+                <ArrowUpRight size={18} />
+              </a>
+            ))}
+            <a href="/search">
+              검색
+              <Search size={18} />
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a class="brand" href="/">
+          eundo.today
+        </a>
+        <div class="footer-links">
+          <a href="mailto:eundo@eundo.kr">
+            <Mail size={17} />
+            Email
+          </a>
+          <a
+            href="https://github.com/eundo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ArrowUpRight size={17} />
+            GitHub
+          </a>
+          <a href="/blog/rss.xml">
+            <Rss size={17} />
+            RSS
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} Eundo Park</span>
+        <div class="site-pulse" aria-label="방문 통계">
+          <span>
+            Today <b data-visits="today">--</b>
+          </span>
+          <span>
+            Total <b data-visits="total">--</b>
+          </span>
+          <a href="/guestbook">
+            Guestbook <ArrowUpRight size={14} />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <template id="code-copy-template">
+      <button
+        type="button"
+        class="icon-button code-copy"
+        data-copy-code
+        aria-label="코드 복사"
+        title="코드 복사"
+      >
+        <Copy size={16} />
+      </button>
+    </template>
+    <script>
+      import "../scripts/site";
+    </script>
+  </body>
+</html>

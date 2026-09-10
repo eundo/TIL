@@ -1,0 +1,22 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import { getStories } from "../lib/content";
+const stories = await getStories();
+---
+
+<div class="story-list">
+  {stories.map((story) => (
+    <a class="story-row" href={story.href}>
+      <div>
+        <div class="meta">
+          {story.data.tags.map((tag) => (
+            <span>{tag}</span>
+          ))}
+        </div>
+        <h3>{story.data.title}</h3>
+        <p>{story.data.description}</p>
+      </div>
+      <ArrowUpRight size={23} />
+    </a>
+  ))}
+</div>

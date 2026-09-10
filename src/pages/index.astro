@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectStage from "../components/ProjectStage";
+import ProjectRow from "../components/ProjectRow.astro";
+import StoryList from "../components/StoryList.astro";
+import { ArrowUpRight } from "lucide-react";
+import { getProjects, aboutHref } from "../lib/content";
+const projects = await getProjects();
+const featured = projects.filter(
+  (project) => project.featured && project.cover,
+);
+---
+
+<BaseLayout>
+  <ProjectStage projects={featured} client:load />
+  <section id="selected-work" class="home-work container">
+    <div class="section-head">
+      <h2>
+        Projects <span>{projects.length}</span>
+      </h2>
+      <a class="text-link" href="/docs/project">
+        전체 보기
+        <ArrowUpRight size={17} />
+      </a>
+    </div>
+    {projects.map((project, index) => (
+      <ProjectRow project={project} index={index} />
+    ))}
+  </section>
+  <section class="home-about container">
+    <div>
+      <h2>박은도</h2>
+      <p>
+        금융권 운영 개발을 해왔고,
+        <br />
+        개인 프로젝트는 직접 쓰려고 만듭니다.
+      </p>
+    </div>
+    <a class="text-link" href={aboutHref}>
+      경력 보기
+      <ArrowUpRight size={20} />
+    </a>
+  </section>
+  <section class="home-stories container">
+    <div class="section-head">
+      <h2>Stories</h2>
+      <a class="text-link" href="/blog/dev-story">
+        글 모아보기
+        <ArrowUpRight size={17} />
+      </a>
+    </div>
+    <StoryList />
+  </section>
+</BaseLayout>
+<style>
+  .home-work {
+    padding-top: 30px;
+  }
+  .home-work h2 span {
+    font-size: 12px;
+    vertical-align: super;
+    font-weight: 500;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+  .home-about {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: flex-end;
+    border-top: 1px solid var(--line);
+    padding-block: 70px;
+    margin-top: 50px;
+  }
+  .home-about h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+  .home-about p {
+    font-size: 20px;
+    color: var(--muted);
+  }
+  .home-stories {
+    padding-top: 24px;
+  }
+  @media (max-width: 760px) {
+    .home-work {
+      padding-top: 24px;
+    }
+    .home-about {
+      padding-block: 44px;
+      display: block;
+      margin-top: 32px;
+    }
+    .home-about h2 {
+      font-size: 30px;
+    }
+    .home-about p {
+      font-size: 17px;
+    }
+    .home-about > a {
+      margin-top: 24px;
+    }
+  }
+</style>

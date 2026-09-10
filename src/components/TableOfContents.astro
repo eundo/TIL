@@ -1,0 +1,35 @@
+---
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+  mobile?: boolean;
+}
+const { headings, mobile = false } = Astro.props;
+const items = headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3,
+);
+---
+
+{items.length > 0 &&
+  (mobile ? (
+    <details class="mobile-toc">
+      <summary>목차</summary>
+      <nav aria-label="본문 목차">
+        {items.map((heading) => (
+          <a class={`depth-${heading.depth}`} href={`#${heading.slug}`}>
+            {heading.text}
+          </a>
+        ))}
+      </nav>
+    </details>
+  ) : (
+    <aside class="article-toc">
+      <strong>목차</strong>
+      <nav aria-label="본문 목차">
+        {items.map((heading) => (
+          <a class={`depth-${heading.depth}`} href={`#${heading.slug}`}>
+            {heading.text}
+          </a>
+        ))}
+      </nav>
+    </aside>
+  ))}

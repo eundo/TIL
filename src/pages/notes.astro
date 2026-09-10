@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { ArrowUpRight } from "lucide-react";
+import { noteHref } from "../lib/content";
+const notes = (await getCollection("notes")).filter(
+  (entry) => !entry.id.startsWith("aboutMe/"),
+);
+const groups = [
+  { title: "TIL", prefix: "til/" },
+  { title: "Book Notes", prefix: "book/" },
+];
+---
+
+<BaseLayout title="Notes" section="notes" description="개발 메모와 독서 기록.">
+  <header class="page-heading container">
+    <h1>Notes</h1>
+    <p>개발 메모와 독서 기록.</p>
+  </header>
+  <div class="container note-groups">
+    {groups.map((group) => (
+      <section>
+        <h2>{group.title}</h2>
+        {notes
+          .filter((entry) => entry.id.startsWith(group.prefix))
+          .map((entry) => (
+            <a class="note-row" href={noteHref(entry.id)}>
+              <span>{entry.data.title}</span>
+              <ArrowUpRight size={19} />
+            </a>
+          ))}
+      </section>
+    ))}
+  </div>
+</BaseLayout>
+<style>
+  .note-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  .note-groups h2 {
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+  .note-row {
+    padding: 23px 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .note-row:hover {
+    color: var(--accent);
+  }
+  @media (max-width: 760px) {
+    .note-groups {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import StoryList from "../../../components/StoryList.astro";
+---
+
+<BaseLayout
+  title="Stories"
+  section="stories"
+  description="배치, 비동기 API와 운영 시스템을 개발하며 남긴 기술 기록."
+>
+  <header class="page-heading container">
+    <h1>Stories</h1>
+    <p>개발하면서 남긴 기록.</p>
+  </header>
+  <section class="container" aria-label="개발 회고">
+    <StoryList />
+  </section>
+</BaseLayout>
