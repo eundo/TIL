@@ -5,7 +5,7 @@ import TableOfContents from "../../../components/TableOfContents.astro";
 import { ArrowLeft } from "lucide-react";
 export async function getStaticPaths() {
   return (await getCollection("stories", ({ data }) => data.published)).map(
-    (entry) => ({ params: { slug: entry.id }, props: { entry } }),
+    (entry) => ({ params: { slug: entry.id.toLowerCase() }, props: { entry } }),
   );
 }
 const { entry } = Astro.props;

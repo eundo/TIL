@@ -82,6 +82,7 @@ function verifyPageUrl(href, context) {
   if (
     url.origin !== "https://eundo.today" ||
     !pages.has(target) ||
+    target !== target.toLowerCase() ||
     decodeURIComponent(url.pathname) !== pagePath(target)
   )
     failures.push(

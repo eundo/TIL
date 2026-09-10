@@ -9,6 +9,8 @@ export async function GET() {
       title: story.data.title,
       description: story.data.description,
       link: story.href,
+      // Preserve published GUIDs when the public URL changes case.
+      customData: `<guid isPermaLink="true">https://eundo.today/blog/dev-story/${encodeURIComponent(story.id)}/</guid>`,
       ...(story.data.date ? { pubDate: new Date(story.data.date) } : {}),
     })),
     customData: "<language>ko-kr</language>",

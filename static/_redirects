@@ -1,11 +1,13 @@
 /blog /blog/dev-story/ 301
 /blog/archive /blog/dev-story/ 301
-/blog/authors /docs/aboutMe/PARK%20EUNDO/ 301
-/blog/authors/eundo /docs/aboutMe/PARK%20EUNDO/ 301
+/blog/authors /docs/aboutme/park%20eundo/ 301
+/blog/authors/eundo /docs/aboutme/park%20eundo/ 301
+/blog/dev-story/API%20%EB%B9%84%EB%8F%99%EA%B8%B0%ED%98%B8%EC%B6%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%EB%A6%AC%20%EA%B0%9C%EB%B0%9C /blog/dev-story/api%20%EB%B9%84%EB%8F%99%EA%B8%B0%ED%98%B8%EC%B6%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%EB%A6%AC%20%EA%B0%9C%EB%B0%9C/ 301
 /blog/atom.xml /blog/rss.xml 301
 /rss.xml /blog/rss.xml 301
 /sitemap.xml /sitemap-index.xml 301
 /docs/intro /notes/ 301
+/docs/aboutMe/PARK%20EUNDO /docs/aboutme/park%20eundo/ 301
 /markdown-page /notes/ 301
 /docs/category/2023 /docs/til/2023/intro/ 301
 /docs/category/it-5%EB%B6%84-%EC%9E%A1%ED%95%99%EC%82%AC%EC%A0%84 /docs/book/it5%EB%B6%84%EC%9E%A1%ED%95%99%EC%82%AC%EC%A0%84/day1/ 301

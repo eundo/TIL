@@ -17,9 +17,9 @@ export async function getStories() {
     .sort((a, b) => (b.data.date ?? "").localeCompare(a.data.date ?? ""))
     .map((entry) => ({
       ...entry,
-      href: `/blog/dev-story/${encodeURIComponent(entry.id)}/`,
+      href: `/blog/dev-story/${encodeURIComponent(entry.id.toLowerCase())}/`,
     }));
 }
-export const aboutHref = "/docs/aboutMe/PARK%20EUNDO/";
+export const aboutHref = "/docs/aboutme/park%20eundo/";
 export const noteHref = (id: string) =>
-  `/docs/${id === "book/index" ? "book" : id.split("/").map(encodeURIComponent).join("/")}/`;
+  `/docs/${id === "book/index" ? "book" : id.toLowerCase().split("/").map(encodeURIComponent).join("/")}/`;
