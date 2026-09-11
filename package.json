@@ -10,7 +10,7 @@
     "build": "astro build && node scripts/verify-site.mjs",
     "serve": "astro preview --port 3000",
     "typecheck": "astro check",
-    "test": "node --test scripts/content.test.mjs"
+    "test": "node --experimental-strip-types --test scripts/*.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.0",

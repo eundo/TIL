@@ -1,3 +1,5 @@
+import "./visit-stats";
+
 const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && menu?.open) {
@@ -13,47 +15,6 @@ document.addEventListener("click", (event) => {
   )
     menu.open = false;
 });
-
-async function loadStats() {
-  const today = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Seoul",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date());
-  const key = `eundo.today.visit-counted.${today}`;
-  let counted = false;
-  try {
-    counted = localStorage.getItem(key) === "1";
-  } catch {}
-  const shouldCount = !counted && location.hostname === "eundo.today";
-  try {
-    const response = await fetch("/api/site-stats", {
-      method: shouldCount ? "POST" : "GET",
-    });
-    if (!response.ok) return;
-    const stats = await response.json();
-    if (shouldCount) {
-      try {
-        localStorage.setItem(key, "1");
-      } catch {}
-    }
-    for (const [name, value] of [
-      ["today", stats.todayVisits],
-      ["total", stats.totalVisits],
-    ] as const) {
-      if (!Number.isFinite(value)) continue;
-      document
-        .querySelectorAll(`[data-visits="${name}"]`)
-        .forEach((element) => {
-          element.textContent = new Intl.NumberFormat("ko-KR").format(value);
-        });
-    }
-  } catch {
-    /* Static previews may not expose Netlify Functions. */
-  }
-}
-loadStats();
 
 if (location.hostname === "eundo.today") {
   const analytics = document.createElement("script");
