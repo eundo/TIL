@@ -54,13 +54,15 @@ export default function ProjectStage({ projects }: { projects: Project[] }) {
               item.cover && (
                 <img
                   key={item.id}
-                  className={`fallback-shot fallback-${index % 3}`}
+                  className={`fallback-shot fallback-${(index - active + projects.length) % projects.length}`}
                   src={item.cover.src}
                   width={item.cover.width}
                   height={item.cover.height}
                   alt=""
                   loading={index < 3 ? "eager" : "lazy"}
-                  hidden={index >= 3}
+                  hidden={
+                    (index - active + projects.length) % projects.length >= 3
+                  }
                 />
               ),
           )}

@@ -34,8 +34,13 @@ const next = projects[(index + 1) % projects.length];
     <div class="project-info">
       <div class="meta">
         <span>{project.stack.join(" / ")}</span>
-        <span>{project.visibility}</span>
-        <time datetime={project.updated}>
+        <span>
+          {project.stage} · {project.visibility}
+        </span>
+        <time
+          datetime={project.updated}
+          title="검토한 소스의 최신 커밋 날짜 (Asia/Seoul)"
+        >
           {project.updated.replaceAll("-", ".")}
         </time>
       </div>
@@ -51,6 +56,12 @@ const next = projects[(index + 1) % projects.length];
         </a>
       )}
     </div>
+    <p class="source-note">
+      {project.repository} · 소스 확인{" "}
+      <time datetime={project.reviewed}>
+        {project.reviewed.replaceAll("-", ".")}
+      </time>
+    </p>
   </header>
   {project.gallery.length > 0 && (
     <ScreenGallery
@@ -88,6 +99,13 @@ const next = projects[(index + 1) % projects.length];
   }
   .project-heading p {
     max-width: 780px;
+  }
+  .project-heading .source-note {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+    overflow-wrap: anywhere;
   }
   .project-info {
     display: flex;

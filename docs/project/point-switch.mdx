@@ -1,81 +1,88 @@
 ---
 title: Point Switch
-description: 보상형 광고 완료와 포인트 지급 경계를 분리한 Apps in Toss 미니앱입니다.
-summary: 10회 충전과 마지막 지급 광고를 분리하고, action ticket과 멱등성으로 보상 플로우를 안전하게 설계한 미니앱.
-category: Reward Safety
+description: 스위치를 당겨 다이얼을 채우는 보상형 광고 미니앱. 광고 액션, 충전, 지급 작업을 분리하고 멱등성과 지급 상태 조회를 구현했습니다.
+summary: 스위치를 당겨 10칸을 채우는 리워드 앱. 충전과 지급을 분리하고, 응답이 끊긴 지급 요청은 실행 결과부터 다시 확인한다.
+category: Reward Workflow
 visibility: Private
+repository: eundo/point-switch
+stage: 비공개 테스트
+reviewed: 2026-09-13
+source:
+  ref: main
+  commit: 56933d1a5fb305233968c03f7a666fd20cab1da1
 published: true
-updated: 2026-08-21
+updated: 2026-08-22
 order: 5
 featured: false
 accent: "#53c8ff"
-presentation: product
-stack:
-  - React
-  - TypeScript
-  - PostgreSQL
-  - Worker
-gallery: []
+presentation: mobile
+stack: [React, TypeScript, PostgreSQL, Worker]
+cover: &cover
+  src: /img/projects/2026-09/point-switch-home-mobile.png
+  alt: 10칸 중 7칸이 충전된 테스트용 스위치와 다이얼
+  width: 780
+  height: 1688
+gallery:
+  - label: 충전 중
+    caption: 최신 앱의 브라우저 테스트 모드에 7회 충전된 샘플 상태를 넣었습니다. 실제 포인트는 지급되지 않습니다.
+    mobile: *cover
+  - label: 테스트 광고
+    caption: 스위치를 작동한 뒤 열린 로컬 광고 대체 화면입니다. 유료 광고 요청이나 실제 광고 시청 실적은 만들지 않았습니다.
+    mobile:
+      src: /img/projects/2026-09/point-switch-ad-mobile.png
+      alt: 실제 광고 대신 실행한 브라우저 테스트 광고 화면
+      width: 780
+      height: 1688
+  - label: 한 칸 충전
+    caption: 테스트 광고 완료 동작으로 7칸에서 8칸으로 바뀐 실제 UI입니다. 테스트 안내를 그대로 남겼습니다.
+    mobile:
+      src: /img/projects/2026-09/point-switch-charged-mobile.png
+      alt: 테스트 광고 후 8칸으로 증가한 충전 다이얼
+      width: 780
+      height: 1688
 ---
 
 # Point Switch
 
-보상형 광고를 본 뒤 포인트를 지급하는 흐름을 실험한 미니앱입니다. 화면의 재미보다 중요한 부분은 광고 완료, 지급 요청, 중복 지급 방지를 어디서 끊을지 정리한 점입니다.
-
-:::info
-Repository는 private으로 운영 중입니다. 공개 페이지에는 제품 방향과 공개 가능한 구현 범위만 남깁니다.
-:::
-
-## Snapshot
-
-| 구분 | 내용 |
-| --- | --- |
-| 상태 | Private, in progress |
-| 최신 갱신 | 2026.08.21 · `ci: enable manual release verification` |
-| 플랫폼 | Apps in Toss WebView |
-| 기술 | React, TypeScript, PostgreSQL, worker |
-| 핵심 | 보상 지급을 클라이언트 이벤트만 믿지 않는 것 |
+스위치를 아래로 당기면 광고가 열리고, 완료하면 다이얼 한 칸이 채워집니다. 열 칸을 채운 뒤에는 마지막 지급 광고가 따로 있습니다. 화면에서는 반복 동작을 짧게 만들고, 서버에서는 충전과 실제 지급의 책임을 나눴습니다.
 
 ## 화면으로 보는 기능
 
-<div className="project-feature-grid">
-  <section>
-    <span>01</span>
-    <h3>10회 충전</h3>
-    <p>광고 시청을 단순 반복 액션으로 두고, 마지막 지급 광고와 일반 충전 액션을 분리했습니다.</p>
-  </section>
-  <section>
-    <span>02</span>
-    <h3>Action Ticket</h3>
-    <p>지급 요청 전에 서버에서 처리 가능한 ticket을 만들고, 완료 후 같은 ticket으로 중복 지급되지 않게 합니다.</p>
-  </section>
-  <section>
-    <span>03</span>
-    <h3>멱등성</h3>
-    <p>네트워크 재시도와 새로고침이 있어도 같은 보상이 두 번 지급되지 않도록 지급 경계를 서버에 둡니다.</p>
-  </section>
-  <section>
-    <span>04</span>
-    <h3>Release Check</h3>
-    <p>수동 검증 workflow를 열어 운영 전 확인해야 할 흐름을 CI에서 놓치지 않게 했습니다.</p>
-  </section>
-</div>
+**스위치**는 끌어당기는 거리에 반응하고 중간에 놓으면 돌아옵니다. **다이얼**은 오늘의 충전 횟수를 표시합니다. **광고 완료**와 **지급 완료**는 같은 이벤트로 취급하지 않습니다. 네트워크가 끊기거나 화면을 다시 열어도 지급 상태를 확인하는 과정이 필요하기 때문입니다.
+
+갤러리는 로컬 테스트 모드에서 7→8회 충전한 화면입니다. 실제 토스 로그인이나 포인트 지급까지 검증한 캡처가 아닙니다.
+
+## 응답이 없을 때 다시 지급해도 될까
+
+지급 API의 응답이 끊겨도 외부에서는 이미 처리가 끝났을 수 있습니다. 이때 같은 지급 동작을 무조건 다시 실행하면 중복 지급 위험이 생깁니다.
+
+| 상황                     | 구현한 처리                            |
+| ------------------------ | -------------------------------------- |
+| 액션 시작                | 세션에 묶인 만료 시간·일회성 티켓 발급 |
+| 같은 완료 요청 재전송    | 멱등키와 소비 상태 확인                |
+| 지급 요청 수락           | DB 작업으로 저장하고 작업자가 처리     |
+| 지급 실행 뒤 응답 불명확 | 실행 결과 조회로 상태 확인             |
+| 작업자 교체·중단         | 임대 상태와 오래된 작업 점검           |
+| 연결 해제                | 대기 상태를 정리하고 후속 지급 제한    |
+
+티켓은 재전송을 관리하는 장치이지 실제 광고 시청을 암호학적으로 증명하는 장치는 아닙니다. 운영 전환에는 광고 파트너의 완료 검증과 부정 사용 방어가 더 필요합니다.
+
+## Snapshot
+
+| 항목      | 현재 범위                               |
+| --------- | --------------------------------------- |
+| UI        | 스위치 드래그, 충전 다이얼, 테스트 광고 |
+| API       | 액션 티켓, 일일 제한, 충전과 지급 상태  |
+| 저장·실행 | PostgreSQL 지급 작업과 별도 작업자      |
+| 날짜      | 일일 제한은 Asia/Seoul 기준             |
+| 검증      | API 관련 22개 테스트 통과               |
 
 ## Recent Notes
 
-<div className="project-update-stack project-update-stack--compact">
-  <article>
-    <span>2026.08.21</span>
-    <p>운영 전환 전 수동 release verification을 실행할 수 있게 CI 흐름을 정리했습니다.</p>
-  </article>
-  <article>
-    <span>2026.08</span>
-    <p>광고 완료 이벤트와 포인트 지급 요청 사이의 책임 경계를 다시 나눴습니다.</p>
-  </article>
-</div>
+소개 기준은 **2026.08.22의 main 브랜치**입니다. 9월에 갱신된 의존성 자동 업데이트 브랜치는 아직 합쳐지지 않아 현재 기능이나 출시 버전으로 계산하지 않았습니다.
+
+2026.09.13에 API 테스트 **22개를 실행해 통과**했습니다. 티켓 소비, 재시도, 외부 응답 형태, 연결 해제와 마이그레이션 관련 로직을 확인했습니다.
 
 ## Next
 
-- 실패 상태별 사용자 메시지 정리
-- 지급 로그 확인 화면
-- 운영 전 스토어/광고 정책 체크리스트 보강
+실제 지급을 켜려면 토스 로그인·mTLS, 운영 DB와 작업자, 광고 그룹, 예산과 지급 승인 설정이 필요합니다. 현재 페이지는 비공개 테스트 구현을 소개하며 운영 리워드 서비스가 아닙니다.

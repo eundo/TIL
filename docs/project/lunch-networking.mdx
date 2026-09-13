@@ -1,80 +1,68 @@
 ---
 title: Lunch Networking
-description: 평일 점심시간을 직무 네트워킹 슬롯으로 쓰는 Apps in Toss 미니앱 MVP입니다.
-summary: 직장인의 점심시간을 기준으로 이종 직무 매칭, 일정 후보, 가벼운 네트워킹 흐름을 실험하는 Apps-in-Toss 프로젝트.
-category: Workplace Social
+description: 평일 점심 한 시간을 다른 직무의 동료와 연결하는 미니앱 프로토타입. 추천, 프로필, 요청과 수락 후 대화를 설계했습니다.
+summary: 평일 점심 한 시간, 가까운 곳의 다른 직무와 연결하는 실험. 시간과 지역이 맞는 후보부터 살펴본다.
+category: Lunch Meetup
 visibility: Private
+repository: eundo/lunch-networking-in-toss
+stage: 프로토타입
+reviewed: 2026-09-13
+source:
+  ref: agent/apps-in-toss-foundation
+  commit: db967f208b60dc48be028becbf8d5005c3c811de
 published: true
 updated: 2026-08-09
-order: 9
+order: 11
 featured: false
 accent: "#ff70cf"
-presentation: product
-stack:
-  - TypeScript
-  - Apps in Toss
-  - MVP
-gallery: []
+presentation: mobile
+stack: [React, TypeScript, Supabase, Apps in Toss]
+cover: &cover
+  src: /img/projects/2026-09/lunch-networking-home-mobile.png
+  alt: 점심 시간과 지역을 표시한 직무별 추천 데모
+  width: 780
+  height: 1688
+gallery:
+  - label: 추천
+    caption: 작업 브랜치에 포함된 데모 인물입니다. 실제 이용자나 실시간 거리 데이터가 아니며 서비스명도 아직 확정 전입니다.
+    mobile: *cover
+  - label: 프로필
+    caption: 데모 인물의 직무와 대화 주제를 확인한 화면입니다. 실제 상대에게 만남 요청이나 메시지를 보내지 않았습니다.
+    mobile:
+      src: /img/projects/2026-09/lunch-networking-profile-mobile.png
+      alt: 점심 네트워킹 후보의 직무와 대화 주제 상세
+      width: 780
+      height: 1688
 ---
 
 # Lunch Networking
 
-평일 점심시간을 짧은 직무 네트워킹 슬롯으로 바꾸는 실험입니다. 큰 커뮤니티보다 “오늘 점심에 만날 수 있는 사람”처럼 시간과 맥락이 좁은 연결에 초점을 맞췄습니다.
+다른 직무에서는 같은 문제를 어떻게 볼까. 멀리 약속을 잡기보다 평일 점심 한 시간으로 시작하는 네트워킹을 실험하고 있습니다.
 
-:::info
-Repository는 private으로 운영 중입니다. 공개 페이지에는 제품 방향과 공개 가능한 구현 범위만 남깁니다.
-:::
+## 범위를 좁힌 이유
 
-## Snapshot
-
-| 구분 | 내용 |
-| --- | --- |
-| 상태 | Private MVP |
-| 최신 갱신 | 2026.08.09 · `build initial Manyfast MVP` |
-| 플랫폼 | Apps in Toss WebView |
-| 기술 | TypeScript, Apps in Toss |
-| 핵심 | 가벼운 만남 제안을 너무 부담스럽지 않게 만드는 것 |
+일반적인 모임이나 데이팅 앱이 아니라 직무·업종 간 대화에 초점을 맞췄습니다. 한국 시간 평일 11:30~14:00 안에서 약 60분의 점심을 잡는 구상입니다. 시간과 지역이 맞는지, 어떤 일을 하는지, 무엇을 이야기할지가 추천의 기본 조건입니다.
 
 ## 화면으로 보는 기능
 
-<div className="project-feature-grid">
-  <section>
-    <span>01</span>
-    <h3>점심 슬롯</h3>
-    <p>12:00, 12:30, 13:00처럼 실제 이동 가능한 시간대를 기준으로 후보를 나눕니다.</p>
-  </section>
-  <section>
-    <span>02</span>
-    <h3>직무 신호</h3>
-    <p>회사명보다 관심 분야, 직무, 오늘 이야기해보고 싶은 주제를 앞에 둡니다.</p>
-  </section>
-  <section>
-    <span>03</span>
-    <h3>가벼운 매칭</h3>
-    <p>긴 프로필 입력 없이 점심 가능 여부와 대화 주제로 먼저 매칭을 시작합니다.</p>
-  </section>
-  <section>
-    <span>04</span>
-    <h3>MVP 검증</h3>
-    <p>처음부터 복잡한 관계망을 만들지 않고, 슬롯과 관심사만으로 가능성을 봅니다.</p>
-  </section>
-</div>
+추천 목록은 직무·업종·지역·점심 시간으로 좁힙니다. 후보를 열면 프로필과 대화 주제를 확인합니다. 요청, 일정, 채팅, 내 프로필을 별도 화면으로 나누고, 수락 뒤에 대화를 시작하는 흐름을 구현했습니다.
+
+캡처의 이름, 직장 유형과 거리는 저장소에 포함된 데모 데이터입니다. 실제 사용자 모집이나 매칭 결과가 아닙니다. 앱의 `서비스명 미정` 표시도 현재 개발 상태 그대로 남겼습니다.
+
+## Snapshot
+
+| 항목        | 확인한 범위                                     |
+| ----------- | ----------------------------------------------- |
+| 개발 단계   | 서비스명과 출시 설정이 확정되지 않은 프로토타입 |
+| 화면        | 추천, 상세 프로필, 요청, 일정, 채팅, 내 정보    |
+| 백엔드 구성 | Supabase 인증·데이터 접근 정책을 연결하는 코드  |
+| 캡처 환경   | 백엔드 미연결 로컬 데모                         |
+| 검토 브랜치 | `agent/apps-in-toss-foundation`                 |
 
 ## Recent Notes
 
-<div className="project-update-stack project-update-stack--compact">
-  <article>
-    <span>2026.08.09</span>
-    <p>초기 MVP 저장소를 만들고, Apps in Toss 안에서 빠르게 확인 가능한 화면 단위를 잡았습니다.</p>
-  </article>
-  <article>
-    <span>2026.08</span>
-    <p>서비스 톤은 가볍게 두되, 만남 확정과 개인정보 범위는 신중하게 좁히는 방향입니다.</p>
-  </article>
-</div>
+기본 `main`에는 초기 MVP가 있고, 점심 네트워킹 방향의 후속 작업은 별도 작업 브랜치에 있습니다. **2026.08.09의 해당 브랜치**를 기준으로 화면과 설명을 갱신했습니다. 아직 main에 반영된 출시 기능으로 소개하지 않습니다.
 
 ## Next
 
-- 매칭 후 취소/노쇼 처리
-- 직무/관심사 입력 최소화
-- 위치 노출 없이 만남 후보를 제안하는 방식 검토
+서비스명, 운영 정책, 앱 등록 설정과 실제 인증 연동이 먼저입니다. 차단·신고와 취소·노쇼 정책도 실제 사용자 환경에서 확인해야 합니다. 필요한 출시 설정이 없을 때 배포 패키지 생성을 막는 검증이 있으며, 공개 운영 중인 서비스는 아닙니다.

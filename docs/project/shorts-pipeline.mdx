@@ -4,6 +4,12 @@ description: 영상 업로드, AI 편집안, 정밀 자막, 피사체 추적, FF
 summary: 정밀 자막, 피사체 추적, TTS 대본/음성, 최종 합성을 탭 단위로 다루는 숏폼 제작 파이프라인.
 category: Video Workflow
 visibility: Private
+repository: eundo/shorts-pipeline
+stage: 개인 제작 도구
+reviewed: 2026-09-13
+source:
+  ref: main
+  commit: 12e5ee0c7383b0c761f62097553114321929c628
 published: true
 updated: 2026-07-23
 order: 2
@@ -144,6 +150,10 @@ Repository는 private으로 운영 중입니다. 공개 페이지에는 민감�
 | 접근 | 프로젝트 단위로 원본, 클립, 대본, 자막, 피사체 추적 좌표, 출력물을 관리하고 LLM API와 FFmpeg 처리를 연결 |
 | 기술 | FastAPI, Python, LLM API, Whisper, FFmpeg, yt-dlp, Docker |
 | 실행 | Docker 기반 실행과 로컬 업로드/출력 디렉터리 분리를 고려 |
+
+2026.09.13에 `main` 소스를 다시 확인했습니다. 최신 커밋은 2026.07.23으로, 기존 소개 이후 새 기능 커밋은 없습니다. 프로젝트·편집·정밀 자막·피사체 추적·TTS 대본·TTS 음성·내보내기의 기존 웹·모바일 캡처를 유지했습니다.
+
+자막은 인식된 단어 시간을 클립의 출력 구간으로 다시 매핑합니다. TTS 음성에서 단어 시간을 얻지 못한 경우에는 대본 길이 기반 배분으로 돌아갑니다. 이 대체 결과를 단어 단위 인식 결과와 같은 정확도로 설명하지 않습니다. 이번 소스 확인에서 유료 음성 생성이나 전체 영상 렌더링을 다시 실행하지는 않았습니다.
 
 ## Latest Console
 
@@ -360,9 +370,11 @@ Repository는 private으로 운영 중입니다. 공개 페이지에는 민감�
   <div><span>4</span><strong>렌더링 확인</strong><p>FFmpeg 결과물을 output 영역에서 검토합니다.</p></div>
 </div>
 
-## Portfolio Signal
+<span id="portfolio-signal"></span>
 
-이 프로젝트의 중심은 화면보다 작업 흐름입니다. 파일 업로드, 상태 관리, 외부 API 호출, 자막 타임라인, 피사체 추적, 렌더링처럼 끊기기 쉬운 단계를 하나의 작업 모델로 묶었습니다.
+## 작업 상태 관리
+
+업로드한 원본, 편집 구간, 자막, 추적 좌표와 출력 파일을 프로젝트 단위로 관리합니다. 긴 작업은 job 상태로 조회하며, 페이지를 다시 열어 진행 상태를 확인하는 경로가 있습니다.
 
 ## Implementation Notes
 

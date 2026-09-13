@@ -4,9 +4,15 @@ description: Astro와 React로 만든 개인 포트폴리오. 프로젝트 화�
 summary: 경력, 개발 회고, 개인 프로젝트를 나눠 보여주고 GitHub push 기반 Netlify 배포까지 연결한 공개 포트폴리오.
 category: Portfolio System
 visibility: Public
+repository: eundo/TIL
+stage: 운영 중
+reviewed: 2026-09-13
+source:
+  ref: main
+  commit: 2e4acb2e4f84b4a4ff5921d521972e2ab74ce9bb
 published: true
-updated: 2026-09-10
-order: 10
+updated: 2026-09-11
+order: 8
 featured: false
 accent: "#6552ff"
 presentation: journal
@@ -17,7 +23,7 @@ stack:
   - Netlify
   - GitHub
 cover: &a1
-  src: /img/projects/portfolio-site-astro-mobile.png
+  src: /img/projects/2026-09/portfolio-site-home-mobile.png
   alt: Astro 포트폴리오 모바일 홈 화면
   width: 390
   height: 844
@@ -39,9 +45,16 @@ TIL 블로그에서 시작한 개인 포트폴리오입니다. Docusaurus에서 
 - 방명록과 방문자 통계는 기존 Netlify Functions와 Blobs 저장소를 사용합니다.
 - 빌드할 때 내부 링크, 이미지, 제목 앵커, 이전 공개 주소와 프로젝트 목록 누락을 검사합니다.
 
+## 최근 변경
+
+- 글 링크를 실제 정적 경로와 맞춰 불필요한 리디렉션을 줄였습니다. 목록에서 가까워진 링크는 미리 불러옵니다.
+- 방문 통계의 날짜를 Asia/Seoul로 고정하고, 열린 화면은 30초 간격으로 갱신합니다. 서버 푸시 방식의 실시간 통계는 아닙니다.
+- 방문 집계의 동시 저장 충돌을 조건부 갱신과 재시도로 처리합니다.
+- 프로젝트는 저장소·검토한 커밋·확인 날짜를 함께 관리합니다. TIL 저장소는 별도 중복 프로젝트 대신 이 사이트로 소개합니다.
+
 <div className="project-screenshot-grid project-screenshot-grid--responsive">
   <figure className="project-mobile-shot">
-    <img src="/img/projects/portfolio-site-astro-mobile.png" alt="eundo.today Astro 모바일 홈 화면" />
+    <img src="/img/projects/2026-09/portfolio-site-home-mobile.png" alt="eundo.today Astro 모바일 홈 화면" />
     <figcaption>Astro로 이전한 모바일 홈 화면입니다. 대표 프로젝트는 화살표와 화면 선택으로 전환합니다.</figcaption>
   </figure>
 </div>

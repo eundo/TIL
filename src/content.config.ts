@@ -16,6 +16,15 @@ const projects = defineCollection({
     summary: z.string(),
     category: z.string(),
     visibility: z.enum(["Public", "Private"]),
+    repository: z.string().regex(/^eundo\/[a-zA-Z0-9-]+$/),
+    stage: z.string(),
+    reviewed: z.coerce
+      .date()
+      .transform((date) => date.toISOString().slice(0, 10)),
+    source: z.object({
+      ref: z.string(),
+      commit: z.string().regex(/^[a-f0-9]{40}$/),
+    }),
     published: z.boolean().default(true),
     updated: z.coerce
       .date()

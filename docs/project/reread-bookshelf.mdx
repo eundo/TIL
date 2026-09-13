@@ -1,247 +1,133 @@
 ---
 title: Reread Bookshelf
-description: RIDI, 네이버 시리즈, 카카오페이지 기록을 기억 단서, 발췌 이미지, 스크린샷 OCR 중심으로 관리하는 local-first 웹앱입니다.
-summary: RIDI, 시리즈, 카카오페이지 기록을 모바일 시트와 스크린샷 OCR 중심으로 저장하는 개인 기록장.
-category: Local-first
+description: 읽은 책을 인물과 장면으로 다시 찾는 개인 책장. IndexedDB 저장, 구매목록 병합, 휴지통과 복구본을 갖춘 모바일 웹앱입니다.
+summary: 제목 대신 인물과 장면으로 찾는 책장. 구매목록을 합치고, 읽은 기록과 이미지를 기기에 보관한다.
+category: Local-first Library
 visibility: Private
+repository: eundo/reread-bookshelf
+stage: 개인용 웹 베타
+reviewed: 2026-09-13
+source:
+  ref: codex/reread-bookshelf
+  commit: cd2e8a2064588a9862aca7a46143411fbe8d6987
 published: true
-updated: 2026-09-01
-order: 7
+updated: 2026-09-07
+order: 1
 featured: true
 accent: "#00d6b3"
 presentation: mobile
-stack:
-  - JavaScript
-  - PWA
-  - localStorage
-  - OCR
-cover: &a1
-  src: /img/projects/reread-bookshelf-sample-mobile.png
-  alt: 책장 모바일 화면
-  width: 390
-  height: 1200
+stack: [JavaScript, IndexedDB, PWA, OCR]
+cover: &cover
+  src: /img/projects/2026-09/reread-bookshelf-library-mobile.png
+  alt: 완독 기록 6개와 재탕 후보 3개를 넣은 최신 재탕 책장
+  width: 780
+  height: 1688
 gallery:
   - label: 책장
-    caption: 샘플 기록 8개를 태그와 읽기 상태로 모아 본 책장입니다.
-    mobile: *a1
+    caption: 최신 앱에 공개용 샘플 기록 6개를 직접 입력했습니다. 표지는 임의로 생성하지 않고 앱의 기본 표시를 사용했습니다.
+    mobile: *cover
   - label: 작품 상세
-    caption: 재독 기록과 메모를 작품별 상세 시트에서 확인합니다.
+    caption: 오만과 편견에 인물, 관계성, 재독 날짜와 개인 메모를 넣은 샘플입니다.
     mobile:
-      src: /img/projects/reread-bookshelf-sample-detail-mobile.png
-      alt: 작품 상세 모바일 화면
-      width: 390
-      height: 1200
+      src: /img/projects/2026-09/reread-bookshelf-detail-mobile.png
+      alt: 인물과 기억 단서를 확인하는 작품 상세 시트
+      width: 780
+      height: 1688
+  - label: 구매목록 병합
+    caption: 샘플 CSV 3행을 읽어 새 작품 1개와 기존 작품 2개로 나눈 가져오기 미리보기입니다. 실제 구매 내역은 사용하지 않았습니다.
+    mobile:
+      src: /img/projects/2026-09/reread-bookshelf-import-mobile.png
+      alt: 새 작품과 기존 연결을 구분한 구매목록 가져오기
+      width: 780
+      height: 1688
+  - label: 휴지통과 복구
+    caption: 샘플 구매목록을 병합한 뒤 저장된 복구본을 확인한 화면입니다. 클라우드 백업과는 별개입니다.
+    mobile:
+      src: /img/projects/2026-09/reread-bookshelf-recovery-mobile.png
+      alt: 휴지통과 최근 저장 복구본을 관리하는 시트
+      width: 780
+      height: 1688
 ---
 
 # Reread Bookshelf
 
-Reread Bookshelf는 RIDI, 네이버 시리즈, 카카오페이지에서 읽은 책과 웹소설을 다시 찾기 쉽게 저장하는 개인용 기록장입니다. 제목이나 작가보다 인물, 관계성, 분위기, 기억나는 장면, 발췌 이미지처럼 실제로 다시 찾을 때 떠오르는 단서를 중심에 둡니다. 최신 버전에서는 링크로 가져오기 어려운 작품도 스크린샷 업로드와 OCR 초안 채우기로 등록할 수 있게 했습니다.
-
-:::info
-Repository는 private으로 운영 중입니다. 이 페이지는 포트폴리오 검토를 위한 공개 가능한 수준의 요약입니다.
-:::
-
-<div className="project-screenshot-grid project-screenshot-grid--responsive">
-  <figure className="project-mobile-shot">
-    <img src="/img/projects/reread-bookshelf-sample-mobile.png" alt="Reread Bookshelf 모바일 샘플 책장 화면 캡처" />
-    <figcaption>모바일 첫 화면입니다. 검색, 상태 필터, 보기 모드, 작품 카드가 한 화면 흐름 안에서 이어집니다.</figcaption>
-  </figure>
-  <figure className="project-mobile-shot">
-    <img src="/img/projects/reread-bookshelf-sample-detail-mobile.png" alt="Reread Bookshelf 모바일 상세 시트 샘플 화면 캡처" />
-    <figcaption>모바일 상세 시트는 배경 목록을 유지한 채 올라오고, 오늘 +1, 메모, 발췌, 수정 액션을 바로 둡니다.</figcaption>
-  </figure>
-</div>
+읽은 책을 다시 찾을 때 제목보다 장면이 먼저 떠오를 때가 있습니다. 재탕 책장은 제목과 작가 옆에 인물, 관계, 분위기, 메모를 함께 저장합니다. RIDI·시리즈·카카오페이지 링크를 한 책장에 모으되, 기록은 우선 내 기기에 남깁니다.
 
 ## 샘플 책장 데이터
 
-<div className="project-sample-board project-sample-board--bookshelf">
-  <section>
-    <span>Sample Record</span>
-    <strong>“느린 감정선의 계약 관계물”</strong>
-    <p>플랫폼: RIDI · 태그: 계약관계, 쌍방구원, 후반부 몰입 · 재탕 후보</p>
-  </section>
-  <section>
-    <span>Sample Record</span>
-    <strong>“초반 설정이 강한 회귀물”</strong>
-    <p>플랫폼: 네이버 시리즈 · 태그: 회귀, 성장, 팀플레이 · 32화 근처 장면 메모</p>
-  </section>
-  <section>
-    <span>Sample Record</span>
-    <strong>“표지로 기억나는 로맨스”</strong>
-    <p>플랫폼: 카카오페이지 · 태그: 라이벌, 오피스, 가벼운 문체 · 발췌 이미지 2장</p>
-  </section>
-  <section>
-    <span>Mobile State</span>
-    <strong>열린 시트 3종</strong>
-    <p>책 추가, 상세 보기, 발췌 이미지 시트를 history stack과 연결해 브라우저 back으로 닫습니다.</p>
-  </section>
-  <section>
-    <span>Screenshot OCR</span>
-    <strong>링크가 막히는 작품도 등록</strong>
-    <p>19세/로그인 제한 화면은 스크린샷을 올려 제목, 작가, 장르, 태그, 목차 후보를 초안으로 채웁니다.</p>
-  </section>
-</div>
+캡처에는 실제 개인 독서 기록 대신 고전 6권과 직접 작성한 메모를 넣었습니다.
+
+| 작품                 | 기억 단서                           | 기록                |
+| -------------------- | ----------------------------------- | ------------------- |
+| 오만과 편견          | 엘리자베스, 다아시, 오해에서 이해로 | 재독 1회, 장면 메모 |
+| 작은 아씨들          | 가족, 성장                          | 재탕 후보           |
+| 데미안               | 성장, 선택                          | 재탕 후보           |
+| 어린 왕자            | 여행, 관계                          | 완독                |
+| 이상한 나라의 앨리스 | 모험, 판타지                        | 완독                |
+| 월든                 | 자연, 기록                          | 완독                |
 
 ## 화면별 설명
 
-<div className="project-screen-tour">
-  <article>
-    <span>01 · Home</span>
-    <h3>책장 목록</h3>
-    <p>표지, 제목, 플랫폼, 핵심 태그가 먼저 보입니다. 제목이 기억나지 않을 때를 기준으로 분위기와 관계성 단서를 목록에서 노출합니다.</p>
-    <ul>
-      <li>샘플 상태: 기록 8개, 재탕 후보 8개, 표지 없음 0개</li>
-      <li>확인 포인트: 플랫폼 배지, 최근 수정, 태그 노출</li>
-    </ul>
-  </article>
-  <article>
-    <span>02 · Add Sheet</span>
-    <h3>작품 추가 시트</h3>
-    <p>링크를 넣으면 가능한 기본 정보를 먼저 채우고, 실패하면 직접 입력으로 이어집니다. 링크 접근이 막히는 작품은 스크린샷을 올려 OCR 초안을 만들 수 있습니다. 모바일에서는 저장 버튼을 하단에 고정해 긴 폼에서도 액션을 잃지 않게 했습니다.</p>
-    <ul>
-      <li>샘플 상태: RIDI/시리즈/카카오페이지 링크 입력 또는 스크린샷 업로드</li>
-      <li>확인 포인트: 자동 채우기, OCR 초안, 중복 감지, 수동 보완</li>
-    </ul>
-  </article>
-  <article>
-    <span>03 · Detail Sheet</span>
-    <h3>상세 보기와 수정</h3>
-    <p>작품을 열면 기본 정보보다 기억 단서를 먼저 다룹니다. 주인공, 상대역, 관계성, 엔딩감, 분위기, 스포 메모를 같은 시트에서 수정합니다.</p>
-    <ul>
-      <li>샘플 상태: 분위기 태그 4개, 스포 메모 1개</li>
-      <li>확인 포인트: 태그 편집, 재탕 횟수, 마지막 수정</li>
-    </ul>
-  </article>
-  <article>
-    <span>04 · Excerpt</span>
-    <h3>발췌 이미지와 장면 메모</h3>
-    <p>기억나는 문장이나 장면을 이미지와 함께 저장합니다. 등록 스크린샷과 발췌 이미지는 IndexedDB에 분리해 보관하고, OCR 텍스트와 메모를 검색 단서로 다시 씁니다.</p>
-    <ul>
-      <li>샘플 상태: 등록 스크린샷 2장, 발췌 이미지 2장, 장면 메모 3개</li>
-      <li>확인 포인트: 이미지 추가/삭제, OCR 텍스트, 메모 연결, 저장 크기</li>
-    </ul>
-  </article>
-  <article>
-    <span>05 · Search</span>
-    <h3>검색과 태그 필터</h3>
-    <p>정확한 제목을 몰라도 인물명, 관계성, 분위기, 장면 단어로 찾는 흐름입니다. 여러 태그를 조합해 기억나는 조각부터 좁혀갑니다.</p>
-    <ul>
-      <li>샘플 상태: “계약관계 + 느린 감정선” 검색</li>
-      <li>확인 포인트: 통합 검색, 태그 조합, 정렬</li>
-    </ul>
-  </article>
-  <article>
-    <span>06 · Backup</span>
-    <h3>local-first 백업</h3>
-    <p>계정 없이 브라우저에 먼저 저장하고, JSON export/import로 데이터를 직접 관리합니다. 서버 저장소를 붙이더라도 이 사용성은 유지하는 방향입니다.</p>
-    <ul>
-      <li>샘플 상태: JSON 백업 파일 1개 생성</li>
-      <li>확인 포인트: 내보내기, 가져오기, 스키마 변경 대비</li>
-    </ul>
-  </article>
-</div>
+### 책장과 상세 시트
+
+목록에서 최근 재독과 인물 단서를 확인하고, 작품을 열어 메모를 이어 씁니다. `오늘 +1`은 재독 이력을 추가하는 동작입니다. 단순 횟수만 올리는 대신 날짜와 당시의 짧은 감상을 함께 보관합니다.
+
+### 구매목록 가져오기
+
+RIDI 구매목록의 XLSX·XLS·CSV를 읽고 저장 전에 새 작품과 기존 연결을 구분합니다. 샘플에서는 기존의 오만과 편견·작은 아씨들에 구매 정보만 연결하고, 변신을 새로 추가했습니다. 다시 같은 파일을 읽어도 개인 메모와 수정한 정보를 덮어쓰지 않도록 병합합니다.
+
+제목과 작가 열을 확인할 수 없는 파일은 추측해서 가져오지 않습니다. 표지나 원문 링크도 파일에 없는 값을 임의로 만들어 넣지 않습니다. 시리즈·카카오페이지는 링크 또는 수동 등록 대상이며, 이 구매목록 파일 파서와는 구분됩니다.
+
+### 삭제와 복구
+
+삭제한 작품은 휴지통으로 이동합니다. 최근 저장 상태는 최대 5개의 복구본으로 남기고, 작성 중인 입력은 초안으로 보관합니다. 실수로 지웠을 때의 복구와 브라우저 데이터를 모두 지웠을 때의 복구는 다릅니다. 후자는 별도로 내보낸 백업 파일이 필요합니다.
 
 ## Snapshot
 
-| 구분 | 내용 |
-| --- | --- |
-| 상태 | In progress, private repository |
-| 문제 | 이미 읽은 책을 다시 찾을 때 제목보다 장면, 인물, 분위기 같은 기억 단서가 먼저 떠오름 |
-| 접근 | 작품 기록을 단순 목록이 아니라 검색 가능한 기억 인덱스와 모바일 시트 UX로 구성 |
-| 기술 | JavaScript, HTML/CSS, IndexedDB, PWA manifest, Service Worker, localStorage, Netlify Function, OpenAI Vision OCR |
-| 저장 | 브라우저 localStorage 기반 local-first 구조, JSON 내보내기/가져오기 지원 |
+| 항목      | 현재 구현                                         |
+| --------- | ------------------------------------------------- |
+| 버전      | 0.8.0, 개인용 웹 베타                             |
+| 주 저장소 | IndexedDB의 작품·이미지·휴지통                    |
+| 가져오기  | 링크, 수동 입력, RIDI 구매목록, 동의 후 OCR       |
+| 내보내기  | 작품·휴지통·연결 이미지·저장한 검색을 포함한 JSON |
+| 동기화    | 계정 기반 클라우드 동기화 없음                    |
 
 ## Latest Notes
 
-<div className="project-update-stack project-update-stack--compact">
-  <article>
-    <span>2026.07.24</span>
-    <p><strong>OpenAI Vision OCR</strong> 스크린샷을 Netlify Function으로 보내 제목, 작가, 장르, 태그, 목차, 메모 초안을 채우는 흐름을 추가했습니다. OpenAI 키가 없거나 실패하면 기본 OCR로 폴백합니다.</p>
-  </article>
-  <article>
-    <span>2026.07.24</span>
-    <p><strong>스크린샷 등록</strong> 19세/로그인 제한 작품을 캡처 이미지로 보관하고 검색 텍스트에 포함할 수 있게 했습니다.</p>
-  </article>
-  <article>
-    <span>2026.07.24</span>
-    <p><strong>모바일 뒤로가기</strong> 열린 책 추가, 상세, 재탕, 발췌 시트를 history stack과 맞춰 브라우저 back으로 닫히게 했습니다.</p>
-  </article>
-  <article>
-    <span>2026.07.23</span>
-    <p><strong>발췌 이미지</strong> 장면/문장 기록에 이미지를 붙이고 관리할 수 있게 했습니다.</p>
-  </article>
-  <article>
-    <span>2026.07.23</span>
-    <p><strong>중복 방지</strong> 같은 작품 링크나 제목이 반복 저장될 때 기존 기록으로 연결합니다.</p>
-  </article>
-  <article>
-    <span>2026.07.23</span>
-    <p><strong>카카오페이지 가져오기</strong> RIDI와 네이버 시리즈에 더해 카카오페이지 링크 기반 입력을 추가했습니다.</p>
-  </article>
-</div>
+**2026.09.07 기준**으로 소개와 화면을 갱신했습니다. 현재 주 저장소는 localStorage가 아닌 IndexedDB입니다.
+
+- 이전 localStorage 데이터는 원본을 보존한 채 한 번 이전합니다.
+- 작품·이미지·휴지통을 하나의 저장 트랜잭션으로 처리합니다.
+- 저장 리비전을 비교해 오래 열린 탭이 최신 기록을 덮어쓰지 않게 합니다.
+- 휴지통, 입력 초안, 최근 복구본, 구매목록 미리보기와 중복 병합을 추가했습니다.
+- 포함·제외 태그와 전체·일부 일치 조건을 조합하고 검색 조건을 저장합니다.
 
 ## What It Does
 
-- 책과 웹소설 기록을 추가, 수정, 삭제합니다.
-- 제목, 작가, RIDI/시리즈/카카오페이지 링크, 표지, 장르, 권수/회차 정보를 저장합니다.
-- 주인공, 상대역, 관계성, 엔딩감, 분위기 키워드를 기록합니다.
-- 요약, 스포 메모, 재탕 횟수, 발췌 이미지와 장면 메모를 저장합니다.
-- 작품 등록 스크린샷을 첨부하고 OCR 텍스트를 검색 단서로 저장합니다.
-- OpenAI Vision OCR이 가능한 환경에서는 작품 정보 초안을 자동으로 채우고, 실패하면 로컬 OCR과 수동 입력으로 이어집니다.
-- 통합 검색, 태그 필터, 정렬 기능을 제공합니다.
-- 작품 링크 기반 기본 정보 자동 채우기를 시도하고, 실패 시 수동 입력으로 보완합니다.
+작품 정보, 재독 이력, 발췌 이미지와 메모를 한 단위로 관리합니다. 인물 이름이나 기억나는 문장도 검색 대상입니다. 링크에서 정보를 읽지 못하면 수동 입력을 계속할 수 있고, 스크린샷 OCR 결과는 저장 전 수정할 수 있습니다.
 
 ## 모바일에서 중요한 것
 
-<div className="project-feature-grid">
-  <section>
-    <span>01</span>
-    <h3>링크와 스크린샷 등록</h3>
-    <p>RIDI, 네이버 시리즈, 카카오페이지 링크를 넣으면 가능한 기본 정보를 먼저 채우고, 링크 접근이 막히면 스크린샷 OCR로 초안을 만듭니다.</p>
-  </section>
-  <section>
-    <span>02</span>
-    <h3>기억 단서 중심 기록</h3>
-    <p>주인공, 상대역, 관계성, 엔딩감, 분위기 키워드처럼 다시 찾을 때 떠오르는 단서를 저장합니다.</p>
-  </section>
-  <section>
-    <span>03</span>
-    <h3>검색과 태그 필터</h3>
-    <p>제목을 몰라도 태그, 장면 메모, 인물명, 분위기로 이전 기록을 빠르게 다시 찾을 수 있게 설계했습니다.</p>
-  </section>
-  <section>
-    <span>04</span>
-    <h3>시트와 뒤로가기</h3>
-    <p>모바일에서 추가/상세/발췌 시트가 열린 상태를 history와 연결해 뒤로가기가 자연스럽게 동작합니다.</p>
-  </section>
-</div>
+책장 위치를 유지한 채 추가·상세·발췌 시트가 열립니다. 열린 시트는 브라우저 뒤로가기와 연결했습니다. 표지 숨김과 간단 보기로 공개 장소에서의 노출을 줄일 수 있고, 설정에서 저장 상태와 데이터 삭제 범위를 확인합니다.
 
 ## 동작 흐름
 
-<div className="project-flow">
-  <div><span>1</span><strong>작품 입력</strong><p>RIDI 링크, 수동 입력, 스크린샷 OCR로 작품 기본 정보를 만듭니다.</p></div>
-  <div><span>2</span><strong>단서 기록</strong><p>인물, 관계성, 분위기, 스포 메모와 발췌 이미지를 쌓습니다.</p></div>
-  <div><span>3</span><strong>재탐색</strong><p>태그와 검색어로 기억나는 조각부터 작품을 찾아냅니다.</p></div>
-  <div><span>4</span><strong>백업 관리</strong><p>JSON export/import로 local-first 데이터의 유실 위험을 줄입니다.</p></div>
-</div>
+`등록 → 기억 단서 기록 → 검색·재독 → 백업`
 
-## Portfolio Signal
+입력 방식을 여러 개 제공하더라도 저장 결과는 같은 작품 구조로 모읍니다. 이후 검색과 백업이 등록 경로에 따라 달라지지 않게 하기 위해서입니다.
 
-이 프로젝트는 개인적인 불편을 실제 사용 가능한 도구로 바꾸는 과정이 잘 드러납니다. local-first 구조로 시작해 데이터 소유권과 간단한 백업을 우선하고, 링크 수집이 막히는 예외는 스크린샷 OCR로 우회했습니다.
+<span id="portfolio-signal"></span>
+
+## 저장과 복구 검증
+
+2026.09.13에 핵심 로직·저장소·OCR 관련 **17개 테스트를 실행해 통과**했습니다. 데이터 이전, 구매목록 병합, 저장 실패와 오래된 리비전, 동의 없는 OCR 호출 차단을 확인하는 범위입니다. 실제 사용자의 모든 브라우저 환경을 검증했다는 의미는 아닙니다.
 
 ## Implementation Notes
 
-- 처음부터 계정/서버 저장소를 붙이지 않고 localStorage로 빠르게 사용성을 검증했습니다.
-- 발췌 이미지는 브라우저 저장소에서 다루기 위해 IndexedDB 기반 media store를 붙였습니다.
-- 작품 등록 스크린샷도 같은 media store에 저장하고, OCR 텍스트는 검색 대상에 포함했습니다.
-- OpenAI Vision OCR은 Netlify Function으로 분리하고, 키 미설정/용량 초과/서버 실패 시 기본 OCR로 폴백합니다.
-- PWA manifest와 service worker를 포함해 모바일에서 앱처럼 접근하는 사용성을 고려했습니다.
-- JSON export/import를 넣어 local-first 구조의 데이터 유실 리스크를 줄였습니다.
-- 외부 페이지 메타데이터 수집은 실패 가능성을 전제로 수동 입력 흐름과 중복 방지 흐름을 함께 설계했습니다.
+JSON 백업에는 현재 작품과 연결된 이미지가 함께 들어갑니다. 참조한 이미지가 누락되면 성공한 백업처럼 처리하지 않습니다. 작성 초안과 내부 복구본은 내보내기 대상에서 제외됩니다.
+
+OCR은 사용자가 동의하고 실행한 경우에만 서버 기능을 호출합니다. API 키는 브라우저에 넣지 않습니다. 이미지 인식이 실패하더라도 수동 등록 경로는 남습니다.
 
 ## Next
 
-- 작품 기록 스키마 정리와 마이그레이션 전략 추가
-- 태그 추천과 중복 태그 정리 기능 개선
-- OCR 결과를 저장 전 비교할 수 있는 확인 UI 개선
-- 서버 저장소를 붙일 경우에도 local-first 사용성을 유지하는 동기화 방식 검토
+현재는 개인용 웹 베타입니다. 공개 배포 범위를 넓히기 전에는 OCR 요청 인증·사용량 제한, 실제 기기 회귀 검사, 배포 패키지 검증이 더 필요합니다. 클라우드 동기화와 앱 마켓 출시는 아직 진행 전입니다.

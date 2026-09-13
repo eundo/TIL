@@ -29,7 +29,7 @@ const screen =
   style={`--project-wash:${washes[project.presentation]}`}
   data-project-row
   data-category={project.presentation}
-  data-search={`${project.title} ${project.summary} ${project.stack.join(" ")}`.toLowerCase()}
+  data-search={`${project.title} ${project.repository} ${project.summary} ${project.stack.join(" ")}`.toLowerCase()}
 >
   <a
     class="project-row-link"
@@ -45,7 +45,7 @@ const screen =
         <div class="project-stack">{project.stack.join(" / ")}</div>
         <div class="project-row-bottom">
           <span>
-            {project.visibility} ·{" "}
+            {project.stage} ·{" "}
             <time datetime={project.updated}>
               {project.updated.replaceAll("-", ".")}
             </time>
